@@ -1,16 +1,15 @@
 import React from "react"
 
+import FormattedInput from "../FormattedInput"
+
 const VisitorInfoContainer = () => {
-  console.log("just some filler text")
+  console.log()
   return (
     <React.Fragment>
       <div>Tell me About Yourself</div>
-      name:
-      <input />
-      email:
-      <input />
-      note:
-      <input />
+      <FormattedInput name="name:" />
+      <FormattedInput name="email:" />
+      <FormattedInput name="note:" height="150" />
     </React.Fragment>
   )
 }

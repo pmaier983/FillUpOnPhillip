@@ -1,6 +1,8 @@
 import React from "react"
 import styled from "styled-components"
 
+import { GlobalStyles } from "./components/utils/theme"
+
 import LandingPage from "./components/pages/LandingPage"
 
 const LandingPageContainer = styled.div`
@@ -13,9 +15,12 @@ const LandingPageContainer = styled.div`
 
 function App() {
   return (
-    <LandingPageContainer>
-      <LandingPage />
-    </LandingPageContainer>
+    <React.Fragment>
+      <GlobalStyles />
+      <LandingPageContainer>
+        <LandingPage />
+      </LandingPageContainer>
+    </React.Fragment>
   )
 }
 
