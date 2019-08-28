@@ -1,10 +1,10 @@
 import React from "react"
 import styled from "styled-components"
 
-import VisitorInfoContainer from "./VisitorInfoContainer"
-import PersonalInfoContainer from "./PersonalInfoContainer"
+import VisitorInfoContainer from "../containers/VisitorInfoContainer"
+import PersonalInfoContainer from "../containers/PersonalInfoContainer"
 
-import { colors } from "./utils/theme"
+import { colors } from "../utils/theme"
 
 const PageContainer = styled.div`
   display: flex;

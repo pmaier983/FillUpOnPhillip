@@ -4,7 +4,13 @@ const VisitorInfoContainer = () => {
   console.log("just some filler text")
   return (
     <React.Fragment>
-      <div>Tell me About You</div>
+      <div>Tell me About Yourself</div>
+      name:
+      <input />
+      email:
+      <input />
+      note:
+      <input />
     </React.Fragment>
   )
 }

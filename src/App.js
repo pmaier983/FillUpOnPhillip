@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-import LandingPage from "./components/LandingPage"
+import LandingPage from "./components/pages/LandingPage"
 
 const LandingPageContainer = styled.div`
   position: absolute;
