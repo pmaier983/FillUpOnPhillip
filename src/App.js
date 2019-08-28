@@ -1,7 +1,22 @@
-import React from "react";
+import React from "react"
+import styled from "styled-components"
+
+import LandingPage from "./components/LandingPage"
+
+const LandingPageContainer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+`
 
 function App() {
-  return <div>Gello</div>;
+  return (
+    <LandingPageContainer>
+      <LandingPage />
+    </LandingPageContainer>
+  )
 }
 
-export default App;
+export default App
