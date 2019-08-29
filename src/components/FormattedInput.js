@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-import { colors } from "./utils/theme"
+import { theme } from "./utils/theme"
 import { formatToUnit } from "./utils/helperFunctions"
 
 const InputContainer = styled.div`
@@ -17,15 +17,15 @@ const InputContainer = styled.div`
 const Input = styled.input`
   border: none;
   outline-width: 2px;
-  outline-color: ${colors.darkJellyBeanRed};
-  background-color: ${colors.darkVanilla};
+  outline-color: ${theme.darkAlert};
+  background-color: ${theme.minorBackgroundColor};
 `
 
 const TextAreaInput = styled.textarea`
   border: none;
   outline-width: 2px;
-  outline-color: ${colors.darkJellyBeanRed};
-  background-color: ${colors.darkVanilla};
+  outline-color: ${theme.darkAlert};
+  background-color: ${theme.minorBackgroundColor};
 `
 
 const FormattedInput = ({ name, width, height, type, boxStyling }) => {

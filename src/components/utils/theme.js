@@ -15,4 +15,14 @@ const colors = {
   darkJellyBeanRed: "#E85A45"
 }
 
-export { colors, GlobalStyles }
+const minimalYetWarm = {
+  majorBackgroundColor: colors.eggshellWhite,
+  minorBackgroundColor: colors.darkVanilla,
+  lineEmphasized: colors.taupeGray,
+  darkAlert: colors.darkJellyBeanRed,
+  lightAlert: colors.lightJellyBeanRed
+}
+
+const theme = minimalYetWarm
+
+export { colors, GlobalStyles, theme }

@@ -4,14 +4,14 @@ import styled from "styled-components"
 import VisitorInfoContainer from "../containers/VisitorInfoContainer"
 import PersonalInfoContainer from "../containers/PersonalInfoContainer"
 
-import { colors } from "../utils/theme"
+import { theme } from "../utils/theme"
 
 const PageContainer = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
   height: 100%;
-  background-color: ${colors.eggshellWhite};
+  background-color: ${theme.majorBackgroundColor};
 `
 
 const LeftHalfContainer = styled.div`
@@ -20,7 +20,7 @@ const LeftHalfContainer = styled.div`
 `
 
 const RightHalfContainer = styled(LeftHalfContainer)`
-  border-left: 2px dashed ${colors.taupeGray};
+  border-left: 2px dashed ${theme.lineEmphasized};
 `
 
 const LandingPage = () => {

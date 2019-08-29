@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-import { colors } from "../utils/theme"
+import { theme } from "../utils/theme"
 
 const PictureOfSelf = require("../../static/PictureOfSelf.png")
 
@@ -22,7 +22,8 @@ const TextDescriptionContainer = styled.div`
 const ProfilePicture = styled.img`
   width: 50%;
   border-radius: 50%;
-  border: 15px dashed ${colors.lightJellyBeanRed};
+  border: 15px dashed ${theme.lightAlert};
+  margin: 0 10px;
 `
 
 const PersonalInfoContainer = () => {
