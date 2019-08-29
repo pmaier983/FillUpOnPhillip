@@ -5,9 +5,13 @@ import { colors } from "./utils/theme"
 import { formatToUnit } from "./utils/helperFunctions"
 
 const InputContainer = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: row;
   margin: 5px 0;
+  justify-content: space-between;
+  height: ${props => props.height};
+  width: ${props => props.width};
 `
 
 const Input = styled.input`
@@ -15,19 +19,24 @@ const Input = styled.input`
   outline-width: 2px;
   outline-color: ${colors.darkJellyBeanRed};
   background-color: ${colors.darkVanilla};
-  height: ${props => props.height};
-  width: ${props => props.width};
 `
 
-const FormattedInput = ({ name, width, height, boxStyling }) => {
+const TextAreaInput = styled.textarea`
+  border: none;
+  outline-width: 2px;
+  outline-color: ${colors.darkJellyBeanRed};
+  background-color: ${colors.darkVanilla};
+`
+
+const FormattedInput = ({ name, width, height, type, boxStyling }) => {
   return (
-    <InputContainer>
+    <InputContainer width={formatToUnit(width)} height={formatToUnit(height)}>
       {name}
-      <Input
-        style={boxStyling}
-        width={formatToUnit(width)}
-        height={formatToUnit(height)}
-      />
+      {type === "textarea" ? (
+        <TextAreaInput style={boxStyling} />
+      ) : (
+        <Input style={boxStyling} />
+      )}
     </InputContainer>
   )
 }
