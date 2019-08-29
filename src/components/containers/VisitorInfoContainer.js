@@ -1,6 +1,8 @@
 import React from "react"
 import styled from "styled-components"
 
+import { theme } from "../utils/theme"
+
 import FormattedInput from "../FormattedInput"
 
 const CenteredContainer = styled.div`
@@ -15,6 +17,17 @@ const CenteredContainer = styled.div`
 const Label = styled.div`
   margin: 20px;
   align-self: center;
+`
+
+const Button = styled.div`
+  background-color: ${theme.minorBackgroundColor};
+  border: 3px dashed ${theme.lightAlert};
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+  :active {
+    border: 3px solid ${theme.darkAlert};
+  }
 `
 
 const VisitorInfoContainer = () => {
@@ -39,6 +52,9 @@ const VisitorInfoContainer = () => {
         type="textarea"
         boxStyling={{ width: "148px" }}
       />
+      <Button onClick={() => console.log("I was clicked")}>
+        Send To Phillip
+      </Button>
     </CenteredContainer>
   )
 }
