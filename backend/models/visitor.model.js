@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 
 const Schema = mongoose.Schema
 
-const userSchema = new Schema(
+const visitorSchema = new Schema(
   {
     name: {
       type: String,
@@ -10,7 +10,9 @@ const userSchema = new Schema(
       minlength: 3
     },
     email: {
-      type: String
+      type: String,
+      trim: true,
+      minlength: 5
     },
     note: {
       type: String
@@ -21,6 +23,6 @@ const userSchema = new Schema(
   }
 )
 
-const User = mongoose.model("User", userSchema)
+const Visitor = mongoose.model("Visitor", visitorSchema)
 
-module.exports = User
+module.exports = Visitor

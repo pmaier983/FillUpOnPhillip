@@ -28,17 +28,22 @@ const TextAreaInput = styled.textarea`
   background-color: ${theme.minorBackgroundColor};
 `
 
-const FormattedInput = ({ name, width, height, type, boxStyling }) => {
-  return (
-    <InputContainer width={formatToUnit(width)} height={formatToUnit(height)}>
-      {name}
-      {type === "textarea" ? (
-        <TextAreaInput style={boxStyling} />
-      ) : (
-        <Input style={boxStyling} />
-      )}
-    </InputContainer>
-  )
-}
+const FormattedInput = ({
+  name,
+  width,
+  height,
+  type,
+  boxStyling,
+  ...props
+}) => (
+  <InputContainer width={formatToUnit(width)} height={formatToUnit(height)}>
+    {name}
+    {type === "textarea" ? (
+      <TextAreaInput style={boxStyling} {...props} />
+    ) : (
+      <Input style={boxStyling} {...props} />
+    )}
+  </InputContainer>
+)
 
 export default FormattedInput

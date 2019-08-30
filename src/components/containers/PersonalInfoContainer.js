@@ -23,7 +23,7 @@ const TextDescriptionContainer = styled.div`
 const ProfilePicture = styled.img`
   width: 50%;
   border-radius: 50%;
-  border: 15px dashed ${theme.lightAlert};
+  border: 16px dashed ${theme.lightAlert};
 `
 
 const Links = styled.a`
@@ -36,7 +36,7 @@ const PersonalInfoContainer = () => {
       <TextDescriptionContainer>
         <div>Phillip ED Maier</div>
         <div>Software Engineer</div>
-        <Links href="pmaier983@gmail.com">pmaier983@gmail.com</Links>
+        <Links href="mailto:pmaier983@gmail.com">pmaier983@gmail.com</Links>
         <Links href={Resume}>Resume</Links>
       </TextDescriptionContainer>
       <ProfilePicture src={PictureOfSelf} />
