@@ -17,11 +17,14 @@ const TextDescriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-self: center;
+  align-items: center;
   width: 100%;
 `
 
 const ProfilePicture = styled.img`
+  align-self: center;
   width: 50%;
+  max-height: 50%;
   border-radius: 50%;
   border: 16px dashed ${theme.lightAlert};
 `
