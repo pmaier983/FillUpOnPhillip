@@ -11,6 +11,7 @@ backend/node_modules
 
 # production
 /build
+phillipMaier.pem
 
 # misc
 .DS_Store
