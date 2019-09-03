@@ -74,10 +74,15 @@ const VisitorInfoContainer = () => {
         })
       })
       .catch(error => {
-        setAlertContent({
-          content: alertTranslator(error.response.data),
-          borderColor: theme.darkAlert
-        })
+        error.response
+          ? setAlertContent({
+              content: alertTranslator(error.response.data),
+              borderColor: theme.darkAlert
+            })
+          : setAlertContent({
+              content: "My Server Is Offline Sorry!",
+              borderColor: theme.darkAlert
+            })
       })
   }
 
