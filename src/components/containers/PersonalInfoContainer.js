@@ -9,7 +9,8 @@ const Resume = require("../../static/PhillipMaierResume.docx")
 const InfoContainer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
+  width: 100%;
   margin: 10px 10px 0 15px;
 `
 
@@ -18,13 +19,13 @@ const TextDescriptionContainer = styled.div`
   flex-direction: column;
   align-self: center;
   align-items: center;
-  width: 100%;
 `
 
 const ProfilePicture = styled.img`
   align-self: center;
   width: 50%;
-  max-height: 50%;
+  max-width: 400px;
+  max-height: 400px;
   border-radius: 50%;
   border: 16px dashed ${theme.lightAlert};
 `

@@ -18,7 +18,7 @@
   "scripts": {
     "start:dev": "node server",
     "start": "react-scripts start",
-    "deploy": "aws s3 cp --recursive ./build s3://www.phillip-maier.com",
+    "deploy": "aws s3 cp --recursive ./build s3://phillip-maier.com",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
