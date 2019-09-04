@@ -1,8 +1,8 @@
-import React from "react"
-import styled, { keyframes } from "styled-components"
+import React from 'react';
+import styled, { keyframes } from 'styled-components';
 
-import { theme } from "./utils/theme"
-import { formatToUnit } from "./utils/helperFunctions"
+import { theme } from './utils/theme';
+import { formatToUnit } from './utils/helperFunctions';
 
 const fadeIn = keyframes`
   from {
@@ -11,18 +11,17 @@ const fadeIn = keyframes`
   to {
     opacity: 1;
   }
-`
+`;
 
 const PositioningContainer = styled.div`
   position: fixed;
-  bottom: ${props => props.windowBottom};
-  left: ${props => props.windowLeft};
-  width: ${props => props.width};
-  height: ${props => props.height};
-  animation: ${props =>
-      props.animateIn && props.visible ? fadeIn : { opacity: 0 }}
+  bottom: ${(props) => props.windowBottom};
+  left: ${(props) => props.windowLeft};
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
+  animation: ${(props) => (props.animateIn && props.visible ? fadeIn : { opacity: 0 })}
     350ms linear;
-`
+`;
 
 const AlertContainer = ({
   children,
@@ -45,17 +44,15 @@ const AlertContainer = ({
   >
     {visible ? children : null}
   </PositioningContainer>
-)
+);
 
 const BasicTextContainer = styled.div`
   background-color: ${theme.minorBackgroundColor};
   border-radius: 5px;
   border: 5px solid ${theme.darkAlert};
   padding: 5px;
-`
+`;
 
-export const BasicTextAlertContainer = ({ children, ...props }) => {
-  return <BasicTextContainer {...props}>{children}</BasicTextContainer>
-}
+export const BasicTextAlertContainer = ({ children, ...props }) => <BasicTextContainer {...props}>{children}</BasicTextContainer>;
 
-export default AlertContainer
+export default AlertContainer;

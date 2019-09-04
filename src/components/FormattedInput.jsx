@@ -1,8 +1,8 @@
-import React from "react"
-import styled from "styled-components"
+import React from 'react';
+import styled from 'styled-components';
 
-import { theme } from "./utils/theme"
-import { formatToUnit } from "./utils/helperFunctions"
+import { theme } from './utils/theme';
+import { formatToUnit } from './utils/helperFunctions';
 
 const InputContainer = styled.div`
   width: 100%;
@@ -10,23 +10,23 @@ const InputContainer = styled.div`
   flex-direction: row;
   margin: 5px 0;
   justify-content: space-between;
-  height: ${props => props.height};
-  width: ${props => props.width};
-`
+  height: ${(props) => props.height};
+  width: ${(props) => props.width};
+`;
 
 const Input = styled.input`
   border: none;
   outline-width: 2px;
   outline-color: ${theme.darkAlert};
   background-color: ${theme.minorBackgroundColor};
-`
+`;
 
 const TextAreaInput = styled.textarea`
   border: none;
   outline-width: 2px;
   outline-color: ${theme.darkAlert};
   background-color: ${theme.minorBackgroundColor};
-`
+`;
 
 const FormattedInput = ({
   name,
@@ -38,12 +38,12 @@ const FormattedInput = ({
 }) => (
   <InputContainer width={formatToUnit(width)} height={formatToUnit(height)}>
     {name}
-    {type === "textarea" ? (
+    {type === 'textarea' ? (
       <TextAreaInput style={boxStyling} {...props} />
     ) : (
       <Input style={boxStyling} {...props} />
     )}
   </InputContainer>
-)
+);
 
-export default FormattedInput
+export default FormattedInput;
