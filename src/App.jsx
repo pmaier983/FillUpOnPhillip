@@ -1,9 +1,14 @@
 import React from 'react';
-import styled from 'styled-components';
-
-import { GlobalStyles } from './components/utils/theme';
+import styled, { createGlobalStyle } from 'styled-components';
 
 import LandingPage from './components/pages/LandingPage';
+
+const GlobalStyles = createGlobalStyle`
+  body {
+    @import url('https://fonts.googleapis.com/css?family=Red Hat Text');
+    font-family: 'Red Hat Text', sans-serif;
+  }
+`;
 
 const LandingPageContainer = styled.div`
   position: absolute;
