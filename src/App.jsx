@@ -1,16 +1,10 @@
 import React from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 
 import LandingPage from './components/pages/LandingPage';
 
-const GlobalStyles = createGlobalStyle`
-  body {
-    @import url('https://fonts.googleapis.com/css?family=Red Hat Text');
-    font-family: 'Red Hat Text', sans-serif;
-  }
-`;
-
 const LandingPageContainer = styled.div`
+  font-family: 'Red Hat Text', sans-serif;
   position: absolute;
   top: 0;
   left: 0;
@@ -21,7 +15,7 @@ const LandingPageContainer = styled.div`
 function App() {
   return (
     <>
-      <GlobalStyles />
+      <link href="https://fonts.googleapis.com/css?family=Red Hat Text" rel="stylesheet" type="text/css" />
       <LandingPageContainer>
         <LandingPage />
       </LandingPageContainer>
