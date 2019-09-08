@@ -2,8 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 import PersonalInfoContainer from '../containers/PersonalInfoContainer';
+import MenuIcon from '../MenuIcon';
+import NavigationMenu from '../NavigationMenu';
 
 import { theme } from '../utils/theme';
+import { useToggleVisibility } from '../hooks';
 
 const PageContainer = styled.div`
   display: flex;
@@ -14,10 +17,22 @@ const PageContainer = styled.div`
   background-color: ${theme.majorBackgroundColor};
 `;
 
-const LandingPage = () => (
-  <PageContainer>
-    <PersonalInfoContainer />
-  </PageContainer>
-);
+const MenuIconContainer = styled.div`
+  position: fixed;
+  margin: 10px 10px;
+`;
+
+const LandingPage = () => {
+  const [menuVisible, toggleMenuVisibility] = useToggleVisibility(true);
+  return (
+    <PageContainer>
+      {menuVisible ? <NavigationMenu /> : null}
+      <MenuIconContainer>
+        <MenuIcon handleClick={toggleMenuVisibility} />
+      </MenuIconContainer>
+      <PersonalInfoContainer />
+    </PageContainer>
+  );
+};
 
 export default LandingPage;
