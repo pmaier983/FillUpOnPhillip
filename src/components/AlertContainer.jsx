@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+import PropTypes from 'prop-types';
 
 import { theme } from './utils/theme';
 import { formatToUnit } from './utils/helperFunctions';
@@ -46,6 +47,17 @@ const AlertContainer = ({
   </PositioningContainer>
 );
 
+AlertContainer.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.number]),
+  visible: PropTypes.bool,
+  animateIn: PropTypes.bool,
+  width: PropTypes.number,
+  height: PropTypes.number,
+  windowBottom: PropTypes.number,
+  windowLeft: PropTypes.number,
+};
+
+
 const BasicTextContainer = styled.div`
   background-color: ${theme.minorBackgroundColor};
   border-radius: 5px;
@@ -53,6 +65,11 @@ const BasicTextContainer = styled.div`
   padding: 5px;
 `;
 
-export const BasicTextAlertContainer = ({ children, ...props }) => <BasicTextContainer {...props}>{children}</BasicTextContainer>;
+export const BasicTextAlertContainer = ({ children, ...props }) => (
+  <BasicTextContainer {...props}>{children}</BasicTextContainer>);
+
+BasicTextAlertContainer.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.number]),
+};
 
 export default AlertContainer;

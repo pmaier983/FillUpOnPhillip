@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import { formatToUnit } from './utils/helperFunctions';
 
@@ -25,5 +26,12 @@ const MenuIcon = ({
     <Line height={height} barHeight={barHeight} />
   </MenuIconContainer>
 );
+
+MenuIcon.propTypes = {
+  width: PropTypes.number,
+  height: PropTypes.number,
+  barHeight: PropTypes.number,
+  handleClick: PropTypes.func,
+};
 
 export default MenuIcon;

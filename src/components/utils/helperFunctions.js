@@ -22,4 +22,5 @@ const formatToUnit = (element, defaultUnit = 'px') => {
     : `${element}${defaultUnit}`;
 };
 
+// eslint-disable-next-line import/prefer-default-export
 export { formatToUnit };

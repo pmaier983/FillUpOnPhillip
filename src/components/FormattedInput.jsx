@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
+import { style } from './utils/customPropTypes';
 import { theme } from './utils/theme';
 import { formatToUnit } from './utils/helperFunctions';
 
@@ -45,5 +47,13 @@ const FormattedInput = ({
     )}
   </InputContainer>
 );
+
+FormattedInput.propTypes = {
+  name: PropTypes.string,
+  width: PropTypes.number,
+  height: PropTypes.number,
+  type: PropTypes.string,
+  boxStyling: style,
+};
 
 export default FormattedInput;

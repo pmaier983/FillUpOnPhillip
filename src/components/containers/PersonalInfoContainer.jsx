@@ -86,11 +86,13 @@ const handleLogoClipboardCopy = (textToClip, onSuccessfulCopy) => {
       document.body.removeChild(textarea);
     }
   }
+  return false;
 };
 
 const defaultMessage = 'Welcome to My Site. Explore Some!';
 
 const PersonalInfoContainer = () => {
+  // eslint-disable-next-line no-unused-vars
   const [alertVisible, _, setVisibility] = useToggleVisibility(true, 4500);
   const [alert, setAlertContent] = useState({
     content: defaultMessage,

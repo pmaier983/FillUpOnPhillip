@@ -3,7 +3,8 @@ const OFF = 0, WARN = 1, ERROR = 2
 module.exports = {
   env: {
     browser: true,
-    es6: true
+    es6: true,
+    jest: true,
   },
   extends: ["airbnb"],
   globals: {
@@ -21,5 +22,6 @@ module.exports = {
   parser: "babel-eslint",
   rules: {
     "react/jsx-props-no-spreading": OFF,
+    "react/require-default-props": OFF,
   },
 }

@@ -3,12 +3,13 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 import { theme } from '../utils/theme';
-import { URL_STUBS } from '../utils/expressInteraction';
 import { useToggleVisibility, useInput } from '../hooks';
 import AlertContainer, { BasicTextAlertContainer } from '../AlertContainer';
 
-
 import FormattedInput from '../FormattedInput';
+
+// import { URL_STUBS } from '../utils/expressInteraction';
+const URL_STUBS = {};
 
 const CenteredContainer = styled.div`
   width: 100%;
@@ -46,6 +47,7 @@ const alertTranslator = (alert) => {
 };
 
 const VisitorInfoContainer = () => {
+  // eslint-disable-next-line no-unused-vars
   const [alertVisible, _, setVisibility] = useToggleVisibility(false, 7000);
   const [alert, setAlertContent] = useState({
     content: defaultMessage,
@@ -72,6 +74,7 @@ const VisitorInfoContainer = () => {
         });
       })
       .catch((error) => {
+        // eslint-disable-next-line no-unused-expressions
         error.response
           ? setAlertContent({
             content: alertTranslator(error.response.data),
