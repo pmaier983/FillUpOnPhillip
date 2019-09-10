@@ -9,7 +9,7 @@ const LinkedinLogo = require('../../static/linkedin-logo.png');
 const GitHubLogo = require('../../static/GitHub-logo.png');
 const GmailLogo = require('../../static/Gmail-logo.png');
 const PictureOfSelf = require('../../static/PictureOfSelf.png');
-const Resume = require('../../static/PhillipMaierResume.docx');
+const Resume = require('../../static/PhillipMaierResume.pdf');
 
 const InfoContainer = styled.div`
   display: flex;
@@ -86,11 +86,13 @@ const handleLogoClipboardCopy = (textToClip, onSuccessfulCopy) => {
       document.body.removeChild(textarea);
     }
   }
+  return false;
 };
 
 const defaultMessage = 'Welcome to My Site. Explore Some!';
 
 const PersonalInfoContainer = () => {
+  // eslint-disable-next-line no-unused-vars
   const [alertVisible, _, setVisibility] = useToggleVisibility(true, 4500);
   const [alert, setAlertContent] = useState({
     content: defaultMessage,
@@ -108,7 +110,7 @@ const PersonalInfoContainer = () => {
         <div>Phillip ED Maier</div>
         <div>Software Engineer</div>
         <ClipboardLinks onClick={() => handleLogoClipboardCopy('pmaier983@gmail.com', setAlertContent)}>pmaier983@gmail.com</ClipboardLinks>
-        <Links href={Resume}>Resume</Links>
+        <Links href={Resume}>Resume (PDF)</Links>
         <div>
           <LogoLinks src={LinkedinLogo} onClick={() => handleLogoClickRedirect('www.linkedin.com/in/phillip-maier-3a4161102/')} href="mailto:pmaier983@gmail.com" />
           <LogoLinks src={GitHubLogo} onClick={() => handleLogoClickRedirect('github.com/pmaier983')} />
