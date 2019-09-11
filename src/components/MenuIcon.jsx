@@ -4,6 +4,20 @@ import PropTypes from 'prop-types';
 
 import { formatToUnit } from './utils/helperFunctions';
 
+const IconLabel = styled.div`
+  align-self: center;
+  margin-left: 10px;
+  opacity: 0.4;
+`;
+
+const IconGroupContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  &:hover ${IconLabel} {
+    opacity: 1;
+  }
+`;
+
 const MenuIconContainer = styled.div`
   width: ${(props) => formatToUnit(props.width)};
   height: 100%;
@@ -11,6 +25,7 @@ const MenuIconContainer = styled.div`
 
 const Line = styled.div`
   background-color: black;
+  opacity: 1;
   width: 100%;
   border-radius: 5px;
   height: ${(props) => formatToUnit(props.barHeight)};
@@ -20,11 +35,14 @@ const Line = styled.div`
 const MenuIcon = ({
   width = 30, height = 15, barHeight = 5, handleClick,
 }) => (
-  <MenuIconContainer width={width} onClick={handleClick}>
-    <Line height={height} barHeight={barHeight} />
-    <Line height={height} barHeight={barHeight} />
-    <Line height={height} barHeight={barHeight} />
-  </MenuIconContainer>
+  <IconGroupContainer>
+    <MenuIconContainer width={width} onClick={handleClick}>
+      <Line height={height} barHeight={barHeight} />
+      <Line height={height} barHeight={barHeight} />
+      <Line height={height} barHeight={barHeight} />
+    </MenuIconContainer>
+    <IconLabel>My Projects</IconLabel>
+  </IconGroupContainer>
 );
 
 MenuIcon.propTypes = {
