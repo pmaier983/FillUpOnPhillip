@@ -23,7 +23,7 @@ const MenuIconContainer = styled.div`
 `;
 
 const LandingPage = () => {
-  const [menuVisible, toggleMenuVisibility] = useToggleVisibility(true);
+  const [menuVisible, toggleMenuVisibility] = useToggleVisibility();
   return (
     <PageContainer>
       {menuVisible ? <NavigationMenu /> : null}

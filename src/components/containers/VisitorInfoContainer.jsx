@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
+// import axios from 'axios';
 
 import { theme } from '../utils/theme';
 import { useToggleVisibility, useInput } from '../hooks';
@@ -58,6 +58,7 @@ const VisitorInfoContainer = () => {
   const { value: note, bind: bindNote, reset: resetNote } = useInput('');
 
   const onPost = () => {
+    // eslint-disable-next-line no-undef
     axios
       .post(process.env.REACT_APP_SERVER_URL + URL_STUBS.ADD_VISITOR, {
         name,

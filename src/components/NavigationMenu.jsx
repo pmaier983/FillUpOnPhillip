@@ -1,5 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 
 import { theme } from './utils/theme';
 
@@ -9,7 +11,7 @@ const menuBoxKeyframes = keyframes`
     opacity: 0;
   }
   100% { 
-    width: 100px; /* this can't be fill or the animaton halters */
+    width: 150px; /* this can't be fill or the animaton halters */
     opacity: 1;
     }
 `;
@@ -41,12 +43,19 @@ const MenuElement = styled.div`
   padding: 10px;
 `;
 
-const NavigationMenu = () => (
-  <MenuBox>
-    <MenuElement bottomBorder>Experiance</MenuElement>
-    <MenuElement bottomBorder>Project1</MenuElement>
-    <MenuElement>Porject2</MenuElement>
-  </MenuBox>
-);
+const NavigationMenu = ({ history }) => {
+  const handleDataVisualizerRedirect = () => history.push('/data-visualizer');
+  return (
+    <MenuBox>
+      <MenuElement onClick={handleDataVisualizerRedirect}>DataVisualizer</MenuElement>
+    </MenuBox>
+  );
+};
 
-export default NavigationMenu;
+NavigationMenu.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+};
+
+export default withRouter(NavigationMenu);
