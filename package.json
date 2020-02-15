@@ -13,7 +13,7 @@
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.1",
     "styled-components": "^4.3.2",
-    "yarn": "^1.17.3"
+    "yarn": "^1.22.0"
   },
   "scripts": {
     "start:dev": "node server",
