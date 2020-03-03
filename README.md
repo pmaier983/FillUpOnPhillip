@@ -1,11 +1,7 @@
-# FillUpOnPhillip
-My Personal Website
+# Example-Apollo-Global-Allert
+An example of a global alert system for apollo graphql
 
-Go To www.phillip-maier.com if you want to see it in action
+# Instructions: 
 
-or (if you want a local version):
-
-git clone FillUpOnPhillip
-yarn install
-yarn start
-
+1. Paste your Github Personal Acceses token found (https://github.com/settings/tokens) into the .env file
+2. npm install & npm start
