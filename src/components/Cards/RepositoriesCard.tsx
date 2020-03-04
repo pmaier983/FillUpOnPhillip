@@ -32,6 +32,10 @@ const TableContainer = styled.div`
   margin: ${constants.elementPadding} 0 0 0;
 `
 
+interface IRepositoryRowFormatterProps {
+  index: number
+}
+
 const RepositoriesCard = () => {
   const {
     data, loading, error, LoadingIcon, ErrorAlert,
@@ -54,11 +58,13 @@ const RepositoriesCard = () => {
     data,
   )
 
-  const repositoryRowFormatter = ({ index }: { index: number }) => {
+  const repositoryRowFormatter = ({ index }: IRepositoryRowFormatterProps) => {
     const rowObject = repositories[index]
+    const { url, name, createdAt } = rowObject
     return {
       ...rowObject,
-      createdAt: moment(rowObject.createdAt).format('MMMM Do YYYY'),
+      name: <a href={url}>{name}</a>,
+      createdAt: moment(createdAt).format('MMMM Do YYYY'),
     }
   }
 

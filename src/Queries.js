@@ -13,6 +13,7 @@ const GET_REPOSITORIES = gql`
           name
           createdAt
           description
+          url
         }
       }
     }
