@@ -1,9 +1,5 @@
 import React, { useState } from 'react'
 
-// [
-//   boolean, (stateOverride: boolean) => void, (newState: boolean) => void
-// ]
-
 type useBooleanType = (initialState: boolean) => [
   boolean,
   (stateOverride: boolean) => void,

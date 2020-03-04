@@ -1,4 +1,4 @@
-import { gql } from 'apollo-boost';
+import { gql } from 'apollo-boost'
 
 // TODO: redo using fragments
 const GET_REPOSITORIES = gql`
@@ -17,7 +17,7 @@ const GET_REPOSITORIES = gql`
       }
     }
   }
-`;
+`
 
 const GET_EMAIL = gql`
   query {
@@ -39,7 +39,7 @@ const GET_EMAIL = gql`
       }
     }
   }
-`;
+`
 
 const BAD_EMAIL = gql`
   query {
@@ -61,7 +61,7 @@ const BAD_EMAIL = gql`
       }
     }
   }
-`;
+`
 
 const MY_REPOSITORY_LIST = gql`
   query {
@@ -77,7 +77,7 @@ const MY_REPOSITORY_LIST = gql`
       }
     }
   }
-`;
+`
 
 const MY_PROFILE = gql`
   query { 
@@ -92,8 +92,8 @@ const MY_PROFILE = gql`
       email
     }
   }
-`;
+`
 
 export {
   GET_EMAIL, MY_PROFILE, BAD_EMAIL, MY_REPOSITORY_LIST, GET_REPOSITORIES,
-};
+}

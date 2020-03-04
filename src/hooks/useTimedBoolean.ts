@@ -5,15 +5,18 @@ interface ITriggerTimedBooleanProps {
   guaranteeFinalState: boolean,
 }
 
-const useTimedBoolean = (time: number = 5000, initialState: boolean = false) => {
+type TriggerTimedBoolean = ({ guaranteeInitialState, guaranteeFinalState }: ITriggerTimedBooleanProps) => void
+
+type UseTimedBoolean = (time: number, initialState: boolean) => [
+  boolean,
+  TriggerTimedBoolean,
+  (stateOverride: boolean) => void
+]
+
+const useTimedBoolean: UseTimedBoolean = (time: number = 5000, initialState: boolean = false) => {
   const [boolean, toggleBoolean] = useBoolean(initialState)
 
-  const triggerTimedBoolean = (
-    {
-      guaranteeInitialState,
-      guaranteeFinalState,
-    }: ITriggerTimedBooleanProps,
-  ) => {
+  const triggerTimedBoolean: TriggerTimedBoolean = ({ guaranteeInitialState, guaranteeFinalState }) => {
     // have yet to find a way to guarantee synchronicity
     toggleBoolean(guaranteeInitialState)
     setTimeout(() => {
