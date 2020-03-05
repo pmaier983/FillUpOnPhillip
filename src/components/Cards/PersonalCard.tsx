@@ -66,7 +66,7 @@ interface ICheckboxProps {
   isHireable: boolean
 }
 
-const Checkbox = styled.div < ICheckboxProps > `
+const Checkbox = styled.div<ICheckboxProps>`
   background-color: ${({ isHireable }) => (isHireable ? theme.lightApproval : theme.lightAlert)};
   border-radius: 3px;
   width: 15px;
@@ -92,12 +92,11 @@ const PersonalCard = () => {
 
   const {
     user: {
-      id, email, company, name, avatarUrl, bio, isHireable, location,
+      email, company, name, avatarUrl, bio, isHireable, location,
     },
   } = data
 
   return (
-    // TODO: fix this double container overlap thing going on.
     <Container>
       <CardHandle height="20px" />
       <CardContent>

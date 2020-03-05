@@ -3,7 +3,7 @@ import _ from 'lodash/fp'
 import RGL, { WidthProvider } from 'react-grid-layout'
 
 import { useLocalStorage } from './hooks'
-import { RepositoriesCard, PersonalCard } from './components/Cards'
+import { RepositoriesCard, PersonalCard, ContactCard } from './components/Cards'
 import CardContainer from './components/Cards/CardContainer'
 
 const ResponsiveReactGridLayout = WidthProvider(RGL)
@@ -12,12 +12,14 @@ interface ICardLibraryStructure {
   // TODO: How to stop JSX error on rendering...
   PersonalCard: any,
   RepositoriesCard: any,
+  ContactCard: any,
   [key: string]: any,
 }
 
 const CardLibrary: ICardLibraryStructure = {
   PersonalCard,
   RepositoriesCard,
+  ContactCard,
 }
 
 const initialGridState = [
@@ -35,6 +37,14 @@ const initialGridState = [
     w: 3,
     h: 8,
     i: 'RepositoriesCard',
+    minWidth: '450px',
+  },
+  {
+    x: 0,
+    y: 0,
+    w: 1,
+    h: 4,
+    i: 'ContactCard',
     minWidth: '450px',
   },
 ]

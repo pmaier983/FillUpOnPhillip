@@ -38,7 +38,7 @@ interface IContainerProps {
   height?: string
 }
 
-const Container = styled.div < IContainerProps > `
+const Container = styled.div<IContainerProps>`
   background-color: ${theme.handleArea};
   height: ${({ height }) => height};
   border-radius: 4px 4px 0 0;
@@ -50,7 +50,7 @@ interface ICardHandleProps {
   height?: string
 }
 
-const CardHandle: React.FC<ICardHandleProps> = ({ height }, ...rest: any) => (
+const CardHandle: React.FC<ICardHandleProps> = ({ height = '20px' }, ...rest: any) => (
   <Container className="react-grid-handle-drag" height={height} {...rest}>
     <Dots amount={3} width="10px" height="10px" />
   </Container>
