@@ -27,7 +27,7 @@ const CardContent = styled.div`
 const Portrait = styled.img`
   align-self: center;
   margin: 10px 0 5px 0;
-  /* TODO: find a way to keep perfect ratio above minwidth/height x*/
+  /* TODO: find a way to keep perfect ratio above minwidth/height*/
   width: 120px;
   height: 120px;
   border: 1px solid ${theme.lineEmphasized};
