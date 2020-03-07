@@ -45,7 +45,7 @@ const initialGridState = [
     w: 1,
     h: 4,
     i: 'ContactCard',
-    minWidth: '450px',
+    minWidth: '130px',
   },
 ]
 

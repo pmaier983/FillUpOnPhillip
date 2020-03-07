@@ -8,8 +8,8 @@ import CardHandle from './CardHandle'
 const LinkedinLogo = require('../../static/linkedin-logo.png')
 const GitHubLogo = require('../../static/GitHub-logo.png')
 const GmailLogo = require('../../static/Gmail-logo.png')
-// const PictureOfSelf = require('../../static/PictureOfSelf.png');
-// const Resume = require('../../static/PhillipMaierResume.pdf');
+const ResumeIcon = require('../../static/Resume-Icon.png')
+const Resume = require('../../static/Phillip_Maier_Resume.pdf')
 
 const Container = styled.div`
   display: flex;
@@ -31,6 +31,8 @@ const CardContent = styled.div`
 const LogoContainer = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
 `
 
 interface ILogoLinksProps {
@@ -43,7 +45,7 @@ const LogoLinks = styled.img<ILogoLinksProps>`
   box-shadow: 0 0 0 1px black;
   padding: 4px;
   border-radius: 4px;
-  margin: 25px 10px;
+  margin: 2px 10px;
   cursor: pointer;
   :hover {
     box-shadow: 0 0 0 2px ${theme.lightAlert}; 
@@ -67,6 +69,7 @@ const ContactCard = () => (
         <a href="mailto:pmaier983@gmail.com">
           <LogoLinks src={GmailLogo} />
         </a>
+        <LogoLinks src={ResumeIcon} href={Resume} />
       </LogoContainer>
     </CardContent>
   </Container>
