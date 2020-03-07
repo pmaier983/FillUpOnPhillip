@@ -1,4 +1,5 @@
 import React from 'react'
+import 'react-grid-layout/css/styles.css'
 import _ from 'lodash/fp'
 import RGL, { WidthProvider } from 'react-grid-layout'
 
@@ -103,6 +104,7 @@ const LandingPage = () => {
     <ResponsiveReactGridLayout
       rowHeight={25}
       cols={4}
+      isResizable
       onLayoutChange={onLayoutChange}
       draggableCancel=".react-grid-cancel-drag"
       draggableHandle=".react-grid-handle-drag"
