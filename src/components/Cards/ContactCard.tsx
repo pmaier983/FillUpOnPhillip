@@ -28,6 +28,11 @@ const CardContent = styled.div`
   height: calc(100% - 20px);
 `
 
+const LogoContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`
+
 interface ILogoLinksProps {
   href?: string,
 }
@@ -56,11 +61,13 @@ const ContactCard = () => (
   <Container>
     <CardHandle height="20px" />
     <CardContent>
-      <LogoLinks src={LinkedinLogo} onClick={() => handleLogoClickRedirect('www.linkedin.com/in/phillip-maier-3a4161102/')} href="mailto:pmaier983@gmail.com" />
-      <LogoLinks src={GitHubLogo} onClick={() => handleLogoClickRedirect('github.com/pmaier983')} />
-      <a href="mailto:pmaier983@gmail.com">
-        <LogoLinks src={GmailLogo} />
-      </a>
+      <LogoContainer>
+        <LogoLinks src={LinkedinLogo} onClick={() => handleLogoClickRedirect('www.linkedin.com/in/phillip-maier-3a4161102/')} href="mailto:pmaier983@gmail.com" />
+        <LogoLinks src={GitHubLogo} onClick={() => handleLogoClickRedirect('github.com/pmaier983')} />
+        <a href="mailto:pmaier983@gmail.com">
+          <LogoLinks src={GmailLogo} />
+        </a>
+      </LogoContainer>
     </CardContent>
   </Container>
 )
