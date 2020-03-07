@@ -86,7 +86,6 @@ const PersonalCard = () => {
   }
 
   if (error) {
-    // TODO: build broken icon (mb build into)
     return <ErrorAlert />
   }
 
@@ -113,7 +112,9 @@ const PersonalCard = () => {
           <Checkbox isHireable={isHireable} />
         </IsHireable>
         <SeperatorLine />
-        {email}
+        <a href="mailto:pmaier983@gmail.com">
+          {email}
+        </a>
       </CardContent>
     </Container>
   )
