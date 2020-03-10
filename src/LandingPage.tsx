@@ -1,7 +1,7 @@
 import React from 'react'
 import 'react-grid-layout/css/styles.css'
 import _ from 'lodash/fp'
-import RGL, { WidthProvider } from 'react-grid-layout'
+import { WidthProvider, Responsive } from 'react-grid-layout'
 
 import { useLocalStorage } from './hooks'
 import {
@@ -9,7 +9,7 @@ import {
 } from './components/Cards'
 import CardContainer from './components/Cards/CardContainer'
 
-const ResponsiveReactGridLayout = WidthProvider(RGL)
+const ResponsiveReactGridLayout = WidthProvider(Responsive)
 
 interface ICardLibraryStructure {
   // TODO: How to stop JSX error on rendering...
@@ -103,7 +103,7 @@ const LandingPage = () => {
   return (
     <ResponsiveReactGridLayout
       rowHeight={25}
-      cols={4}
+      cols={{ lg: 4, md: 2, sm: 1 }}
       isResizable
       onLayoutChange={onLayoutChange}
       draggableCancel=".react-grid-cancel-drag"
