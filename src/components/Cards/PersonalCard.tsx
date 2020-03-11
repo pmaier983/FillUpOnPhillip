@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { useQuery } from '../../hooks'
 import { MY_PROFILE } from '../../Queries'
-import { theme } from '../../utils/theme'
+import { theme, variables } from '../../utils/theme'
 
 import CardHandle from './CardHandle'
 
@@ -43,23 +43,23 @@ const SeperatorLine = styled.div`
 // TODO: standardize font size's (big v small)
 // TODO: combined all these fields into a component
 const Name = styled.strong`
-  font-size: 17px;
+  font-size: ${variables.largeFont};
 `
 
 const Location = styled.span`
-  font-size: 12px;
+  font-size: ${variables.normalFont};
 `
 
 const Bio = styled.div``
 
 const Company = styled.div`
-  font-size: 13px;
+  font-size: ${variables.normalFont};
 `
 
 const IsHireable = styled.div`
   display: flex;
   flex-direction: row;
-  font-size: 12px;
+  font-size: ${variables.normalFont};
 `
 
 interface ICheckboxProps {
@@ -91,7 +91,7 @@ const PersonalCard = () => {
 
   const {
     user: {
-      email, company, name, avatarUrl, bio, isHireable, location,
+      company, name, avatarUrl, bio, isHireable, location,
     },
   } = data
 
@@ -111,10 +111,6 @@ const PersonalCard = () => {
           Is Open to Opportunities:
           <Checkbox isHireable={isHireable} />
         </IsHireable>
-        <SeperatorLine />
-        <a href="mailto:pmaier983@gmail.com">
-          {email}
-        </a>
       </CardContent>
     </Container>
   )

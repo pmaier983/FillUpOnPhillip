@@ -19,6 +19,7 @@ const Container = styled.div<IPropsContainer>`
   height: ${({ height }) => height};
   background-color: ${theme.minorBackgroundColor};
   border-radius: 4px;
+  padding: 0 0 7px 0;
   min-width: ${({ minWidth }) => minWidth};
   min-height: ${({ minHeight }) => minHeight};
   max-width: ${({ maxWidth }) => maxWidth};

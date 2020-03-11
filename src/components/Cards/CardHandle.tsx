@@ -8,7 +8,7 @@ interface IDotProps {
 }
 
 // TODO: if more UI elemnts proliferate, add to seperate folder
-const Dot = styled.span < IDotProps > `
+const Dot = styled.span<IDotProps>`
   width: ${({ width }) => width};
   height: ${({ height }) => height};
   border-radius: 50%;
