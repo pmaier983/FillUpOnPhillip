@@ -38,6 +38,7 @@ module.exports = {
     "react/jsx-props-no-spreading": OFF,
     "react/require-default-props": OFF,
     "react/prop-types": OFF,
+    'import/prefer-default-export': OFF,
     semi: ["error", "never"],
     "space-infix-ops": OFF,
     "import/extensions": [
