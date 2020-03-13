@@ -4,7 +4,13 @@ import styled from 'styled-components'
 import { formatToUnit } from '../utils/functions.helpers'
 import { BasicTextAlertContainer } from './Alerts'
 
-const Container = styled.div`
+interface IContainerProps {
+  margin?: string,
+  width?: string,
+  height?: string,
+}
+
+const Container = styled.div<IContainerProps>`
   position: absolute;
   display: flex;
   z-index: 10;
@@ -14,9 +20,14 @@ const Container = styled.div`
   height: ${(props) => props.height};
 `
 
+interface IAlertContainerProps {
+  width?: string,
+  height?: string,
+  margin?: string,
+}
 
-const AlertContainer = ({
-  width, height, margin = 10, children,
+const AlertContainer: React.FC<IAlertContainerProps> = ({
+  width, height, margin = '10px', children,
 }) => (
   <Container
     width={formatToUnit(width)}
