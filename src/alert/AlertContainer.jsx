@@ -1,9 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
-import { formatToUnit } from '../utils/functions.helpers';
-import { BasicTextAlertContainer } from './Alerts';
+import { formatToUnit } from '../utils/functions.helpers'
+import { BasicTextAlertContainer } from './Alerts'
 
 const Container = styled.div`
   position: absolute;
@@ -13,7 +12,7 @@ const Container = styled.div`
   left: ${(props) => props.margin};
   width:  ${(props) => props.width};
   height: ${(props) => props.height};
-`;
+`
 
 
 const AlertContainer = ({
@@ -28,13 +27,6 @@ const AlertContainer = ({
       {children}
     </BasicTextAlertContainer>
   </Container>
-);
+)
 
-AlertContainer.propTypes = {
-  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  margin: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  children: PropTypes.node,
-};
-
-export default AlertContainer;
+export default AlertContainer
