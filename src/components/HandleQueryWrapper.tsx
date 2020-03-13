@@ -20,4 +20,4 @@ const HandleQueryWrapper: React.FC<IHandleQueryWrapperProps> = ({ loading, error
   return children
 }
 
-export default HandleQueryWrapper
+export { HandleQueryWrapper }
