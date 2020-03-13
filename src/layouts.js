@@ -1,8 +1,9 @@
 export const columns = {
-  lg: 4, md: 2, sm: 2, xs: 2, xxs: 2,
+  lg: 2, md: 2, sm: 2, xs: 2, xxs: 2,
 }
+
 export const breakpoints = {
-  lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0,
+  lg: 1200, md: 1024, sm: 768, xs: 568, xxs: 320,
 }
 
 export const layouts = {

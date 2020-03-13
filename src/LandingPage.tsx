@@ -3,6 +3,7 @@ import 'react-grid-layout/css/styles.css'
 import _ from 'lodash/fp'
 import { Responsive, WidthProvider } from 'react-grid-layout'
 
+import { layouts, breakpoints, columns } from './layouts'
 import { useLocalStorage } from './hooks'
 import {
   RepositoriesCard, PersonalCard, ContactCard, PictureCard,
@@ -100,12 +101,9 @@ const LandingPage = () => {
   return (
     <ResponsiveReactGridLayout
       rowHeight={20}
-      breakpoints={{
-        lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0,
-      }}
-      cols={{
-        lg: 4, md: 2, sm: 2, xs: 2, xxs: 2,
-      }}
+      breakpoints={breakpoints}
+      cols={columns}
+      layouts={layouts}
       isResizable
       onLayoutChange={onLayoutChange}
       draggableCancel=".react-grid-cancel-drag"
