@@ -1,11 +1,14 @@
 import React from 'react'
 import _ from 'lodash/fp'
 
-import { useLocalStorage } from './hooks'
+import { useGridLayouts } from './hooks'
+import { GRID_BREAKPOINT_LAYOUTS_ACTIONS } from './hooks/useGridLayouts'
+import { ILayout, IBreakpointLayouts } from './hooks/useGridLayouts.d'
 import {
   RepositoriesCard, PersonalCard, ContactCard, PictureCard,
 } from './components/Cards'
 import { ResponsiveGridLayout } from './components/ResponsiveGridLayout'
+
 import CardContainer from './components/Cards/CardContainer'
 
 
@@ -25,50 +28,15 @@ const CardLibrary: ICardLibraryStructure = {
   PictureCard,
 }
 
-const initialGridState = [
-  {
-    x: 0,
-    y: 0,
-    w: 1,
-    h: 11,
-    i: 'PersonalCard',
-  },
-  {
-    x: 0,
-    y: 2,
-    w: 2,
-    h: 9,
-    i: 'RepositoriesCard',
-  },
-  {
-    x: 1,
-    y: 1,
-    w: 1,
-    h: 5,
-    i: 'ContactCard',
-  },
-  {
-    x: 1,
-    y: 0,
-    w: 1,
-    h: 6,
-    i: 'PictureCard',
-  },
-]
-
-interface ILayoutObject {
-  i: string;
-}
-
 const LandingPage = () => {
-  const [localGridState, setLocalGridState] = useLocalStorage('graphqlGridViewState', initialGridState)
+  const [currentLayouts, currentBreakpointLayouts, dispatch] = useGridLayouts()
 
-  const children = localGridState.map((layout: ILayoutObject) => {
+  const children = currentLayouts.map((layout: ILayout) => {
     const {
       i, ...rest
     } = layout
     const initialComponentState = _.find(
-      ({ i: componentName }) => componentName === i, initialGridState,
+      ({ i: componentName }) => componentName === i, currentLayouts,
     )
     const minWidth = _.get('minWidth', initialComponentState)
     const minHeight = _.get('minHeight', initialComponentState)
@@ -93,11 +61,19 @@ const LandingPage = () => {
   })
 
   // TODO: give specific grid state type object
-  const onLayoutChange = (gridState: any) => setLocalGridState(gridState)
+  const onLayoutChange = (layouts: Array<ILayout>, breakpointLayouts: IBreakpointLayouts) => {
+    dispatch({
+      type: GRID_BREAKPOINT_LAYOUTS_ACTIONS.ADD_NEW,
+      payload: {
+        breakpointLayouts,
+      },
+    })
+  }
 
   return (
     <ResponsiveGridLayout
       onLayoutChange={onLayoutChange}
+      layouts={currentBreakpointLayouts}
     >
       {children}
     </ResponsiveGridLayout>
