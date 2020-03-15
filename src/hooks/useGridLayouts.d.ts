@@ -24,7 +24,7 @@ export interface ILayoutsState {
 export interface IActions {
   // TODO: add specific typing
   type: string,
-  payload: {
+  payload?: {
     breakpointLayouts: IBreakpointLayouts
   }
 }
