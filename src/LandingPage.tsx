@@ -5,12 +5,11 @@ import { useGridLayouts } from './hooks'
 import { GRID_BREAKPOINT_LAYOUTS_ACTIONS } from './hooks/useGridLayouts'
 import { ILayout, IBreakpointLayouts } from './hooks/useGridLayouts.d'
 import {
-  RepositoriesCard, PersonalCard, ContactCard, PictureCard,
+  RepositoriesCard, PersonalCard, ContactCard, PictureCard, LayoutHandler,
 } from './components/Cards'
 import { ResponsiveGridLayout } from './components/ResponsiveGridLayout'
 
 import CardContainer from './components/Cards/CardContainer'
-
 
 interface ICardLibraryStructure {
   // TODO: How to stop JSX error on rendering...
@@ -18,6 +17,7 @@ interface ICardLibraryStructure {
   RepositoriesCard: any,
   ContactCard: any,
   PictureCard: any,
+  LayoutHandler: any,
   [key: string]: any,
 }
 
@@ -26,12 +26,13 @@ const CardLibrary: ICardLibraryStructure = {
   RepositoriesCard,
   ContactCard,
   PictureCard,
+  LayoutHandler,
 }
 
 const LandingPage = () => {
   const [currentLayouts, currentBreakpointLayouts, dispatch] = useGridLayouts()
 
-  const children = currentLayouts.map((layout: ILayout) => {
+  const children = React.useMemo(() => (currentLayouts.map((layout: ILayout) => {
     const {
       i, ...rest
     } = layout
@@ -55,15 +56,15 @@ const LandingPage = () => {
         maxHeight={maxHeight}
         {...rest}
       >
-        <Component />
+        <Component dispatchLayoutEffect={dispatch} />
       </CardContainer>
     )
-  })
+  })), [currentLayouts])
 
   // TODO: give specific grid state type object
   const onLayoutChange = (layouts: Array<ILayout>, breakpointLayouts: IBreakpointLayouts) => {
     dispatch({
-      type: GRID_BREAKPOINT_LAYOUTS_ACTIONS.ADD_NEW,
+      type: GRID_BREAKPOINT_LAYOUTS_ACTIONS.ADD,
       payload: {
         breakpointLayouts,
       },

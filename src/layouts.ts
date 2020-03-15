@@ -36,7 +36,15 @@ export const initialGridLayouts: IBreakpointLayouts = {
     w: 1,
     h: 6,
     i: 'PictureCard',
-  }],
+  },
+  {
+    x: 1,
+    y: 0,
+    w: 1,
+    h: 6,
+    i: 'LayoutHandler',
+  },
+  ],
   md: [{
     x: 0,
     y: 0,
@@ -64,6 +72,13 @@ export const initialGridLayouts: IBreakpointLayouts = {
     w: 1,
     h: 6,
     i: 'PictureCard',
+  },
+  {
+    x: 1,
+    y: 0,
+    w: 1,
+    h: 6,
+    i: 'LayoutHandler',
   }],
   sm: [{
     x: 0,
@@ -92,6 +107,13 @@ export const initialGridLayouts: IBreakpointLayouts = {
     w: 1,
     h: 6,
     i: 'PictureCard',
+  },
+  {
+    x: 1,
+    y: 0,
+    w: 1,
+    h: 6,
+    i: 'LayoutHandler',
   }],
   xs: [{
     x: 0,
@@ -120,6 +142,13 @@ export const initialGridLayouts: IBreakpointLayouts = {
     w: 1,
     h: 6,
     i: 'PictureCard',
+  },
+  {
+    x: 1,
+    y: 0,
+    w: 1,
+    h: 6,
+    i: 'LayoutHandler',
   }],
   xxs: [{
     x: 0,
@@ -148,5 +177,12 @@ export const initialGridLayouts: IBreakpointLayouts = {
     w: 1,
     h: 6,
     i: 'PictureCard',
+  },
+  {
+    x: 1,
+    y: 0,
+    w: 1,
+    h: 6,
+    i: 'LayoutHandler',
   }],
 }

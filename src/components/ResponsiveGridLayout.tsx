@@ -7,22 +7,20 @@ import { breakpoints, columns } from '../layouts'
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive)
 
-const ResponsiveGridLayout = ({ children, layouts, ...props }: any) => {
-  console.log('layouts', layouts)
-  return (
-    <ResponsiveReactGridLayout
-      rowHeight={20}
-      breakpoints={breakpoints}
-      cols={columns}
-      isResizable
-      layouts={layouts}
-      draggableCancel=".react-grid-cancel-drag"
-      draggableHandle=".react-grid-handle-drag"
-      {...props}
-    >
-      {children}
-    </ResponsiveReactGridLayout>
-  )
-}
+const ResponsiveGridLayout = ({ children, layouts, ...props }: any) => (
+  <ResponsiveReactGridLayout
+    rowHeight={20}
+    breakpoints={breakpoints}
+    cols={columns}
+    isResizable
+    layouts={layouts}
+    draggableCancel=".react-grid-cancel-drag"
+    draggableHandle=".react-grid-handle-drag"
+    {...props}
+  >
+    {children}
+  </ResponsiveReactGridLayout>
+)
+
 
 export { ResponsiveGridLayout }
