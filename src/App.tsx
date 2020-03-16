@@ -17,7 +17,6 @@ const LandingPageContainer = styled.div`
 
 const App = () => (
   <>
-    <link href="https://fonts.googleapis.com/css?family=Red Hat Text" rel="stylesheet" type="text/css" />
     <LandingPageContainer>
       <LandingPage />
     </LandingPageContainer>
