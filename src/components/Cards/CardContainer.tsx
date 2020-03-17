@@ -14,7 +14,7 @@ interface IPropsContainer {
 
 const Container = styled.div<IPropsContainer>`
   background-color: ${theme.minorBackgroundColor};
-  border: 1px black solid;
+  border: 1px ${theme.border} solid;
   width: ${({ width }) => width};
   height: ${({ height }) => height};
   background-color: ${theme.minorBackgroundColor};
