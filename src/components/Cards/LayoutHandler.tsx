@@ -5,6 +5,7 @@ import { GRID_BREAKPOINT_LAYOUTS_ACTIONS } from '../../hooks/useGridLayouts'
 import { IActions } from '../../hooks/useGridLayouts.d'
 
 import MaterialIcon from '../MaterialIcon'
+import ToggleButton from '../ToggleButton'
 
 const CardContent = styled.div`
   display: flex;
@@ -34,8 +35,18 @@ const NavigationContainer = styled.div`
   flex-direction: row;
 `
 
+interface ILayoutHandlerProps {
+  dispatchLayoutEffect: React.Dispatch<IActions>,
+  handleDraggable: (stateOverride: boolean) => void,
+  handleResizable: (stateOverride: boolean) => void,
+  isResizable: boolean,
+  isDraggable: boolean,
+}
+
 const LayoutHandler = (
-  { dispatchLayoutEffect }: {dispatchLayoutEffect: React.Dispatch<IActions>},
+  {
+    dispatchLayoutEffect, handleDraggable, handleResizable, isResizable, isDraggable,
+  }: ILayoutHandlerProps,
 ) => {
   const handleResetLayout = () => {
     dispatchLayoutEffect({
@@ -64,6 +75,18 @@ const LayoutHandler = (
           <MaterialIcon name="refresh" onClick={handleResetLayout} />
         </HeaderContainer>
         <ContentContainer>
+          <ToggleButton
+            width={100}
+            height={50}
+            toggleState={isDraggable}
+            handleToggle={handleDraggable}
+          />
+          <ToggleButton
+            width={100}
+            height={50}
+            toggleState={isResizable}
+            handleToggle={handleResizable}
+          />
         </ContentContainer>
       </CardContent>
     </>

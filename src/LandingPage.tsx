@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import _ from 'lodash/fp'
 
-import { useGridLayouts } from './hooks'
+import { useGridLayouts, useBoolean } from './hooks'
 import { GRID_BREAKPOINT_LAYOUTS_ACTIONS } from './hooks/useGridLayouts'
 import { ILayout, IBreakpointLayouts } from './hooks/useGridLayouts.d'
 import {
@@ -30,9 +30,12 @@ const CardLibrary: ICardLibraryStructure = {
 }
 
 const LandingPage = () => {
+  // TODO: convert to Reducer/Context...
   const [currentLayouts, currentBreakpointLayouts, dispatch] = useGridLayouts()
+  const [isDraggable, toggleDraggable] = useBoolean(true)
+  const [isResizable, toggleResizable] = useBoolean(true)
 
-  const children = React.useMemo(() => (currentLayouts.map((layout: ILayout) => {
+  const children = useMemo(() => (currentLayouts.map((layout: ILayout) => {
     const {
       i, ...rest
     } = layout
@@ -49,17 +52,23 @@ const LandingPage = () => {
       // No children of identical keys allowed
       <CardContainer
         key={i}
-        data-grid={layout}
         minWidth={minWidth}
         minHeight={minHeight}
         maxWidth={maxWidth}
         maxHeight={maxHeight}
+        isDraggable={isDraggable}
         {...rest}
       >
-        <Component dispatchLayoutEffect={dispatch} />
+        <Component
+          dispatchLayoutEffect={dispatch}
+          isDraggable={isDraggable}
+          isResizable={isResizable}
+          handleDraggable={toggleDraggable}
+          handleResizable={toggleResizable}
+        />
       </CardContainer>
     )
-  })), [currentLayouts])
+  })), [currentLayouts, isDraggable, isResizable])
 
   // TODO: give specific grid state type object
   const onLayoutChange = (layouts: Array<ILayout>, breakpointLayouts: IBreakpointLayouts) => {
@@ -75,6 +84,8 @@ const LandingPage = () => {
     <ResponsiveGridLayout
       onLayoutChange={onLayoutChange}
       layouts={currentBreakpointLayouts}
+      isDraggable={isDraggable}
+      isResizable={isResizable}
     >
       {children}
     </ResponsiveGridLayout>
