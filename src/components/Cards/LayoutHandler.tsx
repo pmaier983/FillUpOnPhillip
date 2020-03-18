@@ -5,7 +5,6 @@ import { GRID_BREAKPOINT_LAYOUTS_ACTIONS } from '../../hooks/useGridLayouts'
 import { IActions } from '../../hooks/useGridLayouts.d'
 
 import MaterialIcon from '../MaterialIcon'
-import CardHandle from './CardHandle'
 
 const CardContent = styled.div`
   display: flex;
@@ -55,7 +54,6 @@ const LayoutHandler = (
   }
   return (
     <>
-      <CardHandle height="20px" />
       <CardContent>
         <HeaderContainer>
           <NavigationContainer>

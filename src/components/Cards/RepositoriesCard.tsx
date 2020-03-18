@@ -8,8 +8,6 @@ import { GET_REPOSITORIES } from '../../Queries'
 import { constants } from '../../utils/constants'
 import { useQuery } from '../../hooks'
 
-import CardHandle from './CardHandle'
-
 import './tableStyles.css'
 
 const Container = styled.div`
@@ -71,7 +69,6 @@ const RepositoriesCard = () => {
   return (
     // TODO make this resize respinsively.
     <Container>
-      <CardHandle height="20px" />
       <CardHeader>
         <span>
           {`Total Count: 

@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import CardHandle from './CardHandle'
+
 import { theme } from '../../utils/theme'
 
 interface IPropsContainer {
@@ -26,7 +28,10 @@ const Container = styled.div<IPropsContainer>`
 `
 
 const CardContainer: React.FC<IPropsContainer>= ({ children, ...rest }) => (
-  <Container {...rest}>{children}</Container>
+  <Container {...rest}>
+    <CardHandle height="20px" />
+    {children}
+  </Container>
 )
 
 export default CardContainer

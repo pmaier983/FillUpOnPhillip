@@ -78,7 +78,6 @@ const handleLogoClickRedirect = (url: string) => {
 
 const ContactCard = () => (
   <Container>
-    <CardHandle height="20px" />
     <CardContent>
       <LogoContainer>
         <LogoLinks src={LinkedinLogo} onClick={() => handleLogoClickRedirect('www.linkedin.com/in/phillip-maier-3a4161102/')} href="mailto:pmaier983@gmail.com" />

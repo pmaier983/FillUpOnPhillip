@@ -5,8 +5,6 @@ import { useQuery } from '../../hooks'
 import { MY_PROFILE } from '../../Queries'
 import { theme, variables } from '../../utils/theme'
 
-import CardHandle from './CardHandle'
-
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -97,7 +95,6 @@ const PersonalCard = () => {
 
   return (
     <Container>
-      <CardHandle height="20px" />
       <CardContent>
         {/* display loading during lag time between content load and Portrait load */}
         <Portrait src={avatarUrl} alt="Profile" />

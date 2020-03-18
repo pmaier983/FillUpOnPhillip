@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import CardHandle from './CardHandle'
-
 const PictureOfSelf = require('../../static/PictureOfSelf.png')
 
 const CardContent = styled.div`
@@ -20,7 +18,6 @@ const ProfilePicture = styled.img`
 
 const PictureCard = () => (
   <>
-    <CardHandle height="20px" />
     <CardContent>
       <ProfilePicture src={PictureOfSelf} />
     </CardContent>
