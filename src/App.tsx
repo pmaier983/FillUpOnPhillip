@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { theme } from './utils/theme'
+import { LandingPageProvider } from './contexts'
 
 import LandingPage from './LandingPage'
 
@@ -16,11 +17,11 @@ const LandingPageContainer = styled.div`
 `
 
 const App = () => (
-  <>
-    <LandingPageContainer>
+  <LandingPageContainer>
+    <LandingPageProvider>
       <LandingPage />
-    </LandingPageContainer>
-  </>
+    </LandingPageProvider>
+  </LandingPageContainer>
 )
 
 
