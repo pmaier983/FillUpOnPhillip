@@ -5,7 +5,6 @@ import styled from 'styled-components'
 import { Table, Column, AutoSizer } from 'react-virtualized'
 
 import { GET_REPOSITORIES } from '../../Queries'
-import { constants } from '../../utils/constants'
 import { useQuery } from '../../hooks'
 
 import './tableStyles.css'
@@ -27,7 +26,7 @@ const CardHeader = styled.div`
 
 const TableContainer = styled.div`
   flex-grow: 1;
-  margin: ${constants.elementPadding} 0 0 0;
+  margin: 10px 0 0 0;
 `
 
 interface IRepositoryRowFormatterProps {
