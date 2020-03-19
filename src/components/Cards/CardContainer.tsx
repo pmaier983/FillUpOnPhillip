@@ -12,6 +12,7 @@ interface IPropsContainer {
   minHeight?: string,
   maxWidth?: string,
   maxHeight?: string,
+  isDraggable?: boolean,
 }
 
 const Container = styled.div<IPropsContainer>`
@@ -27,9 +28,10 @@ const Container = styled.div<IPropsContainer>`
   max-height: ${({ maxHeight }) => maxHeight};
 `
 
-const CardContainer: React.FC<IPropsContainer>= ({ children, ...rest }) => (
+const CardContainer: React.FC<IPropsContainer>= ({ children, isDraggable, ...rest }) => (
   <Container {...rest}>
-    <CardHandle height="20px" />
+    {console.log('isDraggable', isDraggable)}
+    <CardHandle height="20px" hasGrabPointer={isDraggable} />
     {children}
   </Container>
 )
