@@ -2,4 +2,4 @@
 export const constants = {
   defaultPadding: '3px',
   elementPadding: '10px',
-};
+}

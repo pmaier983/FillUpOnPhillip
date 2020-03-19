@@ -25,4 +25,4 @@ module.exports = {
   },
   // addition - add source-map support
   devtool: 'source-map',
-};
+}

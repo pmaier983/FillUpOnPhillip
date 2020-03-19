@@ -1,5 +1,5 @@
 const formatToUnit = (element, defaultUnit = 'px') => {
-  const stringElement = String(element);
+  const stringElement = String(element)
   const values = [
     'cm',
     'mm',
@@ -16,11 +16,11 @@ const formatToUnit = (element, defaultUnit = 'px') => {
     'vh',
     'vmin',
     'vmax',
-  ];
+  ]
   return values.some((value) => stringElement.includes(value))
     ? element
-    : `${element}${defaultUnit}`;
-};
+    : `${element}${defaultUnit}`
+}
 
 // eslint-disable-next-line import/prefer-default-export
-export { formatToUnit };
+export { formatToUnit }
