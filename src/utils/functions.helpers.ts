@@ -1,4 +1,4 @@
-const formatToUnit = (element, defaultUnit = 'px') => {
+const formatToUnit = (element?: string, defaultUnit?: String) => {
   const stringElement = String(element)
   const values = [
     'cm',
@@ -20,6 +20,10 @@ const formatToUnit = (element, defaultUnit = 'px') => {
   return values.some((value) => stringElement.includes(value))
     ? element
     : `${element}${defaultUnit}`
+}
+
+formatToUnit.defaultProps = {
+  defaultUnit: 'px',
 }
 
 // eslint-disable-next-line import/prefer-default-export

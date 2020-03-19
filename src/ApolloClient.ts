@@ -10,7 +10,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 
 const GITHUB_BASE_URL = 'https://api.github.com/graphql'
 
-const getApolloClient = ({ onErrorMessage }) => {
+const getApolloClient = ({ onErrorMessage }: {onErrorMessage: (x: string) => void}) => {
   const httpLink = new HttpLink({
     uri: GITHUB_BASE_URL,
     headers: {
