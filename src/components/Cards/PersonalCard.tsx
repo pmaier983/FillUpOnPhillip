@@ -5,13 +5,6 @@ import { useQuery } from '../../hooks'
 import { MY_PROFILE } from '../../Queries'
 import { theme, variables } from '../../utils/theme'
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-`
-
 const CardContent = styled.div`
   display: flex;
   flex-direction: column;
@@ -94,22 +87,20 @@ const PersonalCard = () => {
   } = data
 
   return (
-    <Container>
-      <CardContent>
-        {/* display loading during lag time between content load and Portrait load */}
-        <Portrait src={avatarUrl} alt="Profile" />
-        <Name>{name}</Name>
-        <Location>{location}</Location>
-        <SeperatorLine />
-        <Bio>{bio}</Bio>
-        <SeperatorLine />
-        <Company>{`Current Employer: ${company}`}</Company>
-        <IsHireable>
-          Is Open to Opportunities:
-          <Checkbox isHireable={isHireable} />
-        </IsHireable>
-      </CardContent>
-    </Container>
+    <CardContent>
+      {/* display loading during lag time between content load and Portrait load */}
+      <Portrait src={avatarUrl} alt="Profile" />
+      <Name>{name}</Name>
+      <Location>{location}</Location>
+      <SeperatorLine />
+      <Bio>{bio}</Bio>
+      <SeperatorLine />
+      <Company>{`Current Employer: ${company}`}</Company>
+      <IsHireable>
+        Is Open to Opportunities:
+        <Checkbox isHireable={isHireable} />
+      </IsHireable>
+    </CardContent>
   )
 }
 

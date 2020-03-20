@@ -17,11 +17,9 @@ const ProfilePicture = styled.img`
 `
 
 const PictureCard = () => (
-  <>
-    <CardContent>
-      <ProfilePicture src={PictureOfSelf} />
-    </CardContent>
-  </>
+  <CardContent>
+    <ProfilePicture src={PictureOfSelf} />
+  </CardContent>
 )
 
 export default PictureCard

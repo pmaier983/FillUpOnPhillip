@@ -4,19 +4,10 @@ import MaterialIcon from '../MaterialIcon'
 
 import { theme } from '../../utils/theme'
 
-import CardHandle from './CardHandle'
-
 const LinkedinLogo = require('../../static/linkedin-logo.png')
 const GitHubLogo = require('../../static/GitHub-logo.png')
 const ResumeIcon = require('../../static/Resume-Icon.png')
 const Resume = require('../../static/Phillip_Maier_Resume.pdf')
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-`
 
 const CardContent = styled.div`
   display: flex;
@@ -77,20 +68,18 @@ const handleLogoClickRedirect = (url: string) => {
 }
 
 const ContactCard = () => (
-  <Container>
-    <CardContent>
-      <LogoContainer>
-        <LogoLinks src={LinkedinLogo} onClick={() => handleLogoClickRedirect('www.linkedin.com/in/phillip-maier-3a4161102/')} href="mailto:pmaier983@gmail.com" />
-        <LogoLinks src={GitHubLogo} onClick={() => handleLogoClickRedirect('github.com/pmaier983')} />
-        <a href="mailto:pmaier983@gmail.com">
-          <LogoLinkContainer>
-            <MaterialIcon fontSize="35px" color="black" name="mail" />
-          </LogoLinkContainer>
-        </a>
-        <LogoLinks src={ResumeIcon} href={Resume} />
-      </LogoContainer>
-    </CardContent>
-  </Container>
+  <CardContent>
+    <LogoContainer>
+      <LogoLinks src={LinkedinLogo} onClick={() => handleLogoClickRedirect('www.linkedin.com/in/phillip-maier-3a4161102/')} href="mailto:pmaier983@gmail.com" />
+      <LogoLinks src={GitHubLogo} onClick={() => handleLogoClickRedirect('github.com/pmaier983')} />
+      <a href="mailto:pmaier983@gmail.com">
+        <LogoLinkContainer>
+          <MaterialIcon fontSize="35px" color="black" name="mail" />
+        </LogoLinkContainer>
+      </a>
+      <LogoLinks src={ResumeIcon} href={Resume} />
+    </LogoContainer>
+  </CardContent>
 )
 
 export default ContactCard
