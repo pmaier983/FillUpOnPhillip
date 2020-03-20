@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import { GRID_BREAKPOINT_LAYOUTS_ACTIONS } from '../../hooks/useGridLayouts'
 import { IActions } from '../../hooks/useGridLayouts.d'
+import { useLandingPageContext, LANDING_PAGE_ACTIONS } from '../../contexts/LandingPageProvider'
 
 import MaterialIcon from '../MaterialIcon'
 import ToggleButton from '../ToggleButton'
@@ -45,51 +46,62 @@ interface ILayoutHandlerProps {
 
 const LayoutHandler = (
   {
-    dispatchLayoutEffect, handleDraggable, handleResizable, isResizable, isDraggable,
+    dispatchLayoutEffect,
   }: ILayoutHandlerProps,
 ) => {
+  const [{ isDraggable, isResizable }, dispatchLandingPageAction] = useLandingPageContext()
+
   const handleResetLayout = () => {
     dispatchLayoutEffect({
       type: GRID_BREAKPOINT_LAYOUTS_ACTIONS.RESET,
     })
   }
+
   const handleUndoLayout = () => {
     dispatchLayoutEffect({
       type: GRID_BREAKPOINT_LAYOUTS_ACTIONS.UNDO,
     })
   }
+
   const handleRedoLayout = () => {
     dispatchLayoutEffect({
       type: GRID_BREAKPOINT_LAYOUTS_ACTIONS.REDO,
     })
   }
+
+  const handleDraggable = () => {
+    dispatchLandingPageAction({ type: LANDING_PAGE_ACTIONS.IS_DRAGGABLE })
+  }
+
+  const handleResizable = () => {
+    dispatchLandingPageAction({ type: LANDING_PAGE_ACTIONS.IS_RESIZABLE })
+  }
+
   return (
-    <>
-      <CardContent>
-        <HeaderContainer>
-          <NavigationContainer>
-            <MaterialIcon name="arrow_back" onClick={handleUndoLayout} />
-            <MaterialIcon name="arrow_forward" onClick={handleRedoLayout} />
-          </NavigationContainer>
-          Layout Management Interface
-          <MaterialIcon name="refresh" onClick={handleResetLayout} />
-        </HeaderContainer>
-        <ContentContainer>
-          <ToggleButton
-            width={100}
-            height={50}
-            toggleState={isDraggable}
-            handleToggle={handleDraggable}
-          />
-          <ToggleButton
-            width={100}
-            height={50}
-            toggleState={isResizable}
-            handleToggle={handleResizable}
-          />
-        </ContentContainer>
-      </CardContent>
-    </>
+    <CardContent>
+      <HeaderContainer>
+        <NavigationContainer>
+          <MaterialIcon name="arrow_back" onClick={handleUndoLayout} />
+          <MaterialIcon name="arrow_forward" onClick={handleRedoLayout} />
+        </NavigationContainer>
+        Layout Management Interface
+        <MaterialIcon name="refresh" onClick={handleResetLayout} />
+      </HeaderContainer>
+      <ContentContainer>
+        <ToggleButton
+          width={100}
+          height={50}
+          toggleState={isDraggable}
+          handleToggle={handleDraggable}
+        />
+        <ToggleButton
+          width={100}
+          height={50}
+          toggleState={isResizable}
+          handleToggle={handleResizable}
+        />
+      </ContentContainer>
+    </CardContent>
   )
 }
 

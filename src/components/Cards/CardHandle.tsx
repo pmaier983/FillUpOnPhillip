@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+
+import { useLandingPageContext } from '../../contexts/LandingPageProvider'
 import { theme } from '../../utils/theme'
 
 interface IDotProps {
@@ -36,23 +38,30 @@ const Dots: React.FC<IPropsDots> = ({
   </>
 )
 
-interface ICardHandleProps {
+interface IContainerProps {
   height?: string,
-  hasGrabPointer?: boolean,
+  isDraggable?: boolean,
 }
 
-const Container = styled.div<ICardHandleProps>`
+const Container = styled.div<IContainerProps>`
   background-color: ${theme.handleArea};
   height: ${({ height }) => height};
   border-radius: 4px 4px 0 0;
   text-align: center;
-  cursor: ${({ hasGrabPointer }) => (hasGrabPointer ? 'grab' : null)};
+  cursor: ${({ isDraggable }) => (isDraggable ? 'grab' : null)};
 `
 
-const CardHandle: React.FC<ICardHandleProps> = ({ height = '20px', hasGrabPointer }, ...rest: any) => (
-  <Container className="react-grid-handle-drag" height={height} hasGrabPointer={hasGrabPointer} {...rest}>
-    <Dots amount={3} width="10px" height="10px" color={theme.lightAlert} />
-  </Container>
-)
+interface ICardHandleProps {
+  height?: string,
+}
+
+const CardHandle: React.FC<ICardHandleProps> = ({ height = '20px' }, ...rest: any) => {
+  const [{ isDraggable }] = useLandingPageContext()
+  return (
+    <Container className="react-grid-handle-drag" height={height} isDraggable={isDraggable} {...rest}>
+      <Dots amount={3} width="10px" height="10px" color={isDraggable ? theme.lightApproval :theme.lightAlert} />
+    </Container>
+  )
+}
 
 export default CardHandle

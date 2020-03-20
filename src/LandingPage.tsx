@@ -1,13 +1,14 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useContext } from 'react'
 import _ from 'lodash/fp'
 
-import { useGridLayouts, useBoolean } from './hooks'
+import { useGridLayouts } from './hooks'
 import { GRID_BREAKPOINT_LAYOUTS_ACTIONS } from './hooks/useGridLayouts'
 import { ILayout, IBreakpointLayouts } from './hooks/useGridLayouts.d'
 import {
   RepositoriesCard, PersonalCard, ContactCard, PictureCard, LayoutHandler,
 } from './components/Cards'
 import { ResponsiveGridLayout } from './components/ResponsiveGridLayout'
+import { useLandingPageContext } from './contexts/LandingPageProvider'
 
 import CardContainer from './components/Cards/CardContainer'
 
@@ -31,9 +32,8 @@ const CardLibrary: ICardLibraryStructure = {
 
 const LandingPage = () => {
   // TODO: convert to Reducer/Context...
-  const [currentLayouts, currentBreakpointLayouts, dispatch] = useGridLayouts()
-  const [isDraggable, toggleDraggable] = useBoolean(true)
-  const [isResizable, toggleResizable] = useBoolean(true)
+  const [currentLayouts, currentBreakpointLayouts, dispatchLayoutEffect] = useGridLayouts()
+  const [{ isDraggable, isResizable }] = useLandingPageContext()
 
   const children = useMemo(() => (currentLayouts.map((layout: ILayout) => {
     const {
@@ -56,23 +56,18 @@ const LandingPage = () => {
         minHeight={minHeight}
         maxWidth={maxWidth}
         maxHeight={maxHeight}
-        isDraggable={isDraggable}
         {...rest}
       >
         <Component
-          dispatchLayoutEffect={dispatch}
-          isDraggable={isDraggable}
-          isResizable={isResizable}
-          handleDraggable={toggleDraggable}
-          handleResizable={toggleResizable}
+          dispatchLayoutEffect={dispatchLayoutEffect}
         />
       </CardContainer>
     )
-  })), [currentLayouts, isDraggable, isResizable])
+  })), [currentLayouts])
 
   // TODO: give specific grid state type object
   const onLayoutChange = (layouts: Array<ILayout>, breakpointLayouts: IBreakpointLayouts) => {
-    dispatch({
+    dispatchLayoutEffect({
       type: GRID_BREAKPOINT_LAYOUTS_ACTIONS.ADD,
       payload: {
         breakpointLayouts,

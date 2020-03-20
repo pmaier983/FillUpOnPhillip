@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import React, { createContext, useReducer } from 'react'
+import React, { createContext, useReducer, useContext } from 'react'
 
 interface ILandingPageState {
   isDraggable: boolean,
@@ -35,6 +35,8 @@ export const LandingPageContext = createContext<ContextProps>(
     () => console.error('Place a Provider In A Parent Node to get Landing Page Context'),
   ],
 )
+
+export const useLandingPageContext = () => useContext(LandingPageContext)
 
 const reducer = (state: ILandingPageState, action: IAction) => {
   switch (action.type) {
