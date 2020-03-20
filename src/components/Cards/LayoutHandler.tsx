@@ -20,7 +20,7 @@ const ContentContainer = styled.div`
   height: 100%;
   display: flex;
   align-content: center;
-  justify-content: center;
+  justify-content: space-evenly;
 `
 
 const HeaderContainer = styled.div`
@@ -29,11 +29,18 @@ const HeaderContainer = styled.div`
   width: 100%;
   justify-content: space-between;
   margin-top: 5px;  
+  text-decoration: underline;
 `
 
 const NavigationContainer = styled.div`
   display: flex;
   flex-direction: row;
+`
+
+const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 interface ILayoutHandlerProps {
@@ -88,18 +95,24 @@ const LayoutHandler = (
         <MaterialIcon name="refresh" onClick={handleResetLayout} />
       </HeaderContainer>
       <ContentContainer>
-        <ToggleButton
-          width={100}
-          height={50}
-          toggleState={isDraggable}
-          handleToggle={handleDraggable}
-        />
-        <ToggleButton
-          width={100}
-          height={50}
-          toggleState={isResizable}
-          handleToggle={handleResizable}
-        />
+        <ButtonContainer>
+          Toggle Draggability
+          <ToggleButton
+            width={70}
+            height={30}
+            toggleState={isDraggable}
+            handleToggle={handleDraggable}
+          />
+        </ButtonContainer>
+        <ButtonContainer>
+          Toggle Resizability
+          <ToggleButton
+            width={70}
+            height={30}
+            toggleState={isResizable}
+            handleToggle={handleResizable}
+          />
+        </ButtonContainer>
       </ContentContainer>
     </CardContent>
   )

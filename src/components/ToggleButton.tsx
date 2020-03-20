@@ -20,6 +20,8 @@ interface IButtonContainerProps extends IStyleProps {
 const ButtonContainer = styled.div<IButtonContainerProps>`
   display: flex;
   flex-direction: row;
+  min-width: 70px;
+  min-height: 20px;
   width: ${({ width }) => `${width}px`};
   height: ${({ height }) => `${height}px`};
   background-color: ${({ color }) => color};
@@ -37,7 +39,9 @@ const WordContainer = styled.div`
 
 const Toggle = styled.div<IStyleProps>`
   position: absolute; 
-  width: ${({ width }) => `${width * 0.42}px`};
+  min-width: 32px;
+  min-height: 15px;
+  width: ${({ width }) => `${width * 0.45}px`};
   height: ${({ height }) => `${height * 0.85}px`};
   background-color: ${theme.majorBackgroundColor};
   border-radius: ${variables.normalBorderRadius};
