@@ -8,6 +8,8 @@ export interface ILayout {
   minH?: number,
   maxW?: number,
   maxH?: number,
+  moved?: boolean,
+  static?: boolean,
   i: string,
 }
 

@@ -39,10 +39,10 @@ const WordContainer = styled.div`
 
 const Toggle = styled.div<IStyleProps>`
   position: absolute; 
-  min-width: 32px;
+  min-width: 35px;
   min-height: 15px;
   width: ${({ width }) => `${width * 0.45}px`};
-  height: ${({ height }) => `${height * 0.85}px`};
+  height: ${({ height }) => `${height * 0.80}px`};
   background-color: ${theme.majorBackgroundColor};
   border-radius: ${variables.borderRadiusNormal};
   cursor: pointer;

@@ -102,7 +102,7 @@ const LayoutHandler = (
         <ButtonContainer>
           Toggle Draggability
           <ToggleButton
-            width={70}
+            width={80}
             height={30}
             toggleState={isDraggable}
             handleToggle={handleDraggable}
@@ -111,7 +111,7 @@ const LayoutHandler = (
         <ButtonContainer>
           Toggle Resizability
           <ToggleButton
-            width={70}
+            width={80}
             height={30}
             toggleState={isResizable}
             handleToggle={handleResizable}
