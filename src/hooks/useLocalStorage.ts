@@ -1,4 +1,4 @@
-// copy pasta from https://usehooks.com/useLocalStorage/
+// Small modifications to https://usehooks.com/useLocalStorage/
 import { useState } from 'react'
 
 // Hook

@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { GRID_BREAKPOINT_LAYOUTS_ACTIONS } from '../../hooks/useGridLayouts'
 import { IActions } from '../../hooks/useGridLayouts.d'
 import { useLandingPageContext, LANDING_PAGE_ACTIONS } from '../../contexts/LandingPageProvider'
+import { variables } from '../../utils/theme'
 
 import MaterialIcon from '../MaterialIcon'
 import ToggleButton from '../ToggleButton'
@@ -13,6 +14,7 @@ const CardContent = styled.div`
   flex-direction: column;
   width: 100%;
   height: calc(100% - 20px);
+  align-items: center;  
 `
 
 const ContentContainer = styled.div`
@@ -23,13 +25,14 @@ const ContentContainer = styled.div`
   justify-content: space-evenly;
 `
 
+// TODO: find a better way of handling padding vs. 98%
 const HeaderContainer = styled.div`
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 98%;
   justify-content: space-between;
-  margin-top: 5px;  
   text-decoration: underline;
+  margin-top: ${variables.marginSmall};
 `
 
 const NavigationContainer = styled.div`
@@ -41,6 +44,7 @@ const ButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-right: ${variables.marginSmall};
 `
 
 interface ILayoutHandlerProps {
@@ -88,11 +92,11 @@ const LayoutHandler = (
     <CardContent>
       <HeaderContainer>
         <NavigationContainer>
-          <MaterialIcon name="arrow_back" onClick={handleUndoLayout} />
-          <MaterialIcon name="arrow_forward" onClick={handleRedoLayout} />
+          <MaterialIcon name="arrow_back" onClick={handleUndoLayout} hasHoverEffect />
+          <MaterialIcon name="arrow_forward" onClick={handleRedoLayout} hasHoverEffect />
         </NavigationContainer>
         Layout Management Interface
-        <MaterialIcon name="refresh" onClick={handleResetLayout} />
+        <MaterialIcon name="refresh" onClick={handleResetLayout} hasHoverEffect />
       </HeaderContainer>
       <ContentContainer>
         <ButtonContainer>
