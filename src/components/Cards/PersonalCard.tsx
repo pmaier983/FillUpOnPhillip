@@ -34,23 +34,23 @@ const SeperatorLine = styled.div`
 // TODO: standardize font size's (big v small)
 // TODO: combined all these fields into a component
 const Name = styled.strong`
-  font-size: ${variables.largeFont};
+  font-size: ${variables.fontLarge};
 `
 
 const Location = styled.span`
-  font-size: ${variables.normalFont};
+  font-size: ${variables.fontNormal};
 `
 
 const Bio = styled.div``
 
 const Company = styled.div`
-  font-size: ${variables.normalFont};
+  font-size: ${variables.fontNormal};
 `
 
 const IsHireable = styled.div`
   display: flex;
   flex-direction: row;
-  font-size: ${variables.normalFont};
+  font-size: ${variables.fontNormal};
 `
 
 interface ICheckboxProps {

@@ -7,6 +7,8 @@ import { Table, Column, AutoSizer } from 'react-virtualized'
 import { GET_REPOSITORIES } from '../../Queries'
 import { useQuery } from '../../hooks'
 
+import { variables } from '../../utils/theme'
+
 import './tableStyles.css'
 
 const Container = styled.div`
@@ -19,7 +21,7 @@ const Container = styled.div`
 const CardHeader = styled.div`
   display: flex;
   justify-content: space-between;
-  font-size: large;
+  font-size: ${variables.fontLarge};
   font-weight: bold;
   margin: 5px;
 `

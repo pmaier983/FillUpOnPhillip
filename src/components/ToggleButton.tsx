@@ -25,7 +25,7 @@ const ButtonContainer = styled.div<IButtonContainerProps>`
   width: ${({ width }) => `${width}px`};
   height: ${({ height }) => `${height}px`};
   background-color: ${({ color }) => color};
-  border-radius: ${variables.normalBorderRadius};
+  border-radius: ${variables.borderRadiusNormal};
   border: 1px solid ${theme.border};
 `
 
@@ -44,7 +44,7 @@ const Toggle = styled.div<IStyleProps>`
   width: ${({ width }) => `${width * 0.45}px`};
   height: ${({ height }) => `${height * 0.85}px`};
   background-color: ${theme.majorBackgroundColor};
-  border-radius: ${variables.normalBorderRadius};
+  border-radius: ${variables.borderRadiusNormal};
   cursor: pointer;
 `
 

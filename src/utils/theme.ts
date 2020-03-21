@@ -14,6 +14,7 @@ const minimalYetWarm = {
   minorBackgroundColor: colors.darkVanilla,
   lineEmphasized: colors.taupeGray,
   handleArea: colors.taupeGray,
+  buttonEmphasis: colors.taupeGray,
   darkAlert: colors.darkJellyBeanRed,
   lightAlert: colors.lightJellyBeanRed,
   lightApproval: colors.lightJellyBeanGreen,
@@ -24,10 +25,14 @@ const minimalYetWarm = {
 const theme = minimalYetWarm
 
 const variables = {
-  largeFont: '17px',
-  normalFont: '12px',
-  smallFont: '10px',
-  normalBorderRadius: '5px',
+  fontLarge: '17px',
+  fontNormal: '12px',
+  fontSmall: '10px',
+
+  borderRadiusNormal: '5px',
+
+  marginSmall: '2px',
+
 }
 
 export { colors, theme, variables }
