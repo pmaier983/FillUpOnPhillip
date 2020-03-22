@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import MaterialIcon from '../MaterialIcon'
+
 import { useQuery } from '../../hooks'
 import { MY_PROFILE } from '../../Queries'
 import { theme, variables } from '../../utils/theme'
@@ -50,21 +52,6 @@ const Company = styled.div`
 const IsHireable = styled.div`
   display: flex;
   flex-direction: row;
-  font-size: ${variables.fontNormal};
-`
-
-interface ICheckboxProps {
-  isHireable: boolean
-}
-
-const Checkbox = styled.div<ICheckboxProps>`
-  background-color: ${({ isHireable }) => (isHireable ? theme.lightApproval : theme.lightAlert)};
-  border-radius: 3px;
-  width: 15px;
-  align-self: center;
-  margin: 0 0 0 10px;
-  height: 15px;
-  border: 1px solid;
 `
 
 const PersonalCard = () => {
@@ -97,8 +84,8 @@ const PersonalCard = () => {
       <SeperatorLine />
       <Company>{`Current Employer: ${company}`}</Company>
       <IsHireable>
-        Is Open to Opportunities:
-        <Checkbox isHireable={isHireable} />
+        <span>Is Open to Opportunities:</span>
+        <MaterialIcon name={isHireable ? 'check_box_outlined' : 'check_box_outline'} width="24px" />
       </IsHireable>
     </CardContent>
   )
