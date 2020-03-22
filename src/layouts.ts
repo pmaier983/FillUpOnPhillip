@@ -8,6 +8,7 @@ export const breakpoints = {
   lg: 1200, md: 1024, sm: 768, xs: 568, xxs: 320,
 }
 
+// TODO make an array for the i
 export const initialGridLayouts: IBreakpointLayouts = {
   lg: [{
     w: 1, h: 15, x: 0, y: 0, i: 'PersonalCard', moved: false, static: false,
@@ -18,7 +19,7 @@ export const initialGridLayouts: IBreakpointLayouts = {
   }, {
     w: 1, h: 6, x: 1, y: 4, i: 'PictureCard', moved: false, static: false,
   }, {
-    w: 1, h: 4, x: 1, y: 0, i: 'LayoutHandler', moved: false, static: false,
+    w: 1, h: 4, x: 1, y: 0, i: 'LayoutHandlerCard', moved: false, static: false,
   }],
   md: [{
     w: 1, h: 11, x: 0, y: 0, i: 'PersonalCard', moved: false, static: false,
@@ -29,7 +30,7 @@ export const initialGridLayouts: IBreakpointLayouts = {
   }, {
     w: 1, h: 11, x: 1, y: 0, i: 'PictureCard', moved: false, static: false,
   }, {
-    w: 2, h: 5, x: 2, y: 0, i: 'LayoutHandler', moved: false, static: false,
+    w: 2, h: 5, x: 2, y: 0, i: 'LayoutHandlerCard', moved: false, static: false,
   }],
   sm: [{
     w: 1, h: 11, x: 0, y: 0, i: 'PersonalCard', moved: false, static: false,
@@ -40,7 +41,7 @@ export const initialGridLayouts: IBreakpointLayouts = {
   }, {
     w: 1, h: 7, x: 1, y: 4, i: 'PictureCard', moved: false, static: false,
   }, {
-    w: 2, h: 4, x: 1, y: 0, i: 'LayoutHandler', moved: false, static: false,
+    w: 2, h: 4, x: 1, y: 0, i: 'LayoutHandlerCard', moved: false, static: false,
   }],
   xs: [{
     x: 0, y: 0, w: 1, h: 11, i: 'PersonalCard',
@@ -51,7 +52,7 @@ export const initialGridLayouts: IBreakpointLayouts = {
   }, {
     x: 1, y: 0, w: 1, h: 6, i: 'PictureCard',
   }, {
-    x: 1, y: 0, w: 1, h: 6, i: 'LayoutHandler',
+    x: 1, y: 0, w: 1, h: 6, i: 'LayoutHandlerCard',
   }],
   xxs: [{
     w: 1, h: 11, x: 0, y: 0, i: 'PersonalCard', moved: false, static: false,
@@ -62,6 +63,6 @@ export const initialGridLayouts: IBreakpointLayouts = {
   }, {
     w: 1, h: 6, x: 1, y: 0, i: 'PictureCard', moved: false, static: false,
   }, {
-    w: 1, h: 6, x: 1, y: 6, i: 'LayoutHandler', moved: false, static: false,
+    w: 1, h: 6, x: 1, y: 6, i: 'LayoutHandlerCard', moved: false, static: false,
   }],
 }

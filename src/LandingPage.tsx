@@ -1,34 +1,14 @@
-import React, { useMemo, useContext } from 'react'
+import React, { useMemo } from 'react'
 import _ from 'lodash/fp'
 
 import { useGridLayouts } from './hooks'
 import { GRID_BREAKPOINT_LAYOUTS_ACTIONS } from './hooks/useGridLayouts'
 import { ILayout, IBreakpointLayouts } from './hooks/useGridLayouts.d'
-import {
-  RepositoriesCard, PersonalCard, ContactCard, PictureCard, LayoutHandler,
-} from './components/Cards'
+import { CardLibrary } from './CardLibrary'
 import { ResponsiveGridLayout } from './components/ResponsiveGridLayout'
 import { useLandingPageContext } from './contexts/LandingPageProvider'
 
 import CardContainer from './components/Cards/CardContainer'
-
-interface ICardLibraryStructure {
-  // TODO: How to stop JSX error on rendering...
-  PersonalCard: any,
-  RepositoriesCard: any,
-  ContactCard: any,
-  PictureCard: any,
-  LayoutHandler: any,
-  [key: string]: any,
-}
-
-const CardLibrary: ICardLibraryStructure = {
-  PersonalCard,
-  RepositoriesCard,
-  ContactCard,
-  PictureCard,
-  LayoutHandler,
-}
 
 const LandingPage = () => {
   // TODO: convert to Reducer/Context...

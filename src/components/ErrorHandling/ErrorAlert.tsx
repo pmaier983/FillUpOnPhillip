@@ -9,7 +9,7 @@ const ErrorContainer = styled.div`
   justify-content: center;
   background-color: ${theme.lightAlert};
   width: 100%;
-  height: 100%;
+  height: calc(100% - '20px');
 `
 
 const ErrorAlert = () => (

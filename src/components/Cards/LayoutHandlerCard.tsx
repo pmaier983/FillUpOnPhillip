@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import { GRID_BREAKPOINT_LAYOUTS_ACTIONS } from '../../hooks/useGridLayouts'
 import { IActions } from '../../hooks/useGridLayouts.d'
+
 import { useLandingPageContext, LANDING_PAGE_ACTIONS } from '../../contexts/LandingPageProvider'
 import { variables } from '../../utils/theme'
 
@@ -55,7 +56,7 @@ interface ILayoutHandlerProps {
   isDraggable: boolean,
 }
 
-const LayoutHandler = (
+const LayoutHandlerCard = (
   {
     dispatchLayoutEffect,
   }: ILayoutHandlerProps,
@@ -122,4 +123,4 @@ const LayoutHandler = (
   )
 }
 
-export default LayoutHandler
+export default LayoutHandlerCard
