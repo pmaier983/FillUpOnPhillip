@@ -14,7 +14,7 @@ const CardContent = styled.div`
   justify-content: space-evenly;
   text-align: center;
   /* TODO: why is flex-grow: 1 not working here */
-  height: calc(100% - 20px);
+  height: calc(100% - ${variables.cardHeaderHeight});
 `
 
 const Portrait = styled.img`

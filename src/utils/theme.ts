@@ -33,6 +33,7 @@ const variables = {
 
   marginSmall: '2px',
 
+  cardHeaderHeight: '20px',
 }
 
 export { colors, theme, variables }

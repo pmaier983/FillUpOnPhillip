@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { variables } from '../../utils/theme'
+
 const PictureOfSelf = require('../../static/PictureOfSelf.png')
 
 const CardContent = styled.div`
@@ -8,7 +10,7 @@ const CardContent = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: calc(100% - 20px);
+  height: calc(100% - ${variables.cardHeaderHeight});
 `
 
 const ProfilePicture = styled.img`
