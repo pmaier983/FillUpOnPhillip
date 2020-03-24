@@ -1,5 +1,5 @@
 import {
-  RepositoriesCard, PersonalCard, ContactCard, PictureCard, LayoutHandlerCard,
+  RepositoriesCard, PersonalCard, ContactCard, PictureCard, LayoutHandlerCard, TechUsedCard,
 } from './components/Cards'
 
 interface ICardLibraryStructure {
@@ -9,6 +9,7 @@ interface ICardLibraryStructure {
   ContactCard: any,
   PictureCard: any,
   LayoutHandlerCard: any,
+  TechUsedCard: any,
   [key: string]: any,
 }
 
@@ -18,4 +19,5 @@ export const CardLibrary: ICardLibraryStructure = {
   ContactCard,
   PictureCard,
   LayoutHandlerCard,
+  TechUsedCard,
 }
