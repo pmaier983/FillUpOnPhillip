@@ -26,6 +26,7 @@ const theme = minimalYetWarm
 
 const variables = {
   fontLarge: '17px',
+  fontMedium: '14px',
   fontNormal: '12px',
   fontSmall: '10px',
 

@@ -18,6 +18,7 @@ const Container = styled.div`
 `
 
 const Title = styled.div`
+  text-decoration: underline;
   font-size: ${variables.fontLarge};
 `
 
@@ -37,27 +38,32 @@ const TextCardContainer = styled.div`
 `
 
 const LinksAndIconContainer = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  place-content: space-around;
 `
 
 const TextCardName = styled.div`
-  font-size: ${variables.fontNormal};
+  font-size: ${variables.fontMedium};
   font-weight: ${variables.fontWeightStrong};
 `
 
 const TextCardImage = styled.img`
-  height: 50px;
-  width: 50px;
+  width: 50%;
+  height: auto;
+  max-width: 120px;
 `
 
-const TextContent = styled.body`
+const TextContent = styled.p`
   margin: 0;
 `
 
 const LinksAndTitleContainer = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `
 
 const LinksContainer = styled.div`
