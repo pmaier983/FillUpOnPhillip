@@ -4,7 +4,7 @@ import _ from 'lodash/fp'
 import styled from 'styled-components'
 
 interface IconStylingProps {
-  fontSize?: string,
+  size?: string,
   color?: string,
   onclick?: () => void,
   hasHoverEffect?: boolean,
@@ -34,7 +34,7 @@ const IconContainer = styled.div<IconStylingProps>`
 // TODO: avoid using !important
 // TODO: how to add rgba to theme.
 const Icon = styled.i<IconStylingProps>`
-  font-size: ${({ fontSize }) => fontSize} !important;
+  font-size: ${({ size }) => size} !important;
   color: ${({ color }) => color}; 
   width: ${({ width }) => width};
   &:hover {
@@ -49,7 +49,6 @@ const MaterialIcons = forwardRef(
   ({
     name, onClick, alignSelf, ...props
   }: IMaterialIconsProps, buttonRef: React.Ref<any>) => {
-    console.log('props', props)
     // TODO: make a regex to do this super quick
     const materialTheme = _.get(_.flow(_.split('_'), _.last, _.toUpper)(name), ICON_THEMES)
     return (

@@ -4,7 +4,11 @@ import styled from 'styled-components'
 
 import { ITechCard } from '../../static/TechUsed'
 import { variables } from '../../utils/theme'
+
 import MaterialIcons from '../MaterialIcon'
+import IconContainer from '../IconContainer'
+
+const GitHubLogo = require('../../static/GitHub-logo.png')
 
 const Container = styled.div`
   display: flex;
@@ -51,9 +55,14 @@ const TextContent = styled.body`
   margin: 0;
 `
 
-const LinkContainer = styled.div`
+const LinksAndTitleContainer = styled.div`
   display: flex;
   flex-direction: column;
+`
+
+const LinksContainer = styled.div`
+  display: flex;
+  flex-direction: row;
 `
 
 interface ISlidingTextCardContentProps {
@@ -65,9 +74,13 @@ const renderTextCard = ({ name, icon, blurb }: ITechCard) => (
   <TextCardContainer>
     <LinksAndIconContainer>
       <TextCardImage src={icon} />
-      <LinkContainer>
+      <LinksAndTitleContainer>
         <TextCardName>{name}</TextCardName>
-      </LinkContainer>
+        <LinksContainer>
+          <IconContainer src={GitHubLogo} />
+          <IconContainer><MaterialIcons name="storefront" size="35px" /></IconContainer>
+        </LinksContainer>
+      </LinksAndTitleContainer>
     </LinksAndIconContainer>
     <TextContent>{blurb}</TextContent>
   </TextCardContainer>
