@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { theme } from '../utils/theme'
 
@@ -40,7 +40,7 @@ const IconContainer: React.FC<IIconContainerProps> = ({
     }
   }
 
-  const renderLogo = useMemo(() => (
+  const renderLogo = (
     <LogoLinkContainer width={width} height={height} {...props}>
       {children || (
       <img
@@ -56,7 +56,8 @@ const IconContainer: React.FC<IIconContainerProps> = ({
       />
       )}
     </LogoLinkContainer>
-  ), [width, height, src, link])
+  )
+
 
   return (
     href

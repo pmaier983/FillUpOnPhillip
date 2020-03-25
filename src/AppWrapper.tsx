@@ -12,7 +12,7 @@ const AppWrapper = ({ children }: any) => {
   const setAlert = useCallback((alertMessage: string) => {
     setErrorMessage(alertMessage)
     timedVisibility({ guaranteeInitialState: true, guaranteeFinalState: false })
-  }, [])
+  }, [timedVisibility])
 
   const client = useMemo(
     () => getApolloClient({ onErrorMessage: setAlert }),
