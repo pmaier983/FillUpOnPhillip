@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { variables } from '../../utils/theme'
+
 import './LoadingIcon.css'
 
 const CenterLoadingContainer = styled.div`
@@ -8,7 +10,7 @@ const CenterLoadingContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100%;
+  height: calc(100% - ${variables.cardHeaderHeight});
 `
 
 const LoadingIcon = () => (
