@@ -29,6 +29,10 @@ const variables = {
   fontNormal: '12px',
   fontSmall: '10px',
 
+  fontWeightLight: 100,
+  fontWeightNormal: 300,
+  fontWeightStrong: 700,
+
   borderRadiusNormal: '5px',
 
   marginSmall: '2px',

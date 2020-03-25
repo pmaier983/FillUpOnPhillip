@@ -9,6 +9,7 @@ interface IconStylingProps {
   onclick?: () => void,
   hasHoverEffect?: boolean,
   width?: string;
+  alignSelf?: string;
 }
 
 interface IMaterialIconsProps extends IconStylingProps {
@@ -27,6 +28,7 @@ const ICON_THEMES = {
 
 const IconContainer = styled.div<IconStylingProps>`
   cursor: pointer;
+  align-self: ${({ alignSelf }) => alignSelf};
 `
 
 // TODO: avoid using !important
@@ -44,11 +46,14 @@ const Icon = styled.i<IconStylingProps>`
 // TODO: correctly manage onKeyPress, role and tabIndex...
 // TODO: clarify React.Ref attribute
 const MaterialIcons = forwardRef(
-  ({ name, onClick, ...props }: IMaterialIconsProps, buttonRef: React.Ref<any>) => {
-  // TODO: make a regex to do this super quick
+  ({
+    name, onClick, alignSelf, ...props
+  }: IMaterialIconsProps, buttonRef: React.Ref<any>) => {
+    console.log('props', props)
+    // TODO: make a regex to do this super quick
     const materialTheme = _.get(_.flow(_.split('_'), _.last, _.toUpper)(name), ICON_THEMES)
     return (
-      <IconContainer role={onClick && 'button'} onClick={onClick} onKeyPress={onClick} ref={buttonRef}>
+      <IconContainer role={onClick && 'button'} onClick={onClick} onKeyPress={onClick} alignSelf={alignSelf} ref={buttonRef}>
         <Icon {...props} className={materialTheme ? `material-icons${materialTheme}` : 'material-icons'}>
           {name}
         </Icon>
