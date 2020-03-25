@@ -26,6 +26,7 @@ const Container = styled.div<IPropsContainer>`
   min-height: ${({ minHeight }) => minHeight};
   max-width: ${({ maxWidth }) => maxWidth};
   max-height: ${({ maxHeight }) => maxHeight};
+  overflow: auto;
 `
 
 const CardContainer: React.FC<IPropsContainer>= ({ children, ...rest }) => (

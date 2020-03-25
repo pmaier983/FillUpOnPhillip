@@ -31,6 +31,10 @@ const TableContainer = styled.div`
   margin: 10px 0 0 0;
 `
 
+const CardTitle = styled.span`
+  text-decoration: underline;
+`
+
 interface IRepositoryRowFormatterProps {
   index: number
 }
@@ -75,6 +79,9 @@ const RepositoriesCard = () => {
           {`Total Count: 
           ${totalCount}`}
         </span>
+        <CardTitle>
+          My Github Repositories
+        </CardTitle>
         <span>
           {`Total Disk Usage: 
           ${totalDiskUsage}`}

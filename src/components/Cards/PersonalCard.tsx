@@ -85,7 +85,7 @@ const PersonalCard = () => {
       <Company>{`Current Employer: ${company}`}</Company>
       <IsHireable>
         <span>Is Open to Opportunities:</span>
-        <MaterialIcon name={isHireable ? 'check_box_outlined' : 'check_box_outline'} width="24px" />
+        <MaterialIcon name={isHireable ? 'check_box_outlined' : 'check_box_outline'} width="24px" overflow="hidden" />
       </IsHireable>
     </CardContent>
   )

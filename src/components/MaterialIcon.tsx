@@ -8,8 +8,9 @@ interface IconStylingProps {
   color?: string,
   onclick?: () => void,
   hasHoverEffect?: boolean,
-  width?: string;
-  alignSelf?: string;
+  width?: string,
+  alignSelf?: string,
+  overflow?: string,
 }
 
 interface IMaterialIconsProps extends IconStylingProps {
@@ -34,6 +35,7 @@ const IconContainer = styled.div<IconStylingProps>`
 // TODO: avoid using !important
 // TODO: how to add rgba to theme.
 const Icon = styled.i<IconStylingProps>`
+  overflow: ${({ overflow }) => overflow};
   font-size: ${({ size }) => size} !important;
   color: ${({ color }) => color}; 
   width: ${({ width }) => width};
