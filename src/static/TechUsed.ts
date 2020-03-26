@@ -21,4 +21,13 @@ export const technologyUsed: ITechCard[] = [
       website: 'https://strml.github.io/react-grid-layout/examples/0-showcase.html',
     },
   },
+  {
+    name: 'Yeey',
+    blurb: 'hello',
+    icon: RGLIcon,
+    links: {
+      github: 'asd',
+      website: 'asd',
+    },
+  },
 ]

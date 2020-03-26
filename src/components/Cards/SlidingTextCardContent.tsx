@@ -76,15 +76,17 @@ interface ISlidingTextCardContentProps {
   textCards: ITechCard[],
 }
 
-const renderTextCard = ({ name, icon, blurb }: ITechCard) => (
+const renderTextCard = ({
+  name, icon, blurb, links: { github, website },
+}: ITechCard) => (
   <TextCardContainer>
     <LinksAndIconContainer>
       <TextCardImage src={icon} />
       <LinksAndTitleContainer>
         <TextCardName>{name}</TextCardName>
         <LinksContainer>
-          <IconContainer src={GitHubLogo} />
-          <IconContainer><MaterialIcons name="storefront" size="35px" /></IconContainer>
+          <IconContainer src={GitHubLogo} link={github} />
+          <IconContainer link={website}><MaterialIcons name="storefront" size="35px" /></IconContainer>
         </LinksContainer>
       </LinksAndTitleContainer>
     </LinksAndIconContainer>
@@ -93,17 +95,29 @@ const renderTextCard = ({ name, icon, blurb }: ITechCard) => (
 )
 
 const SlidingTextCardContent: React.FC<ISlidingTextCardContentProps>= (
-  { title, textCards, children },
+  {
+    title, textCards, children,
+  },
 ) => {
-  const [textCardIndex] = useState(0)
+  const [textCardIndex, setCardIndex] = useState(2)
 
+  const handleRightClick = () => {
+    setCardIndex((cardIndex) => (cardIndex < textCards.length ? cardIndex + 1 : cardIndex))
+  }
+
+  const handleLeftClick = () => {
+    setCardIndex((cardIndex) => (cardIndex > 0 ? cardIndex - 1 : cardIndex))
+  }
+
+  // TODO: a better method of inserting children into the flow
   return (
     <Container>
       <Title>{title}</Title>
       <SlidingTextContained>
-        <MaterialIcons name="chevron_left" alignSelf="center" />
-        {renderTextCard(_.get(`[${textCardIndex}]`, textCards))}
-        <MaterialIcons name="chevron_right" alignSelf="center" />
+        <MaterialIcons name="chevron_left" alignSelf="center" onClick={handleLeftClick} />
+        {textCardIndex === 0
+          ? children : renderTextCard(_.get(`[${textCardIndex - 1}]`, textCards))}
+        <MaterialIcons name="chevron_right" alignSelf="center" onClick={handleRightClick} />
       </SlidingTextContained>
     </Container>
   )

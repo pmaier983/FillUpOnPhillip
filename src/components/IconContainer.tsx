@@ -40,33 +40,28 @@ const IconContainer: React.FC<IIconContainerProps> = ({
     }
   }
 
-  const renderLogo = (
-    <LogoLinkContainer width={width} height={height} {...props}>
-      {children || (
-      <img
-        width="100%"
-        height="100%"
-        src={src}
-        alt="This Clearly Didnt Work"
+  return (
+    <a href={href}>
+      <LogoLinkContainer
+        width={width}
+        height={height}
+        {...props}
         onClick={handleLogoClickRedirect}
         onKeyDown={handleLogoClickRedirect}
-        // TODO: make this more accessible
-        // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
-        role="link"
-      />
-      )}
-    </LogoLinkContainer>
-  )
-
-
-  return (
-    href
-      ? (
-        <a href={href}>
-          {renderLogo}
-        </a>
-      )
-      : renderLogo
+      >
+        {children || (
+        <img
+          width="100%"
+          height="100%"
+          src={src}
+          alt="This Clearly Didnt Work"
+          // TODO: make this more accessible
+          // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
+          role="link"
+        />
+        )}
+      </LogoLinkContainer>
+    </a>
   )
 }
 
