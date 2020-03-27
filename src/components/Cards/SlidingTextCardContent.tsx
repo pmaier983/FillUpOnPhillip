@@ -99,7 +99,7 @@ const SlidingTextCardContent: React.FC<ISlidingTextCardContentProps>= (
     title, textCards, children,
   },
 ) => {
-  const [textCardIndex, setCardIndex] = useState(2)
+  const [textCardIndex, setCardIndex] = useState(0)
 
   const handleRightClick = () => {
     setCardIndex((cardIndex) => (cardIndex < textCards.length ? cardIndex + 1 : cardIndex))
