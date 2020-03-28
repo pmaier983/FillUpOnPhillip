@@ -84,7 +84,7 @@ const RepositoriesCard = () => {
         </CardTitle>
         <span>
           {`Total Disk Usage: 
-          ${totalDiskUsage}`}
+          ${totalDiskUsage} Kb`}
         </span>
       </CardHeader>
       <TableContainer>

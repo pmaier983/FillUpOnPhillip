@@ -43,7 +43,7 @@ const LandingPage = () => {
         />
       </CardContainer>
     )
-  })), [currentLayouts, dispatchLayoutEffect])
+  })), [])
 
   // TODO: give specific grid state type object
   const onLayoutChange = (layouts: Array<ILayout>, breakpointLayouts: IBreakpointLayouts) => {
