@@ -4,6 +4,7 @@ import React, { createContext, useReducer, useContext } from 'react'
 interface ILandingPageState {
   isDraggable: boolean,
   isResizable: boolean,
+  techUsedCardIndex: number,
 }
 
 interface IAction {
@@ -15,16 +16,19 @@ interface IAction {
 const initialState: ILandingPageState = {
   isDraggable: true,
   isResizable: true,
+  techUsedCardIndex: 0,
 }
 
 export const LANDING_PAGE_ACTIONS = {
   IS_DRAGGABLE: 'IS_DRAGGABLE',
   IS_RESIZABLE: 'IS_RESIZABLE',
+  UPDATE_TECH_USED_CARD_INDEX: 'UPDATE_TECH_USED_CARD_INDEX',
 }
 
 type ContextProps = [{
   isDraggable: boolean,
   isResizable: boolean,
+  techUsedCardIndex: number,
 }, React.Dispatch<IAction>]
 
 // defaultContext is only used when there is no provided above the node in the tree...
@@ -49,6 +53,11 @@ const reducer = (state: ILandingPageState, action: IAction) => {
       return {
         ...state,
         isResizable: action.payload ? action.payload : !state.isResizable,
+      }
+    case LANDING_PAGE_ACTIONS.UPDATE_TECH_USED_CARD_INDEX:
+      return {
+        ...state,
+        techUsedCardIndex: action.payload,
       }
     default:
       console.error('The Reducer Doesn\'t handle this type')

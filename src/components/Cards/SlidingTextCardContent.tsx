@@ -74,6 +74,8 @@ const LinksContainer = styled.div`
 interface ISlidingTextCardContentProps {
   title: string,
   textCards: ITechCard[],
+  textCardIndex: number,
+  setTextCardIndex: (payload: number) => void,
 }
 
 const renderTextCard = ({
@@ -96,17 +98,15 @@ const renderTextCard = ({
 
 const SlidingTextCardContent: React.FC<ISlidingTextCardContentProps>= (
   {
-    title, textCards, children,
+    title, textCards, children, textCardIndex, setTextCardIndex,
   },
 ) => {
-  const [textCardIndex, setCardIndex] = useState(0)
-
   const handleRightClick = () => {
-    setCardIndex((cardIndex) => (cardIndex < textCards.length ? cardIndex + 1 : cardIndex))
+    setTextCardIndex((textCardIndex < textCards.length ? textCardIndex + 1 : textCardIndex))
   }
 
   const handleLeftClick = () => {
-    setCardIndex((cardIndex) => (cardIndex > 0 ? cardIndex - 1 : cardIndex))
+    setTextCardIndex((textCardIndex > 0 ? textCardIndex - 1 : textCardIndex))
   }
 
   // TODO: a better method of inserting children into the flow
