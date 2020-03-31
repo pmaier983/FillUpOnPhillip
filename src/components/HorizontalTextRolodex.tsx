@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 import _ from 'lodash/fp'
 import styled from 'styled-components'
 
-import { ITechCard } from '../../static/TechUsed'
-import { variables } from '../../utils/theme'
+import { ITechCard } from '../static/TechUsed'
+import { variables } from '../utils/theme'
 
-import MaterialIcons from '../MaterialIcon'
-import IconContainer from '../IconContainer'
+import MaterialIcons from './MaterialIcon'
+import IconContainer from './IconContainer'
 
-const GitHubLogo = require('../../static/GitHub-logo.png')
+const GitHubLogo = require('../static/GitHub-logo.png')
 
 const Container = styled.div`
   display: flex;
@@ -20,6 +20,7 @@ const Container = styled.div`
 const Title = styled.div`
   text-decoration: underline;
   font-size: ${variables.fontLarge};
+  text-align: center;
 `
 
 const SlidingTextContained = styled.div`
@@ -27,7 +28,7 @@ const SlidingTextContained = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  /* align-items: center; */
+  height: inherit;
   justify-content: space-between;
 `
 
@@ -71,7 +72,7 @@ const LinksContainer = styled.div`
   flex-direction: row;
 `
 
-interface ISlidingTextCardContentProps {
+interface IHorizontalTextRolodexProps {
   title: string,
   textCards: ITechCard[],
   textCardIndex: number,
@@ -96,7 +97,7 @@ const renderTextCard = ({
   </TextCardContainer>
 )
 
-const SlidingTextCardContent: React.FC<ISlidingTextCardContentProps>= (
+const HorizontalTextRolodex: React.FC<IHorizontalTextRolodexProps>= (
   {
     title, textCards, children, textCardIndex, setTextCardIndex,
   },
@@ -123,4 +124,4 @@ const SlidingTextCardContent: React.FC<ISlidingTextCardContentProps>= (
   )
 }
 
-export default SlidingTextCardContent
+export default HorizontalTextRolodex
