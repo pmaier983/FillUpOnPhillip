@@ -61,8 +61,8 @@ export const technologyUsed: ITechCard[] = [
     },
   },
   {
-    name: 'facebook',
-    owner: 'react',
+    name: 'react',
+    owner: 'facebook',
     blurb: '',
     icon: ReactLogo,
     links: {
@@ -91,8 +91,8 @@ export const technologyUsed: ITechCard[] = [
     },
   },
   {
-    name: 'facebook',
-    owner: 'jest',
+    name: 'jest',
+    owner: 'facebook',
     blurb: '',
     icon: JestLogo,
     links: {

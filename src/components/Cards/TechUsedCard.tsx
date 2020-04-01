@@ -40,7 +40,15 @@ const SlidingTestCard = () => {
       setTextCardIndex={handleTechUsedCardIndex}
     >
       <ImageLinkContainer>
-        {technologyUsed.map(({ icon }) => <ImageLink src={icon} />)}
+        {technologyUsed.map(
+          ({ icon, name }, index) => (
+            <ImageLink
+              key={name}
+              src={icon}
+              onClick={() => handleTechUsedCardIndex(index + 1)}
+            />
+          ),
+        )}
       </ImageLinkContainer>
     </HorizontalTextRolodex>
   )
