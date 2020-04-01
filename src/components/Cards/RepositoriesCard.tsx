@@ -4,7 +4,7 @@ import _ from 'lodash/fp'
 import styled from 'styled-components'
 import { Table, Column, AutoSizer } from 'react-virtualized'
 
-import { GET_REPOSITORIES } from '../../Queries'
+import { GET_PERSONAL_REPOSITORIES } from '../../Queries'
 import { useQuery } from '../../hooks'
 
 import { variables } from '../../utils/theme'
@@ -43,7 +43,7 @@ const RepositoriesCard = () => {
   const {
     data, loading, error, LoadingIcon, ErrorAlert,
   } = useQuery(
-    GET_REPOSITORIES,
+    GET_PERSONAL_REPOSITORIES,
   )
 
   if (loading) {

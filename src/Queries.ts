@@ -1,6 +1,17 @@
 import { gql } from 'apollo-boost'
 
-const GET_REPOSITORIES = gql`
+const RepositoryFragment = gql`
+  fragment RepositoryFragment on Repository {
+    id
+    name
+    createdAt
+    description
+    url
+  }
+`
+
+// TODO: repo fragment
+const GET_PERSONAL_REPOSITORIES = gql`
   query {
     user(login: "pmaier983") {
       id
@@ -8,15 +19,12 @@ const GET_REPOSITORIES = gql`
         totalCount
         totalDiskUsage
         nodes {
-          id
-          name
-          createdAt
-          description
-          url
+          ...RepositoryFragment
         }
       }
     }
   }
+  ${RepositoryFragment}
 `
 
 const MY_PROFILE = gql`
@@ -34,6 +42,15 @@ const MY_PROFILE = gql`
   }
 `
 
+const GET_REPOSITORY = gql`
+  query getRepository($name: string, $owner: string){ 
+      repository(name: $name, owner: $owner) {
+        ...RepositoryFragment
+      }
+  }
+  ${RepositoryFragment}
+`
+
 export {
-  MY_PROFILE, GET_REPOSITORIES,
+  MY_PROFILE, GET_PERSONAL_REPOSITORIES, GET_REPOSITORY,
 }

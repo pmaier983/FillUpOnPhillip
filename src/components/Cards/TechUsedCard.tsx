@@ -6,7 +6,7 @@ import HorizontalTextRolodex from '../HorizontalTextRolodex'
 import { useLandingPageContext, LANDING_PAGE_ACTIONS } from '../../contexts/LandingPageProvider'
 import { technologyUsed } from '../../static/TechUsed'
 
-const ApolloLogo = require('../../static/Apollo-logo.png')
+const ApolloLogo = require('../../static/Apollo-logo.svg')
 const GraphQLLogo = require('../../static/GraphQL-logo.png')
 const JestLogo = require('../../static/Jest-logo.png')
 const ReactLogo = require('../../static/React-logo.png')
