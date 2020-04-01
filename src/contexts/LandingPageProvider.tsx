@@ -15,7 +15,7 @@ interface IAction {
 
 const initialState: ILandingPageState = {
   isDraggable: true,
-  isResizable: true,
+  isResizable: false,
   techUsedCardIndex: 0,
 }
 
