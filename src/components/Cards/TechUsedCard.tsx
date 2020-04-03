@@ -23,6 +23,10 @@ const ImageLink = styled.img<IImageLinkProps>`
   width: 50%;
   height: 22%;
   object-fit: contain;
+  :hover {
+    cursor: pointer;
+    box-shadow: 0 0 0 1px black;
+  };
 `
 
 const SlidingTestCard = () => {

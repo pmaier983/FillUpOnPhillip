@@ -78,8 +78,8 @@ export const technologyUsed: ITechCard[] = [
   },
   {
     displayName: 'React Testing Library',
-    name: 'testing-library',
-    owner: 'react-testing-library',
+    name: 'react-testing-library',
+    owner: 'testing-library',
     blurb: '',
     icon: ReactTestingLibraryLogo,
     links: {

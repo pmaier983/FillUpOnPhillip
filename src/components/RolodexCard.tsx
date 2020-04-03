@@ -6,6 +6,8 @@ import IconContainer from './IconContainer'
 
 import { variables } from '../utils/theme'
 import { ITechCard } from '../static/TechUsed'
+import { useQuery } from '../hooks'
+import { GET_REPOSITORY } from '../Queries'
 
 const GitHubLogo = require('../static/GitHub-logo.png')
 
@@ -50,21 +52,40 @@ const LinksContainer = styled.div`
 `
 
 const RolodexCard = ({
-  name, icon, blurb, links: { github, website },
-}: ITechCard) => (
-  <TextCardContainer>
-    <LinksAndIconContainer>
-      <TextCardImage src={icon} />
-      <LinksAndTitleContainer>
-        <TextCardName>{name}</TextCardName>
-        <LinksContainer>
-          <IconContainer src={GitHubLogo} link={github} />
-          <IconContainer link={website}><MaterialIcons name="storefront" size="35px" /></IconContainer>
-        </LinksContainer>
-      </LinksAndTitleContainer>
-    </LinksAndIconContainer>
-    <TextContent>{blurb}</TextContent>
-  </TextCardContainer>
-)
+  name, owner, icon, blurb, links: { github, website },
+}: ITechCard) => {
+  const {
+    loading, error, LoadingIcon, ErrorAlert,
+  } = useQuery(GET_REPOSITORY, {
+    variables: {
+      name,
+      owner,
+    },
+  })
+
+  if (loading) {
+    return <LoadingIcon />
+  }
+
+  if (error) {
+    return <ErrorAlert />
+  }
+
+  return (
+    <TextCardContainer>
+      <LinksAndIconContainer>
+        <TextCardImage src={icon} />
+        <LinksAndTitleContainer>
+          <TextCardName>{name}</TextCardName>
+          <LinksContainer>
+            <IconContainer src={GitHubLogo} link={github} />
+            <IconContainer link={website}><MaterialIcons name="storefront" size="35px" /></IconContainer>
+          </LinksContainer>
+        </LinksAndTitleContainer>
+      </LinksAndIconContainer>
+      <TextContent>{blurb}</TextContent>
+    </TextCardContainer>
+  )
+}
 
 export default RolodexCard
