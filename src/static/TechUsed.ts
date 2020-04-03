@@ -8,7 +8,8 @@ const ReactTestingLibraryLogo = require('./ReactTestingLibrary-logo.png')
 const JestLogo = require('./Jest-logo.png')
 
 export interface ITechCard {
-  name: string;
+  displayName: string,
+  name: string,
   owner: string,
   icon: any;
   blurb: string;
@@ -21,7 +22,8 @@ export interface ITechCard {
 // create a graphql server to Host this info
 export const technologyUsed: ITechCard[] = [
   {
-    name: 'Apollo',
+    displayName: 'Apollo',
+    name: 'apollo-client',
     owner: 'apollographql',
     blurb: '',
     icon: ApolloLogo,
@@ -31,7 +33,8 @@ export const technologyUsed: ITechCard[] = [
     },
   },
   {
-    name: 'GraphQL',
+    displayName: 'GraphQL',
+    name: 'graphql-spec',
     owner: 'GraphQL',
     blurb: '',
     icon: GraphQLLogo,
@@ -41,6 +44,7 @@ export const technologyUsed: ITechCard[] = [
     },
   },
   {
+    displayName: 'Typescript',
     name: 'TypeScript',
     owner: 'microsoft',
     blurb: '',
@@ -51,6 +55,7 @@ export const technologyUsed: ITechCard[] = [
     },
   },
   {
+    displayName: 'Styled Components',
     name: 'styled-components',
     owner: 'styled-components',
     blurb: '',
@@ -61,6 +66,7 @@ export const technologyUsed: ITechCard[] = [
     },
   },
   {
+    displayName: 'React',
     name: 'react',
     owner: 'facebook',
     blurb: '',
@@ -71,6 +77,7 @@ export const technologyUsed: ITechCard[] = [
     },
   },
   {
+    displayName: 'React Testing Library',
     name: 'testing-library',
     owner: 'react-testing-library',
     blurb: '',
@@ -81,6 +88,7 @@ export const technologyUsed: ITechCard[] = [
     },
   },
   {
+    displayName: 'React Grid Layout',
     name: 'React-Grid-Layout',
     owner: 'STRML',
     blurb: 'My work required me to build a flexible grid. Considering the time crunch I was under; I began searching for an open-sourced solution. I chose React-Grid-Layout (RGL) after reading the source code, researching it\'s community, comparing it to its closest competitors and building a proof of concept. To expedite my personal site as well as my professional work, I began work on this site with RGL top of mind.',
@@ -91,6 +99,7 @@ export const technologyUsed: ITechCard[] = [
     },
   },
   {
+    displayName: 'Jest',
     name: 'jest',
     owner: 'facebook',
     blurb: '',
