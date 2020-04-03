@@ -1,32 +1,12 @@
-import React, { useState, useMemo, useCallback } from 'react'
+import React from 'react'
 import { ApolloProvider } from 'react-apollo'
 
-import getApolloClient from './ApolloClient'
-import AlertContainer from './alert/AlertContainer'
-import { useTimedBoolean } from './hooks'
+import { client } from './ApolloClient'
 
-const AppWrapper = ({ children }: any) => {
-  const [errorMessage, setErrorMessage] = useState<string | null | undefined>()
-  const [visible, timedVisibility] = useTimedBoolean(6000, false)
-
-  const setAlert = useCallback((alertMessage: string) => {
-    setErrorMessage(alertMessage)
-    timedVisibility({ guaranteeInitialState: true, guaranteeFinalState: false })
-  }, [timedVisibility])
-
-  const client = useMemo(
-    () => getApolloClient({ onErrorMessage: setAlert }),
-    [setAlert],
-  )
-
-  return (
-    <ApolloProvider client={client}>
-      {children}
-      {visible && (
-      <AlertContainer>{errorMessage}</AlertContainer>
-      )}
-    </ApolloProvider>
-  )
-}
+const AppWrapper: React.FC = ({ children }) => (
+  <ApolloProvider client={client}>
+    {children}
+  </ApolloProvider>
+)
 
 export default AppWrapper

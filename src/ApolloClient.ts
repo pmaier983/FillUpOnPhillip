@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
 import _ from 'lodash'
-import moment from 'moment'
 
 import { ApolloClient } from 'apollo-client'
 import { ApolloLink } from 'apollo-link'
@@ -10,50 +9,32 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 
 const GITHUB_BASE_URL = 'https://api.github.com/graphql'
 
-const getApolloClient = ({ onErrorMessage }: {onErrorMessage: (x: string) => void}) => {
-  const httpLink = new HttpLink({
-    uri: GITHUB_BASE_URL,
-    headers: {
-      authorization: `Bearer ${
-        process.env.REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN
-      }`,
-    },
-  })
+const httpLink = new HttpLink({
+  uri: GITHUB_BASE_URL,
+  headers: {
+    authorization: `Bearer ${
+      process.env.REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN
+    }`,
+  },
+})
 
-  const cache = new InMemoryCache()
+const cache = new InMemoryCache()
 
-  return new ApolloClient({
-    link: ApolloLink.from([
-      onError((...errorArgs) => {
-        const { graphQLErrors, networkError } = _.get(errorArgs, '0')
-        if (graphQLErrors) {
-          graphQLErrors.map(({ message, locations, path }) => console.log(
-            `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`,
-          ))
-        }
+export const client = new ApolloClient({
+  link: ApolloLink.from([
+    onError((...errorArgs) => {
+      const { graphQLErrors, networkError } = _.get(errorArgs, '0')
+      if (graphQLErrors) {
+        graphQLErrors.map(({ message, locations, path }) => console.log(
+          `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`,
+        ))
+      }
 
-        if (networkError) {
-          console.log(`[Network error]: ${networkError}`)
-        }
-
-        if (typeof onErrorMessage === 'function') {
-          // You could log to a server here or anything else
-          const currentTime = moment()
-            .format('MM/DD/YYYY HH:mm:ss')
-          if (graphQLErrors) {
-            onErrorMessage(`GraphQL Server Error! ${currentTime}`)
-          }
-          if (networkError) {
-            onErrorMessage(`GraphQL Network Error! ${currentTime}`)
-          } else {
-            onErrorMessage(`GraphQL Error! ${currentTime}`)
-          }
-        }
-      }),
-      httpLink,
-    ]),
-    cache,
-  })
-}
-
-export default getApolloClient
+      if (networkError) {
+        console.log(`[Network error]: ${networkError}`)
+      }
+    }),
+    httpLink,
+  ]),
+  cache,
+})
