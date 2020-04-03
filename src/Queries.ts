@@ -43,7 +43,7 @@ const MY_PROFILE = gql`
 `
 
 const GET_REPOSITORY = gql`
-  query getRepository($name: string, $owner: string){ 
+  query getRepository($name: String!, $owner: String!){ 
       repository(name: $name, owner: $owner) {
         ...RepositoryFragment
       }

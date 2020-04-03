@@ -2,9 +2,9 @@ import { useQuery } from '@apollo/react-hooks'
 import LoadingIcon from '../components/Loading/LoadingIcon'
 import ErrorAlert from '../components/ErrorHandling/ErrorAlert'
 
-const useQ = (props: any) => {
-  const response = useQuery(props)
-  // const { loading, error } = props;
+// TODO specify props here
+const useQ = (props: any, variables?: any) => {
+  const response = useQuery(props, variables)
   return {
     ...response,
     LoadingIcon,
