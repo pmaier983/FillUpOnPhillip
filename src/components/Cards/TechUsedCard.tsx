@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import HorizontalTextRolodex from '../HorizontalTextRolodex'
 
 import { useLandingPageContext, LANDING_PAGE_ACTIONS } from '../../contexts/LandingPageProvider'
-import { technologyUsed } from '../../static/TechUsed'
 
 interface IImageLinkProps {
   width?: string,
@@ -30,7 +29,7 @@ const ImageLink = styled.img<IImageLinkProps>`
 `
 
 const SlidingTestCard = () => {
-  const [{ techUsedCardIndex }, dispatch] = useLandingPageContext()
+  const [{ techUsedCardIndex, techUsedRolodex }, dispatch] = useLandingPageContext()
 
   const handleTechUsedCardIndex = (payload: number) => {
     dispatch({ type: LANDING_PAGE_ACTIONS.UPDATE_TECH_USED_CARD_INDEX, payload })
@@ -39,12 +38,12 @@ const SlidingTestCard = () => {
   return (
     <HorizontalTextRolodex
       title="Tech Used to build this Website (Click In)"
-      textCards={technologyUsed}
+      textCards={techUsedRolodex}
       textCardIndex={techUsedCardIndex}
       setTextCardIndex={handleTechUsedCardIndex}
     >
       <ImageLinkContainer>
-        {technologyUsed.map(
+        {techUsedRolodex.map(
           ({ icon, name }, index) => (
             <ImageLink
               key={name}

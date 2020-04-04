@@ -43,11 +43,11 @@ const HorizontalTextRolodex: React.FC<IHorizontalTextRolodexProps>= (
   },
 ) => {
   const handleRightClick = () => {
-    setTextCardIndex((textCardIndex < textCards.length ? textCardIndex + 1 : textCardIndex))
+    setTextCardIndex(textCardIndex + 1)
   }
 
   const handleLeftClick = () => {
-    setTextCardIndex((textCardIndex > 0 ? textCardIndex - 1 : textCardIndex))
+    setTextCardIndex(textCardIndex - 1)
   }
 
   // TODO: a better method of inserting children into the flow

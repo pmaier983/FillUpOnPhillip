@@ -1,10 +1,13 @@
 /* eslint-disable no-console */
 import React, { createContext, useReducer, useContext } from 'react'
+import _ from 'lodash/fp'
+import { ITechCard, technologyUsed } from '../static/TechUsed'
 
 interface ILandingPageState {
   isDraggable: boolean,
   isResizable: boolean,
   techUsedCardIndex: number,
+  techUsedRolodex: ITechCard[]
 }
 
 interface IAction {
@@ -17,6 +20,7 @@ const initialState: ILandingPageState = {
   isDraggable: true,
   isResizable: false,
   techUsedCardIndex: 0,
+  techUsedRolodex: technologyUsed,
 }
 
 export const LANDING_PAGE_ACTIONS = {
@@ -25,11 +29,7 @@ export const LANDING_PAGE_ACTIONS = {
   UPDATE_TECH_USED_CARD_INDEX: 'UPDATE_TECH_USED_CARD_INDEX',
 }
 
-type ContextProps = [{
-  isDraggable: boolean,
-  isResizable: boolean,
-  techUsedCardIndex: number,
-}, React.Dispatch<IAction>]
+type ContextProps = [ILandingPageState, React.Dispatch<IAction>]
 
 // defaultContext is only used when there is no provided above the node in the tree...
 // this shouldnt ever happen
@@ -54,11 +54,32 @@ const reducer = (state: ILandingPageState, action: IAction) => {
         ...state,
         isResizable: action.payload ? action.payload : !state.isResizable,
       }
-    case LANDING_PAGE_ACTIONS.UPDATE_TECH_USED_CARD_INDEX:
+    case LANDING_PAGE_ACTIONS.UPDATE_TECH_USED_CARD_INDEX: {
+      const newIndex = _.get('payload', action)
+      const techRolodexLength = _.get('techUsedRolodex.length', state)
+      // TODO: I'm sure there is a better pattern then this
+      if (newIndex >= techRolodexLength) {
+        return {
+          ...state,
+          techUsedCardIndex: 0,
+        }
+      } if (newIndex < 0) {
+        return {
+          ...state,
+          techUsedCardIndex: techRolodexLength -1,
+        }
+      }
+      if (newIndex > 0 || newIndex >= techRolodexLength) {
+        return {
+          ...state,
+          techUsedCardIndex: newIndex,
+        }
+      }
       return {
         ...state,
-        techUsedCardIndex: action.payload,
+        techUsedCardIndex: 0,
       }
+    }
     default:
       console.error('The Reducer Doesn\'t handle this type')
       return state
