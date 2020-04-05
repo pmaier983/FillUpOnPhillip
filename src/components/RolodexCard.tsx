@@ -51,9 +51,13 @@ const LinksContainer = styled.div`
   flex-direction: row;
 `
 
+interface IRolodexCardProps extends ITechCard {
+  handleCardIndexReset: () => void,
+}
+
 const RolodexCard = ({
-  name, owner, icon, blurb, links: { github, website },
-}: ITechCard) => {
+  handleCardIndexReset, name, owner, icon, blurb, links: { github, website },
+}: IRolodexCardProps) => {
   const {
     loading, error, LoadingIcon, ErrorAlert,
   } = useQuery(GET_REPOSITORY, {
@@ -73,6 +77,7 @@ const RolodexCard = ({
 
   return (
     <TextCardContainer>
+      <MaterialIcons name="refresh" onClick={handleCardIndexReset} />
       <LinksAndIconContainer>
         <TextCardImage src={icon} />
         <LinksAndTitleContainer>

@@ -50,6 +50,10 @@ const HorizontalTextRolodex: React.FC<IHorizontalTextRolodexProps>= (
     setTextCardIndex(textCardIndex - 1)
   }
 
+  const handleCardIndexReset = () => {
+    setTextCardIndex(0)
+  }
+
   // TODO: a better method of inserting children into the flow
   return (
     <Container>
@@ -57,7 +61,7 @@ const HorizontalTextRolodex: React.FC<IHorizontalTextRolodexProps>= (
       <SlidingTextContained>
         <MaterialIcons name="chevron_left" alignSelf="center" onClick={handleLeftClick} />
         {textCardIndex === 0
-          ? children : <RolodexCard {..._.get(`[${textCardIndex - 1}]`, textCards)} />}
+          ? children : <RolodexCard handleCardIndexReset={handleCardIndexReset} {..._.get(`[${textCardIndex - 1}]`, textCards)} />}
         <MaterialIcons name="chevron_right" alignSelf="center" onClick={handleRightClick} />
       </SlidingTextContained>
     </Container>
