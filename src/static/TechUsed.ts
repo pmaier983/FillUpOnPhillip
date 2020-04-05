@@ -25,7 +25,7 @@ export const technologyUsed: ITechCard[] = [
     displayName: 'Apollo',
     name: 'apollo-client',
     owner: 'apollographql',
-    blurb: '',
+    blurb: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad',
     icon: ApolloLogo,
     links: {
       github: 'https://github.com/apollographql/react-apollo',
@@ -36,7 +36,7 @@ export const technologyUsed: ITechCard[] = [
     displayName: 'GraphQL',
     name: 'graphql-spec',
     owner: 'GraphQL',
-    blurb: '',
+    blurb: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad',
     icon: GraphQLLogo,
     links: {
       github: 'https://github.com/graphql',
@@ -47,7 +47,7 @@ export const technologyUsed: ITechCard[] = [
     displayName: 'Typescript',
     name: 'TypeScript',
     owner: 'microsoft',
-    blurb: '',
+    blurb: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad',
     icon: TypeScriptLogo,
     links: {
       github: 'https://github.com/microsoft/TypeScript',
@@ -58,7 +58,7 @@ export const technologyUsed: ITechCard[] = [
     displayName: 'Styled Components',
     name: 'styled-components',
     owner: 'styled-components',
-    blurb: '',
+    blurb: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad',
     icon: StyledComponentsLogo,
     links: {
       github: 'https://github.com/styled-components/styled-components',
@@ -69,7 +69,7 @@ export const technologyUsed: ITechCard[] = [
     displayName: 'React',
     name: 'react',
     owner: 'facebook',
-    blurb: '',
+    blurb: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad',
     icon: ReactLogo,
     links: {
       github: 'https://github.com/facebook/react',
@@ -80,7 +80,7 @@ export const technologyUsed: ITechCard[] = [
     displayName: 'React Testing Library',
     name: 'react-testing-library',
     owner: 'testing-library',
-    blurb: '',
+    blurb: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad',
     icon: ReactTestingLibraryLogo,
     links: {
       github: 'https://github.com/testing-library/react-testing-library',
@@ -102,7 +102,7 @@ export const technologyUsed: ITechCard[] = [
     displayName: 'Jest',
     name: 'jest',
     owner: 'facebook',
-    blurb: '',
+    blurb: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad',
     icon: JestLogo,
     links: {
       github: 'https://github.com/facebook/jest',
