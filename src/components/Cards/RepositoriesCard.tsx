@@ -41,7 +41,7 @@ interface IRepositoryRowFormatterProps {
 
 const RepositoriesCard = () => {
   const {
-    data, loading, error, LoadingIcon, ErrorAlert,
+    data, loading, error, LoadingIcon,
   } = useQuery(
     GET_PERSONAL_REPOSITORIES,
   )
@@ -52,8 +52,7 @@ const RepositoriesCard = () => {
   }
 
   if (error) {
-    // TODO: build broken icon (mb build into)
-    return <ErrorAlert />
+    throw Error()
   }
 
   const { totalCount, totalDiskUsage, nodes: repositories } = _.get(

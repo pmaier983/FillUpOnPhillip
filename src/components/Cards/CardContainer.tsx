@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import CardHandle from './CardHandle'
+import ErrorBoundry from '../ErrorHandling/ErrorBoundry'
 
 import { theme } from '../../utils/theme'
 
@@ -32,7 +33,9 @@ const Container = styled.div<IPropsContainer>`
 const CardContainer: React.FC<IPropsContainer>= ({ children, ...rest }) => (
   <Container {...rest}>
     <CardHandle height="20px" />
-    {children}
+    <ErrorBoundry>
+      {children}
+    </ErrorBoundry>
   </Container>
 )
 

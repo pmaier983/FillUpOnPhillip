@@ -1,6 +1,5 @@
 import { useQuery } from '@apollo/react-hooks'
 import LoadingIcon from '../components/Loading/LoadingIcon'
-import ErrorAlert from '../components/ErrorHandling/ErrorAlert'
 
 // TODO specify props here
 const useQ = (props: any, variables?: any) => {
@@ -8,7 +7,6 @@ const useQ = (props: any, variables?: any) => {
   return {
     ...response,
     LoadingIcon,
-    ErrorAlert,
   }
 }
 

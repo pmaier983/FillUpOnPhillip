@@ -56,7 +56,7 @@ const IsHireable = styled.div`
 
 const PersonalCard = () => {
   const {
-    data, loading, error, LoadingIcon, ErrorAlert,
+    data, loading, error, LoadingIcon,
   } = useQuery(MY_PROFILE)
 
   if (loading) {
@@ -64,7 +64,7 @@ const PersonalCard = () => {
   }
 
   if (error) {
-    return <ErrorAlert />
+    throw Error()
   }
 
   const {
