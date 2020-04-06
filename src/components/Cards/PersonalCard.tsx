@@ -64,7 +64,7 @@ const PersonalCard = () => {
   }
 
   if (error) {
-    throw Error()
+    throw Error('The Personal Card Failed')
   }
 
   const {

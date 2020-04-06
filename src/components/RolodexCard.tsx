@@ -59,7 +59,7 @@ const RolodexCard = ({
   handleCardIndexReset, name, owner, icon, blurb, links: { github, website },
 }: IRolodexCardProps) => {
   const {
-    loading, error, LoadingIcon, ErrorAlert,
+    loading, error, LoadingIcon,
   } = useQuery(GET_REPOSITORY, {
     variables: {
       name,
@@ -72,7 +72,7 @@ const RolodexCard = ({
   }
 
   if (error) {
-    return <ErrorAlert />
+    throw Error(`The Rolodex Card, ${name} Failed`)
   }
 
   return (

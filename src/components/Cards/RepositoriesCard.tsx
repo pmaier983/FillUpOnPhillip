@@ -52,7 +52,7 @@ const RepositoriesCard = () => {
   }
 
   if (error) {
-    throw Error()
+    throw Error('The Repository Card Failed')
   }
 
   const { totalCount, totalDiskUsage, nodes: repositories } = _.get(

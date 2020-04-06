@@ -38,8 +38,9 @@ class ErrorBoundary extends Component {
       // TODO: improve error handling
       return (
         <ErrorContainer>
-          There Was an Error. Please email me at
+          {errorInfo}
           <br />
+          Please Contact me below if you need anything
           <a href="mailto:pmaier983@gmail.com">pmaier983@gmail.com</a>
         </ErrorContainer>
       )
