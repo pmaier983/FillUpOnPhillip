@@ -3,6 +3,8 @@ import React, { forwardRef } from 'react'
 import _ from 'lodash/fp'
 import styled from 'styled-components'
 
+import { theme } from '../utils/theme'
+
 interface IconStylingProps {
   size?: string,
   color?: string,
@@ -28,7 +30,7 @@ const ICON_THEMES = {
 }
 
 const IconContainer = styled.div<IconStylingProps>`
-  cursor: pointer;
+  cursor: ${({ onClick }) => (onClick ? 'pointer' : undefined)};
   align-self: ${({ alignSelf }) => alignSelf};
 `
 
@@ -40,7 +42,7 @@ const Icon = styled.i<IconStylingProps>`
   color: ${({ color }) => color}; 
   width: ${({ width }) => width};
   &:hover {
-    background: ${({ hasHoverEffect }) => hasHoverEffect && 'rgba(55.7, 55.3, 54.1, 0.25)'};
+    background: ${({ hasHoverEffect }) => hasHoverEffect && theme.minorBackgroundColorSoft};
     border-radius: 20px;
   }
 `

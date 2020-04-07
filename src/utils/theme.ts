@@ -1,6 +1,7 @@
 const colors = {
   eggshellWhite: '#EAE7DC',
   darkVanilla: '#D8C3A5',
+  darkVanillaRGBA: 'rgba(55.7, 55.3, 54.1, 0.25)',
   taupeGray: '#8E8D8A',
   lightJellyBeanRed: '#E98074',
   darkJellyBeanRed: '#E85A45',
@@ -12,6 +13,7 @@ const colors = {
 const minimalYetWarm = {
   majorBackgroundColor: colors.eggshellWhite,
   minorBackgroundColor: colors.darkVanilla,
+  minorBackgroundColorSoft: colors.darkVanillaRGBA,
   lineEmphasized: colors.taupeGray,
   handleArea: colors.taupeGray,
   buttonEmphasis: colors.taupeGray,
@@ -19,7 +21,7 @@ const minimalYetWarm = {
   lightAlert: colors.lightJellyBeanRed,
   lightApproval: colors.lightJellyBeanGreen,
   darkApproval: colors.darkJellyBeanGreen,
-  border: colors.black,
+  borderBasic: colors.black,
 }
 
 const theme = minimalYetWarm
