@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { ITechCard } from '../static/TechUsed'
 import { variables } from '../utils/theme'
 
-import RolodexCard from './RolodexCard'
+import RepositoryRolodexCard from './RepositoryRolodexCard'
 import MaterialIcons from './MaterialIcon'
 
 const Container = styled.div`
@@ -61,7 +61,7 @@ const HorizontalTextRolodex: React.FC<IHorizontalTextRolodexProps>= (
       <SlidingTextContained>
         <MaterialIcons name="chevron_left" alignSelf="center" onClick={handleLeftClick} />
         {textCardIndex === 0
-          ? children : <RolodexCard handleCardIndexReset={handleCardIndexReset} {..._.get(`[${textCardIndex - 1}]`, textCards)} />}
+          ? children : <RepositoryRolodexCard handleCardIndexReset={handleCardIndexReset} {..._.get(`[${textCardIndex - 1}]`, textCards)} />}
         <MaterialIcons name="chevron_right" alignSelf="center" onClick={handleRightClick} />
       </SlidingTextContained>
     </Container>

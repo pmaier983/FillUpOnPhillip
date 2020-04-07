@@ -13,12 +13,12 @@ const GitHubLogo = require('../static/GitHub-logo.png')
 
 const TextCardContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
 `
 
 const LinksAndIconContainer = styled.div`
   width: 100%;
+  margin: 10% 0px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -51,19 +51,19 @@ const LinksContainer = styled.div`
   flex-direction: row;
 `
 
-interface IRolodexCardProps extends ITechCard {
+interface IRepositoryRolodexCardProps extends ITechCard {
   handleCardIndexReset: () => void,
 }
 
-const RolodexCard = ({
-  handleCardIndexReset, name, owner, icon, blurb, links: { github, website },
-}: IRolodexCardProps) => {
+const RepositoryRolodexCard = ({
+  handleCardIndexReset, name: repositoryName, owner: RepositoryOwner, icon, blurb, links: { github, website },
+}: IRepositoryRolodexCardProps) => {
   const {
-    loading, error, LoadingIcon,
+    data, loading, error, LoadingIcon,
   } = useQuery(GET_REPOSITORY, {
     variables: {
-      name,
-      owner,
+      name: repositoryName,
+      owner: RepositoryOwner,
     },
   })
 
@@ -72,8 +72,10 @@ const RolodexCard = ({
   }
 
   if (error) {
-    throw Error(`The Rolodex Card, ${name} Failed`)
+    throw Error(`The Rolodex Card, ${repositoryName} Failed`)
   }
+  const { name } = data
+  console.log('This is the Data:', data)
 
   return (
     <TextCardContainer>
@@ -93,4 +95,4 @@ const RolodexCard = ({
   )
 }
 
-export default RolodexCard
+export default RepositoryRolodexCard
