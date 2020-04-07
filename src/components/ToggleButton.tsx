@@ -26,7 +26,7 @@ const ButtonContainer = styled.div<IButtonContainerProps>`
   height: ${({ height }) => `${height}px`};
   background-color: ${({ color }) => color};
   border-radius: ${variables.borderRadiusNormal};
-  border: 1px solid ${theme.border};
+  border: 1px solid ${theme.borderBasic};
 `
 
 const WordContainer = styled.div`
