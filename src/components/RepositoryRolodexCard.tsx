@@ -110,6 +110,8 @@ const RepositoryRolodexCard = ({
   const strippedHomepageURL = stripHttp(homepageUrl)
   const strippedGithubURL = stripHttp(url)
 
+  const daysSinceCreation = moment().diff(createdAt, 'days')
+  const creationDate = moment(createdAt).format(variables.createdDateFormat)
   return (
     <TextCardContainer>
       <RefreshContainer>
