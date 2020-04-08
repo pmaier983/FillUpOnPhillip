@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import MaterialIcons from './MaterialIcon'
 import IconContainer from './IconContainer'
 
+import { stripHttp } from '../utils/functions.helpers'
 import { variables } from '../utils/theme'
 import { ITechCard } from '../static/TechUsed'
 import { useQuery } from '../hooks'
@@ -18,11 +19,19 @@ const TextCardContainer = styled.div`
 
 const LinksAndIconContainer = styled.div`
   width: 100%;
-  margin: 10% 0px;
   display: flex;
   flex-direction: row;
   align-items: center;
   place-content: space-around;
+`
+
+const LinkPadder = styled.div`
+  width: 100%;
+  height: 10px;
+`
+
+const RefreshContainer = styled.div`
+  align-self: flex-end;
 `
 
 const TextCardName = styled.div`
@@ -31,9 +40,7 @@ const TextCardName = styled.div`
 `
 
 const TextCardImage = styled.img`
-  width: 50%;
-  height: auto;
-  max-width: 120px;
+  max-width: 45%;
 `
 
 const TextContent = styled.p`
@@ -56,7 +63,12 @@ interface IRepositoryRolodexCardProps extends ITechCard {
 }
 
 const RepositoryRolodexCard = ({
-  handleCardIndexReset, name: repositoryName, owner: RepositoryOwner, icon, blurb, links: { github, website },
+  handleCardIndexReset,
+  name: repositoryName,
+  owner: RepositoryOwner,
+  displayName,
+  icon,
+  blurb,
 }: IRepositoryRolodexCardProps) => {
   const {
     data, loading, error, LoadingIcon,
@@ -74,22 +86,47 @@ const RepositoryRolodexCard = ({
   if (error) {
     throw Error(`The Rolodex Card, ${repositoryName} Failed`)
   }
-  const { name } = data
-  console.log('This is the Data:', data)
+  const {
+    repository: {
+      createdAt,
+      description,
+      diskUsage,
+      homepageUrl,
+      name,
+      updatedAt,
+      url,
+    },
+  } = data
+  console.log(
+    'This is the Data:', data, createdAt,
+    description,
+    diskUsage,
+    homepageUrl,
+    name,
+    updatedAt,
+    url,
+  )
+
+  const strippedHomepageURL = stripHttp(homepageUrl)
+  const strippedGithubURL = stripHttp(url)
 
   return (
     <TextCardContainer>
-      <MaterialIcons name="refresh" onClick={handleCardIndexReset} />
+      <RefreshContainer>
+        <MaterialIcons name="refresh" onClick={handleCardIndexReset} />
+      </RefreshContainer>
+      <LinkPadder />
       <LinksAndIconContainer>
         <TextCardImage src={icon} />
         <LinksAndTitleContainer>
-          <TextCardName>{name}</TextCardName>
+          <TextCardName>{displayName}</TextCardName>
           <LinksContainer>
-            <IconContainer src={GitHubLogo} link={github} />
-            <IconContainer link={website}><MaterialIcons name="storefront" size="35px" /></IconContainer>
+            <IconContainer src={GitHubLogo} link={strippedHomepageURL} />
+            <IconContainer link={strippedGithubURL}><MaterialIcons name="storefront" size="35px" /></IconContainer>
           </LinksContainer>
         </LinksAndTitleContainer>
       </LinksAndIconContainer>
+      <LinkPadder />
       <TextContent>{blurb}</TextContent>
     </TextCardContainer>
   )

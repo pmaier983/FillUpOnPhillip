@@ -26,5 +26,7 @@ formatToUnit.defaultProps = {
   defaultUnit: 'px',
 }
 
+const stripHttp = (url: string): string => url.replace(/(^\w+:|^)\/\//, '')
+
 // eslint-disable-next-line import/prefer-default-export
-export { formatToUnit }
+export { formatToUnit, stripHttp }
