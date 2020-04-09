@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
+import moment from 'moment'
 
 import MaterialIcons from './MaterialIcon'
 import IconContainer from './IconContainer'
+import TooltipStatic from './TooltipStatic'
 
 import { stripHttp } from '../utils/functions.helpers'
 import { variables } from '../utils/theme'
@@ -97,21 +99,15 @@ const RepositoryRolodexCard = ({
       url,
     },
   } = data
-  console.log(
-    'This is the Data:', data, createdAt,
-    description,
-    diskUsage,
-    homepageUrl,
-    name,
-    updatedAt,
-    url,
-  )
 
   const strippedHomepageURL = stripHttp(homepageUrl)
   const strippedGithubURL = stripHttp(url)
 
-  const daysSinceCreation = moment().diff(createdAt, 'days')
+  const totalDaysSinceCreation = moment().diff(createdAt, 'days')
+  const yearsSinceCreation = Math.floor(totalDaysSinceCreation / variables.daysInYear)
+  const daysSinceCreation = totalDaysSinceCreation % variables.daysInYear
   const creationDate = moment(createdAt).format(variables.createdDateFormat)
+
   return (
     <TextCardContainer>
       <RefreshContainer>
@@ -119,6 +115,9 @@ const RepositoryRolodexCard = ({
       </RefreshContainer>
       <LinkPadder />
       <LinksAndIconContainer>
+        <TooltipStatic content={creationDate}>
+          {`Created: ${yearsSinceCreation} years ${daysSinceCreation} days ago`}
+        </TooltipStatic>
         <TextCardImage src={icon} />
         <LinksAndTitleContainer>
           <TextCardName>{displayName}</TextCardName>
