@@ -19,15 +19,14 @@ interface IPropsContainer {
 const Container = styled.div<IPropsContainer>`
   background-color: ${theme.minorBackgroundColor};
   border: 1px ${theme.borderBasic} solid;
+  border-radius: 4px;
   width: ${({ width }) => width};
   height: ${({ height }) => height};
   background-color: ${theme.minorBackgroundColor};
-  border-radius: 4px;
   min-width: ${({ minWidth }) => minWidth};
   min-height: ${({ minHeight }) => minHeight};
   max-width: ${({ maxWidth }) => maxWidth};
   max-height: ${({ maxHeight }) => maxHeight};
-  overflow: hidden;
 `
 
 const CardContainer: React.FC<IPropsContainer>= ({ children, ...rest }) => (

@@ -16,6 +16,7 @@ const minimalYetWarm = {
   minorBackgroundColorSoft: colors.darkVanillaRGBA,
   lineEmphasized: colors.taupeGray,
   handleArea: colors.taupeGray,
+  normalTooltipColor: colors.taupeGray,
   buttonEmphasis: colors.taupeGray,
   darkAlert: colors.darkJellyBeanRed,
   lightAlert: colors.lightJellyBeanRed,
@@ -41,6 +42,10 @@ const variables = {
   marginSmall: '2px',
 
   cardHeaderHeight: '20px',
+
+  createdDateFormat: 'MMMM Do YYYY',
+
+  daysInYear: 365,
 }
 
 export { colors, theme, variables }

@@ -66,7 +66,7 @@ const RepositoriesCard = () => {
     return {
       ...rowObject,
       name: <a href={url}>{name}</a>,
-      createdAt: moment(createdAt).format('MMMM Do YYYY'),
+      createdAt: moment(createdAt).format(variables.createdDateFormat),
     }
   }
 

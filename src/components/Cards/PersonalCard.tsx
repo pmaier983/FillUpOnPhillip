@@ -33,7 +33,6 @@ const SeperatorLine = styled.div`
   border-bottom: 1px solid ${theme.lineEmphasized};
 `
 
-// TODO: standardize font size's (big v small)
 // TODO: combined all these fields into a component
 const Name = styled.strong`
   font-size: ${variables.fontLarge};
@@ -75,7 +74,6 @@ const PersonalCard = () => {
 
   return (
     <CardContent>
-      {/* display loading during lag time between content load and Portrait load */}
       <Portrait src={avatarUrl} alt="Profile" />
       <Name>{name}</Name>
       <Location>{location}</Location>
