@@ -44,6 +44,7 @@ const variables = {
   cardHeaderHeight: '20px',
 
   createdDateFormat: 'MMMM Do YYYY',
+  specificTimeFormat: 'MMMM Do YYYY h:mm:ss',
 
   daysInYear: 365,
 }

@@ -49,7 +49,6 @@ const GET_REPOSITORY = gql`
       description
       diskUsage
       homepageUrl
-      name
       updatedAt
       url
     }

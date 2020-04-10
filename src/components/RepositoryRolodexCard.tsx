@@ -7,7 +7,7 @@ import IconContainer from './IconContainer'
 import TooltipStatic from './TooltipStatic'
 
 import { stripHttp } from '../utils/functions.helpers'
-import { variables } from '../utils/theme'
+import { variables, theme } from '../utils/theme'
 import { ITechCard } from '../static/TechUsed'
 import { useQuery } from '../hooks'
 import { GET_REPOSITORY } from '../Queries'
@@ -27,11 +27,6 @@ const LinksAndIconContainer = styled.div`
   place-content: space-around;
 `
 
-const LinkPadder = styled.div`
-  width: 100%;
-  height: 10px;
-`
-
 const RefreshContainer = styled.div`
   align-self: flex-end;
 `
@@ -42,7 +37,7 @@ const TextCardName = styled.div`
 `
 
 const TextCardImage = styled.img`
-  max-width: 45%;
+  max-width: 30%;
 `
 
 const TextContent = styled.p`
@@ -59,6 +54,30 @@ const LinksContainer = styled.div`
   display: flex;
   flex-direction: row;
 `
+
+const EmphasizedText = styled.div`
+  font-weight: ${variables.fontWeightStrong};
+`
+
+const SeperatorLine = styled.div`
+  width: 100%;
+  margin: 10px 0 10px;
+  border-bottom: 1px solid ${theme.lineEmphasized};
+`
+
+const FactContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  place-content: space-between;
+`
+
+const getTimeSinceCreation = (unixTime:number) => {
+  const totalDaysSince = moment().diff(unixTime, 'days')
+  const yearsSince = Math.floor(totalDaysSince / variables.daysInYear)
+  const remainderDaysSince = totalDaysSince % variables.daysInYear
+  return `${yearsSince === 0 ? '' : `${yearsSince} years, `} ${remainderDaysSince} days ago`
+}
 
 interface IRepositoryRolodexCardProps extends ITechCard {
   handleCardIndexReset: () => void,
@@ -94,7 +113,6 @@ const RepositoryRolodexCard = ({
       description,
       diskUsage,
       homepageUrl,
-      name,
       updatedAt,
       url,
     },
@@ -103,21 +121,19 @@ const RepositoryRolodexCard = ({
   const strippedHomepageURL = stripHttp(homepageUrl)
   const strippedGithubURL = stripHttp(url)
 
-  const totalDaysSinceCreation = moment().diff(createdAt, 'days')
-  const yearsSinceCreation = Math.floor(totalDaysSinceCreation / variables.daysInYear)
-  const daysSinceCreation = totalDaysSinceCreation % variables.daysInYear
+  // TODO: how to integrate moment().fromNow()
+  const timeSinceCreation = getTimeSinceCreation(createdAt)
   const creationDate = moment(createdAt).format(variables.createdDateFormat)
+
+  const timeSinceUpdate = getTimeSinceCreation(updatedAt)
+  const updateDate = moment(updatedAt).format(variables.specificTimeFormat)
 
   return (
     <TextCardContainer>
       <RefreshContainer>
         <MaterialIcons name="refresh" onClick={handleCardIndexReset} />
       </RefreshContainer>
-      <LinkPadder />
       <LinksAndIconContainer>
-        <TooltipStatic content={creationDate}>
-          {`Created: ${yearsSinceCreation} years ${daysSinceCreation} days ago`}
-        </TooltipStatic>
         <TextCardImage src={icon} />
         <LinksAndTitleContainer>
           <TextCardName>{displayName}</TextCardName>
@@ -127,7 +143,25 @@ const RepositoryRolodexCard = ({
           </LinksContainer>
         </LinksAndTitleContainer>
       </LinksAndIconContainer>
-      <LinkPadder />
+      <SeperatorLine />
+      <FactContainer>
+        <TooltipStatic content={creationDate}>
+          <EmphasizedText>Created At: </EmphasizedText>
+          {timeSinceCreation}
+        </TooltipStatic>
+        <TooltipStatic content={updateDate}>
+          <EmphasizedText>Updated Last: </EmphasizedText>
+          {timeSinceUpdate}
+        </TooltipStatic>
+        <div>
+          <EmphasizedText>Disk Usage:</EmphasizedText>
+          {`${diskUsage} Kb`}
+        </div>
+      </FactContainer>
+      <SeperatorLine />
+      <EmphasizedText>Description: </EmphasizedText>
+      {description}
+      <SeperatorLine />
       <TextContent>{blurb}</TextContent>
     </TextCardContainer>
   )
