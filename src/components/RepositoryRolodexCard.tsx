@@ -17,8 +17,7 @@ const GitHubLogo = require('../static/GitHub-logo.png')
 const TextCardContainer = styled.div`
   display: flex;
   flex-direction: column;
-  /* TODO: fix this hacky height thing */
-  height: calc(100% - 5px);
+  height: 100%;
 `
 
 const LinksAndIconContainer = styled.div`

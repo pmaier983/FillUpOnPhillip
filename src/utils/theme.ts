@@ -42,7 +42,6 @@ const variables = {
   marginSmall: '2px',
 
   cardHeaderHeight: '20px',
-  cardTitleHeight: '25px',
 
   createdDateFormat: 'MMMM Do YYYY',
   specificTimeFormat: 'MMMM Do YYYY h:mm:ss',

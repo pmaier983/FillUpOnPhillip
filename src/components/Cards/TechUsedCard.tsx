@@ -16,7 +16,7 @@ const ImageLinkContainer = styled.div`
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-self: center;
-  height: 90%;
+  height: calc(100% - ${variables.cardHeaderHeight});
 `
 
 const ImageLink = styled.img<IImageLinkProps>`
