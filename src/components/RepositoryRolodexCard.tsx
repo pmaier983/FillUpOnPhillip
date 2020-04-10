@@ -27,10 +27,6 @@ const LinksAndIconContainer = styled.div`
   place-content: space-around;
 `
 
-const RefreshContainer = styled.div`
-  align-self: flex-end;
-`
-
 const TextCardName = styled.div`
   font-size: ${variables.fontMedium};
   font-weight: ${variables.fontWeightStrong};
@@ -79,18 +75,13 @@ const getTimeSinceCreation = (unixTime:number) => {
   return `${yearsSince === 0 ? '' : `${yearsSince} years, `} ${remainderDaysSince} days ago`
 }
 
-interface IRepositoryRolodexCardProps extends ITechCard {
-  handleCardIndexReset: () => void,
-}
-
 const RepositoryRolodexCard = ({
-  handleCardIndexReset,
   name: repositoryName,
   owner: RepositoryOwner,
   displayName,
   icon,
   blurb,
-}: IRepositoryRolodexCardProps) => {
+}: ITechCard) => {
   const {
     data, loading, error, LoadingIcon,
   } = useQuery(GET_REPOSITORY, {
@@ -107,6 +98,7 @@ const RepositoryRolodexCard = ({
   if (error) {
     throw Error(`The Rolodex Card, ${repositoryName} Failed`)
   }
+
   const {
     repository: {
       createdAt,
@@ -130,9 +122,6 @@ const RepositoryRolodexCard = ({
 
   return (
     <TextCardContainer>
-      <RefreshContainer>
-        <MaterialIcons name="refresh" onClick={handleCardIndexReset} />
-      </RefreshContainer>
       <LinksAndIconContainer>
         <TextCardImage src={icon} />
         <LinksAndTitleContainer>

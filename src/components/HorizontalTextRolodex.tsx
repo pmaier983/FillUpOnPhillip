@@ -6,7 +6,7 @@ import { ITechCard } from '../static/TechUsed'
 import { variables } from '../utils/theme'
 
 import RepositoryRolodexCard from './RepositoryRolodexCard'
-import MaterialIcons from './MaterialIcon'
+import MaterialIcon from './MaterialIcon'
 
 const Container = styled.div`
   display: flex;
@@ -15,10 +15,21 @@ const Container = styled.div`
   height: calc(100% - ${variables.cardHeaderHeight});
 `
 
+const TitleContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+`
+
 const Title = styled.div`
   text-decoration: underline;
   font-size: ${variables.fontLarge};
   text-align: center;
+  margin-left: auto;
+`
+
+const RefreshContainer = styled.div`
+margin-left: auto;
 `
 
 const SlidingTextContained = styled.div`
@@ -57,12 +68,17 @@ const HorizontalTextRolodex: React.FC<IHorizontalTextRolodexProps>= (
   // TODO: a better method of inserting children into the flow
   return (
     <Container>
-      <Title>{title}</Title>
+      <TitleContainer>
+        <Title>{title}</Title>
+        <RefreshContainer>
+          <MaterialIcon name="refresh" onClick={handleCardIndexReset} />
+        </RefreshContainer>
+      </TitleContainer>
       <SlidingTextContained>
-        <MaterialIcons name="chevron_left" alignSelf="center" onClick={handleLeftClick} />
+        <MaterialIcon name="chevron_left" alignSelf="center" onClick={handleLeftClick} />
         {textCardIndex === 0
-          ? children : <RepositoryRolodexCard handleCardIndexReset={handleCardIndexReset} {..._.get(`[${textCardIndex - 1}]`, textCards)} />}
-        <MaterialIcons name="chevron_right" alignSelf="center" onClick={handleRightClick} />
+          ? children : <RepositoryRolodexCard {..._.get(`[${textCardIndex - 1}]`, textCards)} />}
+        <MaterialIcon name="chevron_right" alignSelf="center" onClick={handleRightClick} />
       </SlidingTextContained>
     </Container>
   )
