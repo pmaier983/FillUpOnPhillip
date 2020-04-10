@@ -70,6 +70,11 @@ const SeperatorLine = styled.div`
   border-bottom: 1px solid ${theme.lineEmphasized};
 `
 
+const InivisbleSmallPadding = styled.div`
+  width: 100%;
+  height: 10px;
+`
+
 const FactContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -131,6 +136,7 @@ const RepositoryRolodexCard = ({
 
   return (
     <TextCardContainer>
+      <InivisbleSmallPadding />
       <LinksAndIconContainer>
         <TextCardImage src={icon} />
         <LinksAndTitleContainer>
@@ -141,8 +147,9 @@ const RepositoryRolodexCard = ({
           </LinksContainer>
         </LinksAndTitleContainer>
       </LinksAndIconContainer>
+      <InivisbleSmallPadding />
+      <SeperatorLine />
       <TextContentContainer>
-        <SeperatorLine />
         <FactContainer>
           <TooltipStatic content={creationDate}>
             <EmphasizedText>Created At: </EmphasizedText>
