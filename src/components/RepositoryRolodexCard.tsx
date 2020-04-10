@@ -17,6 +17,8 @@ const GitHubLogo = require('../static/GitHub-logo.png')
 const TextCardContainer = styled.div`
   display: flex;
   flex-direction: column;
+  /* TODO: fix this hacky height thing */
+  height: calc(100% - 5px);
 `
 
 const LinksAndIconContainer = styled.div`
@@ -33,10 +35,10 @@ const TextCardName = styled.div`
 `
 
 const TextCardImage = styled.img`
-  max-width: 30%;
+  max-width: 33%;
 `
 
-const TextContent = styled.p`
+const BlurbContent = styled.p`
   margin: 0;  
 `
 
@@ -44,6 +46,14 @@ const LinksAndTitleContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+`
+
+const TextContentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  justify-content: space-evenly;
+  height: 100%;
 `
 
 const LinksContainer = styled.div`
@@ -132,26 +142,30 @@ const RepositoryRolodexCard = ({
           </LinksContainer>
         </LinksAndTitleContainer>
       </LinksAndIconContainer>
-      <SeperatorLine />
-      <FactContainer>
-        <TooltipStatic content={creationDate}>
-          <EmphasizedText>Created At: </EmphasizedText>
-          {timeSinceCreation}
-        </TooltipStatic>
-        <TooltipStatic content={updateDate}>
-          <EmphasizedText>Updated Last: </EmphasizedText>
-          {timeSinceUpdate}
-        </TooltipStatic>
+      <TextContentContainer>
+        <SeperatorLine />
+        <FactContainer>
+          <TooltipStatic content={creationDate}>
+            <EmphasizedText>Created At: </EmphasizedText>
+            {timeSinceCreation}
+          </TooltipStatic>
+          <TooltipStatic content={updateDate}>
+            <EmphasizedText>Updated Last: </EmphasizedText>
+            {timeSinceUpdate}
+          </TooltipStatic>
+          <div>
+            <EmphasizedText>Disk Usage:</EmphasizedText>
+            {`${diskUsage} Kb`}
+          </div>
+        </FactContainer>
+        <SeperatorLine />
         <div>
-          <EmphasizedText>Disk Usage:</EmphasizedText>
-          {`${diskUsage} Kb`}
+          <EmphasizedText>Description: </EmphasizedText>
+          {description}
         </div>
-      </FactContainer>
-      <SeperatorLine />
-      <EmphasizedText>Description: </EmphasizedText>
-      {description}
-      <SeperatorLine />
-      <TextContent>{blurb}</TextContent>
+        <SeperatorLine />
+        <BlurbContent>{blurb}</BlurbContent>
+      </TextContentContainer>
     </TextCardContainer>
   )
 }
