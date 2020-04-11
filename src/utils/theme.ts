@@ -10,7 +10,22 @@ const colors = {
   black: '#000000',
 }
 
-const minimalYetWarm = {
+export interface IThemes {
+  majorBackgroundColor: string,
+  minorBackgroundColor: string,
+  minorBackgroundColorSoft: string,
+  lineEmphasized: string,
+  handleArea: string,
+  normalTooltipColor: string,
+  buttonEmphasis: string,
+  darkAlert: string,
+  lightAlert: string,
+  lightApproval: string,
+  darkApproval: string,
+  borderBasic: string,
+}
+
+const LIGHT: IThemes = {
   majorBackgroundColor: colors.eggshellWhite,
   minorBackgroundColor: colors.darkVanilla,
   minorBackgroundColorSoft: colors.darkVanillaRGBA,
@@ -25,7 +40,27 @@ const minimalYetWarm = {
   borderBasic: colors.black,
 }
 
-const theme = minimalYetWarm
+const DARK: IThemes = {
+  majorBackgroundColor: colors.eggshellWhite,
+  minorBackgroundColor: 'white',
+  minorBackgroundColorSoft: colors.darkVanillaRGBA,
+  lineEmphasized: colors.taupeGray,
+  handleArea: colors.taupeGray,
+  normalTooltipColor: colors.taupeGray,
+  buttonEmphasis: colors.taupeGray,
+  darkAlert: colors.darkJellyBeanRed,
+  lightAlert: colors.lightJellyBeanRed,
+  lightApproval: colors.lightJellyBeanGreen,
+  darkApproval: colors.darkJellyBeanGreen,
+  borderBasic: colors.black,
+}
+
+export const THEMES = {
+  LIGHT,
+  DARK,
+}
+
+const theme = DARK
 
 const variables = {
   fontLarge: '17px',
