@@ -3,20 +3,29 @@ import styled from 'styled-components'
 
 import { variables } from '../utils/theme'
 
-interface IStyleProps {
+interface IToggleButtonProps {
   width: number,
   height: number,
-}
-
-interface IToggleButtonProps extends IStyleProps {
+  trueBackgroundColor: string,
+  falseBackgroundColor: string,
   toggleState: boolean,
-  handleToggle: (bool: boolean) => void,
+  handleToggle: () => void,
   leftValue?: any,
-  rightValue?: any
+  rightValue?: any,
+  enableToggleIndicator?: boolean,
 }
 
-interface IButtonContainerProps extends IStyleProps {
-  isApproved: boolean,
+interface IButtonContainerProps {
+  width: number,
+  height: number,
+  trueBackgroundColor: string,
+  falseBackgroundColor: string,
+  toggleState: boolean,
+}
+
+interface IToggleProps {
+  width: number,
+  height: number,
 }
 
 const ButtonContainer = styled.div<IButtonContainerProps>`
@@ -26,7 +35,14 @@ const ButtonContainer = styled.div<IButtonContainerProps>`
   min-height: 20px;
   width: ${({ width }) => `${width}px`};
   height: ${({ height }) => `${height}px`};
-  background-color: ${({ isApproved, theme }) => (isApproved ? theme.lightApproval : theme.lightAlert)};
+  background-color: ${
+  (
+    {
+      toggleState,
+      falseBackgroundColor,
+      trueBackgroundColor,
+    },
+  ) => (toggleState ? trueBackgroundColor : falseBackgroundColor)};
   border-radius: ${variables.borderRadiusNormal};
   border: 1px solid ${({ theme }) => theme.borderBasic};
 `
@@ -37,9 +53,10 @@ const WordContainer = styled.div`
   align-items: center;
   width: 50%;
   height: 100%;
+  cursor: pointer;
 `
 
-const Toggle = styled.div<IStyleProps>`
+const Toggle = styled.div<IToggleProps>`
   position: absolute; 
   min-width: 35px;
   min-height: 15px;
@@ -59,38 +76,44 @@ const TextContainer = styled.span<ITextContainerProps>`
   cursor: ${({ hasPointer }) => (hasPointer ? 'pointer' : null)};
 `
 
+// TODO: this component has sort of gotten out of hand
+// compartmentalize its components and fix this jumble.
 const ToggleButton = ({
   width = 100,
-  height=50,
-  toggleState=true,
+  height = 50,
   handleToggle,
+  toggleState=true,
+  trueBackgroundColor,
+  falseBackgroundColor,
+  enableToggleIndicator=true,
   leftValue='ON',
   rightValue='OFF',
-}: IToggleButtonProps) => {
-  const toggleOff = () => {
-    handleToggle(false)
-  }
+}: IToggleButtonProps) => (
+  <ButtonContainer
+    width={width}
+    height={height}
+    toggleState={toggleState}
+    trueBackgroundColor={trueBackgroundColor}
+    falseBackgroundColor={falseBackgroundColor}
+  >
+    <WordContainer onClick={handleToggle}>
+      {
+        toggleState
+        && enableToggleIndicator
+        && <Toggle width={width} height={height} onClick={handleToggle} />
+        }
+      <TextContainer onClick={handleToggle} hasPointer={toggleState}>{leftValue}</TextContainer>
+    </WordContainer>
+    <WordContainer onClick={handleToggle}>
+      {
+        !toggleState
+        && enableToggleIndicator
+        && <Toggle width={width} height={height} onClick={handleToggle} />
+        }
+      <TextContainer onClick={handleToggle} hasPointer={!toggleState}>{rightValue}</TextContainer>
+    </WordContainer>
+  </ButtonContainer>
+)
 
-  const toggleOn = () => {
-    handleToggle(true)
-  }
-
-  return (
-    <ButtonContainer
-      width={width}
-      height={height}
-      isApproved={toggleState}
-    >
-      <WordContainer>
-        {toggleState && <Toggle width={width} height={height} onClick={toggleOff} />}
-        <TextContainer onClick={toggleOff} hasPointer={toggleState}>{leftValue}</TextContainer>
-      </WordContainer>
-      <WordContainer>
-        {!toggleState && <Toggle width={width} height={height} onClick={toggleOn} />}
-        <TextContainer onClick={toggleOn} hasPointer={!toggleState}>{rightValue}</TextContainer>
-      </WordContainer>
-    </ButtonContainer>
-  )
-}
 
 export default ToggleButton

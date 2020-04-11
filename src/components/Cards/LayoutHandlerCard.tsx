@@ -6,7 +6,7 @@ import { IActions } from '../../hooks/useGridLayouts.d'
 
 import { useLandingPageContext, LANDING_PAGE_ACTIONS } from '../../contexts/LandingPageProvider'
 import { useThemesContext, THEME_ACTIONS } from '../../contexts/ThemesProvider'
-import { THEME_NAMES, variables } from '../../utils/theme'
+import { THEME_NAMES, variables, colors } from '../../utils/theme'
 
 import MaterialIcon from '../MaterialIcon'
 import ToggleButton from '../ToggleButton'
@@ -64,7 +64,7 @@ const LayoutHandlerCard = (
   }: ILayoutHandlerProps,
 ) => {
   const [{ isDraggable, isResizable }, dispatchLandingPageAction] = useLandingPageContext()
-  const [{ theme: { themeName } }, dispatchThemeAction] = useThemesContext()
+  const [{ theme: { themeName, lightApproval, lightAlert } }, dispatchThemeAction] = useThemesContext()
 
   const isLightTheme = themeName === THEME_NAMES.LIGHT
 
@@ -119,6 +119,8 @@ const LayoutHandlerCard = (
           <ToggleButton
             width={80}
             height={35}
+            trueBackgroundColor={lightApproval}
+            falseBackgroundColor={lightAlert}
             toggleState={isDraggable}
             handleToggle={handleDraggable}
           />
@@ -128,6 +130,8 @@ const LayoutHandlerCard = (
           <ToggleButton
             width={80}
             height={35}
+            trueBackgroundColor={lightApproval}
+            falseBackgroundColor={lightAlert}
             toggleState={isResizable}
             handleToggle={handleResizable}
           />
@@ -136,9 +140,12 @@ const LayoutHandlerCard = (
           Toggle Theme
           <ToggleButton
             width={80}
+            enableToggleIndicator={false}
             height={35}
-            leftValue={<MaterialIcon name="wb_sunny" display="flex" />}
-            rightValue={<MaterialIcon name="nights_stay" display="flex" />}
+            trueBackgroundColor={colors.daySkyLightBlue}
+            falseBackgroundColor={colors.nightSkyBlack}
+            leftValue={isLightTheme && <MaterialIcon name="wb_sunny" display="flex" color={colors.sunYellow} />}
+            rightValue={!isLightTheme && <MaterialIcon name="nights_stay" display="flex" color={colors.moonGrey} />}
             toggleState={isLightTheme}
             handleToggle={changeTheme}
           />

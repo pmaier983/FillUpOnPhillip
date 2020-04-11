@@ -1,5 +1,9 @@
 const colors = {
   eggshellWhite: '#EAE7DC',
+  daySkyLightBlue: '#A0E4FA',
+  sunYellow: '#FDDF75',
+  nightSkyBlack: '#3C4145',
+  moonGrey: '#F4F5E9',
   darkVanilla: '#D8C3A5',
   darkVanillaRGBA: 'rgba(55.7, 55.3, 54.1, 0.25)',
   taupeGray: '#8E8D8A',
