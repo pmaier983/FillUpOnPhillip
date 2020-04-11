@@ -5,7 +5,8 @@ import { GRID_BREAKPOINT_LAYOUTS_ACTIONS } from '../../hooks/useGridLayouts'
 import { IActions } from '../../hooks/useGridLayouts.d'
 
 import { useLandingPageContext, LANDING_PAGE_ACTIONS } from '../../contexts/LandingPageProvider'
-import { variables } from '../../utils/theme'
+import { useThemesContext, THEME_ACTIONS } from '../../contexts/ThemesProvider'
+import { THEME_NAMES, variables } from '../../utils/theme'
 
 import MaterialIcon from '../MaterialIcon'
 import ToggleButton from '../ToggleButton'
@@ -63,6 +64,9 @@ const LayoutHandlerCard = (
   }: ILayoutHandlerProps,
 ) => {
   const [{ isDraggable, isResizable }, dispatchLandingPageAction] = useLandingPageContext()
+  const [{ theme: { themeName } }, dispatchThemeAction] = useThemesContext()
+
+  const isLightTheme = themeName === THEME_NAMES.LIGHT
 
   const handleResetLayout = () => {
     dispatchLayoutEffect({
@@ -88,6 +92,15 @@ const LayoutHandlerCard = (
 
   const handleResizable = () => {
     dispatchLandingPageAction({ type: LANDING_PAGE_ACTIONS.IS_RESIZABLE })
+  }
+
+  const changeTheme = () => {
+    dispatchThemeAction(
+      {
+        type: THEME_ACTIONS.UPDATE_LANDING_PAGE_THEME,
+        payload: isLightTheme ? THEME_NAMES.DARK : THEME_NAMES.LIGHT,
+      },
+    )
   }
 
   return (
@@ -126,8 +139,8 @@ const LayoutHandlerCard = (
             height={35}
             leftValue={<MaterialIcon name="wb_sunny" display="flex" />}
             rightValue={<MaterialIcon name="nights_stay" display="flex" />}
-            toggleState={isResizable}
-            handleToggle={handleResizable}
+            toggleState={isLightTheme}
+            handleToggle={changeTheme}
           />
         </ButtonContainer>
       </ContentContainer>

@@ -22,19 +22,19 @@ export const THEME_ACTIONS = {
 
 type ContextProps = [IThemeState, React.Dispatch<IAction>]
 
-export const ThemeContext = createContext<ContextProps>(
+export const ThemesContext = createContext<ContextProps>(
   [
     initialState,
     () => console.error('Place a Provider In A Parent Node to get a Theme'),
   ],
 )
 
-export const useThemeContext = () => useContext(ThemeContext)
+export const useThemesContext = () => useContext(ThemesContext)
 
 const reducer = (state: IThemeState, action: IAction) => {
   switch (action.type) {
     case THEME_ACTIONS.UPDATE_LANDING_PAGE_THEME:
-      return { ...state }
+      return { ...state, theme: THEMES[action.payload] }
     default:
       console.error('The Reducer Doesn\'t handle this type')
       return state
@@ -44,9 +44,9 @@ const reducer = (state: IThemeState, action: IAction) => {
 const ThemesProvider: React.FC = ({ children }) => {
   const reducedState = useReducer(reducer, initialState)
   return (
-    <ThemeContext.Provider value={reducedState}>
+    <ThemesContext.Provider value={reducedState}>
       {children}
-    </ThemeContext.Provider>
+    </ThemesContext.Provider>
   )
 }
 export default ThemesProvider

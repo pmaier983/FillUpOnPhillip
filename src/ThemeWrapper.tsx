@@ -1,9 +1,9 @@
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
-import { useThemeContext } from './contexts/ThemesProvider'
+import { useThemesContext } from './contexts/ThemesProvider'
 
 const ThemeWrapper: React.FC = ({ children }) => {
-  const [{ theme }] = useThemeContext()
+  const [{ theme }] = useThemesContext()
   return (
     <ThemeProvider theme={theme}>
       {children}

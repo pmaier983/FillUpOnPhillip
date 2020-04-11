@@ -8,9 +8,11 @@ const colors = {
   lightJellyBeanGreen: '#45e899',
   darkJellyBeanGreen: '#3dc983',
   black: '#000000',
+  white: '#FFFFFF',
 }
 
 export interface IThemes {
+  themeName: string,
   majorBackgroundColor: string,
   minorBackgroundColor: string,
   minorBackgroundColorSoft: string,
@@ -25,7 +27,13 @@ export interface IThemes {
   borderBasic: string,
 }
 
+export const THEME_NAMES = {
+  LIGHT: 'LIGHT',
+  DARK: 'DARK',
+}
+
 const LIGHT: IThemes = {
+  themeName: THEME_NAMES.LIGHT,
   majorBackgroundColor: colors.eggshellWhite,
   minorBackgroundColor: colors.darkVanilla,
   minorBackgroundColorSoft: colors.darkVanillaRGBA,
@@ -41,8 +49,9 @@ const LIGHT: IThemes = {
 }
 
 const DARK: IThemes = {
+  themeName: THEME_NAMES.DARK,
   majorBackgroundColor: colors.eggshellWhite,
-  minorBackgroundColor: 'white',
+  minorBackgroundColor: colors.white,
   minorBackgroundColorSoft: colors.darkVanillaRGBA,
   lineEmphasized: colors.taupeGray,
   handleArea: colors.taupeGray,
@@ -56,11 +65,9 @@ const DARK: IThemes = {
 }
 
 export const THEMES = {
-  LIGHT,
-  DARK,
+  [THEME_NAMES.LIGHT]: LIGHT,
+  [THEME_NAMES.DARK]: DARK,
 }
-
-const theme = DARK
 
 const variables = {
   fontLarge: '17px',
@@ -84,4 +91,4 @@ const variables = {
   daysInYear: 365,
 }
 
-export { colors, theme, variables }
+export { colors, variables }
