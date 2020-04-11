@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import AppWrapper from './AppWrapper'
+import ApolloWrapper from './ApolloWrapper'
 import App from './App'
 
 ReactDOM.render(
-  <AppWrapper>
-    <App />
-  </AppWrapper>,
+  <ApolloWrapper>
+        <App />
+  </ApolloWrapper>,
   document.getElementById('root'),
 )
