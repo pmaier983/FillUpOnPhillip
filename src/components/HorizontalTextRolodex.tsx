@@ -19,7 +19,7 @@ const TitleContainer = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: ${variables.cardHeaderHeight}
+  height: ${variables.cardHeaderHeight};
 `
 
 const Title = styled.div`

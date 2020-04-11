@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react'
 import styled from 'styled-components'
 
 import { useSize } from '../hooks'
-import { theme, variables } from '../utils/theme'
+import { variables } from '../utils/theme'
 
 export enum TOOLTIP_POSITIONS_ENUM {
   BOTTOM = 'BOTTOM',
@@ -26,11 +26,11 @@ interface IToolTipProps {
 
 const Tooltip = styled.div<IToolTipProps>`
   position: absolute;
-  background-color: ${theme.normalTooltipColor};
+  background-color: ${({ theme }) => theme.normalTooltipColor};
   text-align: center;
   white-space: nowrap;
   border-radius: ${variables.borderRadiusNormal};
-  border: 1px solid ${theme.borderBasic};
+  border: 1px solid ${({ theme }) => theme.borderBasic};
   padding: 3px;
   opacity: 0.85;
   visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};

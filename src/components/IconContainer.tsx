@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { theme } from '../utils/theme'
 
 interface IIconContainerProps {
   height?: string,
@@ -24,10 +23,10 @@ const LogoLinkContainer = styled.div<ILogoLinkContainerProps>`
   margin: 2px 10px;
   cursor: pointer;
   :hover {
-    box-shadow: 0 0 0 2px ${theme.lightAlert}; 
+    box-shadow: 0 0 0 2px ${({ theme }) => theme.lightAlert}; 
   }
   :active {
-    box-shadow: 0 0 0 3px ${theme.darkAlert};
+    box-shadow: 0 0 0 3px ${({ theme }) => theme.darkAlert};
   }
 `
 

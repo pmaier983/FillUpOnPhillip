@@ -2,12 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import moment from 'moment'
 
-import MaterialIcons from './MaterialIcon'
+import MaterialIcon from './MaterialIcon'
 import IconContainer from './IconContainer'
 import TooltipStatic from './TooltipStatic'
 
 import { stripHttp } from '../utils/functions.helpers'
-import { variables, theme } from '../utils/theme'
+import { variables } from '../utils/theme'
 import { ITechCard } from '../static/TechUsed'
 import { useQuery } from '../hooks'
 import { GET_REPOSITORY } from '../Queries'
@@ -51,7 +51,6 @@ const TextContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  justify-content: space-evenly;
   height: 100%;
 `
 
@@ -67,7 +66,7 @@ const EmphasizedText = styled.div`
 const SeperatorLine = styled.div`
   width: 100%;
   margin: 10px 0 10px;
-  border-bottom: 1px solid ${theme.lineEmphasized};
+  border-bottom: 1px solid ${({ theme }) => theme.lineEmphasized};
 `
 
 const InivisbleSmallPadding = styled.div`
@@ -143,28 +142,28 @@ const RepositoryRolodexCard = ({
           <TextCardName>{displayName}</TextCardName>
           <LinksContainer>
             <IconContainer src={GitHubLogo} link={strippedHomepageURL} />
-            <IconContainer link={strippedGithubURL}><MaterialIcons name="storefront" size="35px" /></IconContainer>
+            <IconContainer link={strippedGithubURL}><MaterialIcon name="storefront" size="35px" /></IconContainer>
           </LinksContainer>
         </LinksAndTitleContainer>
       </LinksAndIconContainer>
       <InivisbleSmallPadding />
       <SeperatorLine />
+      <FactContainer>
+        <TooltipStatic content={creationDate}>
+          <EmphasizedText>Created At: </EmphasizedText>
+          {timeSinceCreation}
+        </TooltipStatic>
+        <TooltipStatic content={updateDate}>
+          <EmphasizedText>Updated Last: </EmphasizedText>
+          {timeSinceUpdate}
+        </TooltipStatic>
+        <div>
+          <EmphasizedText>Disk Usage:</EmphasizedText>
+          {`${diskUsage} Kb`}
+        </div>
+      </FactContainer>
+      <SeperatorLine />
       <TextContentContainer>
-        <FactContainer>
-          <TooltipStatic content={creationDate}>
-            <EmphasizedText>Created At: </EmphasizedText>
-            {timeSinceCreation}
-          </TooltipStatic>
-          <TooltipStatic content={updateDate}>
-            <EmphasizedText>Updated Last: </EmphasizedText>
-            {timeSinceUpdate}
-          </TooltipStatic>
-          <div>
-            <EmphasizedText>Disk Usage:</EmphasizedText>
-            {`${diskUsage} Kb`}
-          </div>
-        </FactContainer>
-        <SeperatorLine />
         <div>
           <EmphasizedText>Description: </EmphasizedText>
           {description}

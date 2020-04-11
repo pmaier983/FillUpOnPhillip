@@ -4,8 +4,6 @@ import styled from 'styled-components'
 import CardHandle from './CardHandle'
 import ErrorBoundry from '../ErrorHandling/ErrorBoundry'
 
-import { theme } from '../../utils/theme'
-
 interface IPropsContainer {
   width?: string,
   height?: string,
@@ -17,12 +15,12 @@ interface IPropsContainer {
 }
 
 const Container = styled.div<IPropsContainer>`
-  background-color: ${theme.minorBackgroundColor};
-  border: 1px ${theme.borderBasic} solid;
+  background-color: ${({ theme }) => theme.minorBackgroundColor};
+  border: 1px ${({ theme }) => theme.borderBasic} solid;
   border-radius: 4px;
   width: ${({ width }) => width};
   height: ${({ height }) => height};
-  background-color: ${theme.minorBackgroundColor};
+  background-color: ${({ theme }) => theme.minorBackgroundColor};
   min-width: ${({ minWidth }) => minWidth};
   min-height: ${({ minHeight }) => minHeight};
   max-width: ${({ maxWidth }) => maxWidth};

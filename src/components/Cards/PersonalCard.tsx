@@ -5,7 +5,7 @@ import MaterialIcon from '../MaterialIcon'
 
 import { useQuery } from '../../hooks'
 import { MY_PROFILE } from '../../Queries'
-import { theme, variables } from '../../utils/theme'
+import { variables } from '../../utils/theme'
 
 const CardContent = styled.div`
   display: flex;
@@ -23,14 +23,14 @@ const Portrait = styled.img`
   /* TODO: find a way to keep perfect ratio above minwidth/height*/
   width: 120px;
   height: 120px;
-  border: 1px solid ${theme.lineEmphasized};
+  border: 1px solid ${({ theme }) => theme.lineEmphasized};
   border-radius: 5px;
 `
 
 const SeperatorLine = styled.div`
   width: 90%;
   margin: 5px;
-  border-bottom: 1px solid ${theme.lineEmphasized};
+  border-bottom: 1px solid ${({ theme }) => theme.lineEmphasized};
 `
 
 // TODO: combined all these fields into a component

@@ -2,14 +2,14 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import _ from 'lodash/fp'
 
-import { theme, variables } from '../../utils/theme'
+import { variables } from '../../utils/theme'
 
 const ErrorContainer = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
   justify-content: center;
-  background-color: ${theme.lightAlert};
+  background-color: ${({ theme }) => theme.lightAlert};
   width: 100%;
   height: calc(100% - ${variables.cardHeaderHeight});
 `

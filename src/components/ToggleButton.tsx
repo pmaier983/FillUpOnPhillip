@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { theme, variables } from '../utils/theme'
+import { variables } from '../utils/theme'
 
 interface IStyleProps {
   width: number,
@@ -16,7 +16,7 @@ interface IToggleButtonProps extends IStyleProps {
 }
 
 interface IButtonContainerProps extends IStyleProps {
-  color: string,
+  isApproved: boolean,
 }
 
 const ButtonContainer = styled.div<IButtonContainerProps>`
@@ -26,9 +26,9 @@ const ButtonContainer = styled.div<IButtonContainerProps>`
   min-height: 20px;
   width: ${({ width }) => `${width}px`};
   height: ${({ height }) => `${height}px`};
-  background-color: ${({ color }) => color};
+  background-color: ${({ isApproved, theme }) => (isApproved ? theme.lightApproval : theme.lightAlert)};
   border-radius: ${variables.borderRadiusNormal};
-  border: 1px solid ${theme.borderBasic};
+  border: 1px solid ${({ theme }) => theme.borderBasic};
 `
 
 const WordContainer = styled.div`
@@ -45,7 +45,7 @@ const Toggle = styled.div<IStyleProps>`
   min-height: 15px;
   width: ${({ width }) => `${width * 0.45}px`};
   height: ${({ height }) => `${height * 0.80}px`};
-  background-color: ${theme.majorBackgroundColor};
+  background-color: ${({ theme }) => theme.majorBackgroundColor};
   border-radius: ${variables.borderRadiusNormal};
   cursor: pointer;
 `
@@ -79,7 +79,7 @@ const ToggleButton = ({
     <ButtonContainer
       width={width}
       height={height}
-      color={toggleState ? theme.lightApproval : theme.lightAlert}
+      isApproved={toggleState}
     >
       <WordContainer>
         {toggleState && <Toggle width={width} height={height} onClick={toggleOff} />}

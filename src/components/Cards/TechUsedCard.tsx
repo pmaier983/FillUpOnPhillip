@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import HorizontalTextRolodex from '../HorizontalTextRolodex'
 
 import { useLandingPageContext, LANDING_PAGE_ACTIONS } from '../../contexts/LandingPageProvider'
-import { theme, variables } from '../../utils/theme'
+import { variables } from '../../utils/theme'
 
 interface IImageLinkProps {
   width?: string,
@@ -25,8 +25,8 @@ const ImageLink = styled.img<IImageLinkProps>`
   object-fit: contain;
   :hover {
     cursor: pointer;
-    box-shadow: 0 0 0 1px ${theme.borderBasic};
-    background-color: ${theme.minorBackgroundColorSoft};
+    box-shadow: 0 0 0 1px ${({ theme }) => theme.borderBasic};
+    background-color: ${({ theme }) => theme.minorBackgroundColorSoft};
     border-radius: ${variables.borderRadiusNormal};
   };
 `
