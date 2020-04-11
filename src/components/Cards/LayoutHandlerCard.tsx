@@ -64,7 +64,9 @@ const LayoutHandlerCard = (
   }: ILayoutHandlerProps,
 ) => {
   const [{ isDraggable, isResizable }, dispatchLandingPageAction] = useLandingPageContext()
-  const [{ theme: { themeName, lightApproval, lightAlert } }, dispatchThemeAction] = useThemesContext()
+  const [{
+    theme: { themeName, lightApproval, lightAlert },
+  }, dispatchThemeAction] = useThemesContext()
 
   const isLightTheme = themeName === THEME_NAMES.LIGHT
 

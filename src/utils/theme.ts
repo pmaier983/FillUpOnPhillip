@@ -13,6 +13,11 @@ const colors = {
   darkJellyBeanGreen: '#3dc983',
   black: '#000000',
   white: '#FFFFFF',
+  darkBlueBlack: '#211426',
+  lavenderPurple: '#656F8C',
+  darkLavenderPurple: '#413659',
+  mossGreen: '#9BBFAC',
+  alertOrange: '#F8AC01',
 }
 
 export interface IThemes {
@@ -29,6 +34,7 @@ export interface IThemes {
   lightApproval: string,
   darkApproval: string,
   borderBasic: string,
+  toggleColor: string,
 }
 
 export const THEME_NAMES = {
@@ -49,23 +55,25 @@ const LIGHT: IThemes = {
   lightAlert: colors.lightJellyBeanRed,
   lightApproval: colors.lightJellyBeanGreen,
   darkApproval: colors.darkJellyBeanGreen,
+  toggleColor: colors.white,
   borderBasic: colors.black,
 }
 
 const DARK: IThemes = {
   themeName: THEME_NAMES.DARK,
-  majorBackgroundColor: colors.eggshellWhite,
-  minorBackgroundColor: colors.white,
+  majorBackgroundColor: colors.darkBlueBlack,
+  minorBackgroundColor: colors.lavenderPurple,
   minorBackgroundColorSoft: colors.darkVanillaRGBA,
   lineEmphasized: colors.taupeGray,
-  handleArea: colors.taupeGray,
+  handleArea: colors.darkLavenderPurple,
   normalTooltipColor: colors.taupeGray,
   buttonEmphasis: colors.taupeGray,
   darkAlert: colors.darkJellyBeanRed,
   lightAlert: colors.lightJellyBeanRed,
   lightApproval: colors.lightJellyBeanGreen,
   darkApproval: colors.darkJellyBeanGreen,
-  borderBasic: colors.black,
+  toggleColor: colors.white,
+  borderBasic: colors.alertOrange,
 }
 
 export const THEMES = {

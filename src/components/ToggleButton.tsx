@@ -62,7 +62,7 @@ const Toggle = styled.div<IToggleProps>`
   min-height: 15px;
   width: ${({ width }) => `${width * 0.45}px`};
   height: ${({ height }) => `${height * 0.80}px`};
-  background-color: ${({ theme }) => theme.majorBackgroundColor};
+  background-color: ${({ theme }) => theme.toggleColor};
   border-radius: ${variables.borderRadiusNormal};
   cursor: pointer;
 `
@@ -78,6 +78,7 @@ const TextContainer = styled.span<ITextContainerProps>`
 
 // TODO: this component has sort of gotten out of hand
 // compartmentalize its components and fix this jumble.
+// or otherwise refactor (think on it)
 const ToggleButton = ({
   width = 100,
   height = 50,
@@ -102,7 +103,7 @@ const ToggleButton = ({
         && enableToggleIndicator
         && <Toggle width={width} height={height} onClick={handleToggle} />
         }
-      <TextContainer onClick={handleToggle} hasPointer={toggleState}>{leftValue}</TextContainer>
+      <TextContainer hasPointer={toggleState}>{leftValue}</TextContainer>
     </WordContainer>
     <WordContainer onClick={handleToggle}>
       {
@@ -110,7 +111,7 @@ const ToggleButton = ({
         && enableToggleIndicator
         && <Toggle width={width} height={height} onClick={handleToggle} />
         }
-      <TextContainer onClick={handleToggle} hasPointer={!toggleState}>{rightValue}</TextContainer>
+      <TextContainer hasPointer={!toggleState}>{rightValue}</TextContainer>
     </WordContainer>
   </ButtonContainer>
 )
