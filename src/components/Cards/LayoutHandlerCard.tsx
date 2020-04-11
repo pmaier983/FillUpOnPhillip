@@ -105,7 +105,7 @@ const LayoutHandlerCard = (
           Toggle Draggability
           <ToggleButton
             width={80}
-            height={30}
+            height={35}
             toggleState={isDraggable}
             handleToggle={handleDraggable}
           />
@@ -114,7 +114,18 @@ const LayoutHandlerCard = (
           Toggle Resizability
           <ToggleButton
             width={80}
-            height={30}
+            height={35}
+            toggleState={isResizable}
+            handleToggle={handleResizable}
+          />
+        </ButtonContainer>
+        <ButtonContainer>
+          Toggle Theme
+          <ToggleButton
+            width={80}
+            height={35}
+            leftValue={<MaterialIcon name="wb_sunny" display="flex" />}
+            rightValue={<MaterialIcon name="nights_stay" display="flex" />}
             toggleState={isResizable}
             handleToggle={handleResizable}
           />
