@@ -11,6 +11,8 @@ interface IStyleProps {
 interface IToggleButtonProps extends IStyleProps {
   toggleState: boolean,
   handleToggle: (bool: boolean) => void,
+  leftValue?: any,
+  rightValue?: any
 }
 
 interface IButtonContainerProps extends IStyleProps {
@@ -58,7 +60,12 @@ const TextContainer = styled.span<ITextContainerProps>`
 `
 
 const ToggleButton = ({
-  width = 100, height=50, toggleState=true, handleToggle,
+  width = 100,
+  height=50,
+  toggleState=true,
+  handleToggle,
+  leftValue='ON',
+  rightValue='OFF',
 }: IToggleButtonProps) => {
   const toggleOff = () => {
     handleToggle(false)
@@ -76,11 +83,11 @@ const ToggleButton = ({
     >
       <WordContainer>
         {toggleState && <Toggle width={width} height={height} onClick={toggleOff} />}
-        <TextContainer onClick={toggleOff} hasPointer={toggleState}>ON</TextContainer>
+        <TextContainer onClick={toggleOff} hasPointer={toggleState}>{leftValue}</TextContainer>
       </WordContainer>
       <WordContainer>
         {!toggleState && <Toggle width={width} height={height} onClick={toggleOn} />}
-        <TextContainer onClick={toggleOn} hasPointer={!toggleState}>OFF</TextContainer>
+        <TextContainer onClick={toggleOn} hasPointer={!toggleState}>{rightValue}</TextContainer>
       </WordContainer>
     </ButtonContainer>
   )
