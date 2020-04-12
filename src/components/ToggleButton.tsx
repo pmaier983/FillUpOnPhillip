@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { variables } from '../utils/theme'
+import { variables } from '../utils/variables'
 
 interface IToggleButtonProps {
   width: number,
@@ -79,6 +79,7 @@ const TextContainer = styled.span<ITextContainerProps>`
 // TODO: this component has sort of gotten out of hand
 // compartmentalize its components and fix this jumble.
 // or otherwise refactor (think on it)
+// TODO: fix not being able to click Text Container
 const ToggleButton = ({
   width = 100,
   height = 50,

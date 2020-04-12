@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { variables } from '../../utils/theme'
+import { variables } from '../../utils/variables'
 
 const PictureOfSelf = require('../../static/PictureOfSelf.png')
 

@@ -6,7 +6,8 @@ import { IActions } from '../../hooks/useGridLayouts.d'
 
 import { useLandingPageContext, LANDING_PAGE_ACTIONS } from '../../contexts/LandingPageProvider'
 import { useThemesContext, THEME_ACTIONS } from '../../contexts/ThemesProvider'
-import { THEME_NAMES, variables, colors } from '../../utils/theme'
+import { THEME_NAMES, colors } from '../../utils/theme'
+import { variables } from '../../utils/variables'
 
 import MaterialIcon from '../MaterialIcon'
 import ToggleButton from '../ToggleButton'

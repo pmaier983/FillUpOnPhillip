@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import HorizontalTextRolodex from '../HorizontalTextRolodex'
 
 import { useLandingPageContext, LANDING_PAGE_ACTIONS } from '../../contexts/LandingPageProvider'
-import { variables } from '../../utils/theme'
+import { variables } from '../../utils/variables'
 
 interface IImageLinkProps {
   width?: string,

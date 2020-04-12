@@ -7,7 +7,7 @@ import IconContainer from './IconContainer'
 import TooltipStatic from './TooltipStatic'
 
 import { stripHttp } from '../utils/functions.helpers'
-import { variables } from '../utils/theme'
+import { variables } from '../utils/variables'
 import { ITechCard } from '../static/TechUsed'
 import { useQuery } from '../hooks'
 import { GET_REPOSITORY } from '../Queries'

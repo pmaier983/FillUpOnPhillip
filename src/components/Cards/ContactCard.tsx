@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import MaterialIcon from '../MaterialIcon'
 
-import { variables } from '../../utils/theme'
+import { variables } from '../../utils/variables'
 
 import IconContainer from '../IconContainer'
 

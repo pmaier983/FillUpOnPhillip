@@ -3,7 +3,7 @@ import _ from 'lodash/fp'
 import styled from 'styled-components'
 
 import { ITechCard } from '../static/TechUsed'
-import { variables } from '../utils/theme'
+import { variables } from '../utils/variables'
 
 import RepositoryRolodexCard from './RepositoryRolodexCard'
 import MaterialIcon from './MaterialIcon'

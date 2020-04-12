@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import _ from 'lodash/fp'
 
-import { variables } from '../../utils/theme'
+import { variables } from '../../utils/variables'
 
 const ErrorContainer = styled.div`
   display: flex;

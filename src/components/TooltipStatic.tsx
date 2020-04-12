@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react'
 import styled from 'styled-components'
 
 import { useSize } from '../hooks'
-import { variables } from '../utils/theme'
+import { variables } from '../utils/variables'
 
 export enum TOOLTIP_POSITIONS_ENUM {
   BOTTOM = 'BOTTOM',

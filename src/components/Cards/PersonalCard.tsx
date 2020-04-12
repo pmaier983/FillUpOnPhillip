@@ -5,7 +5,7 @@ import MaterialIcon from '../MaterialIcon'
 
 import { useQuery } from '../../hooks'
 import { MY_PROFILE } from '../../Queries'
-import { variables } from '../../utils/theme'
+import { variables } from '../../utils/variables'
 
 const CardContent = styled.div`
   display: flex;

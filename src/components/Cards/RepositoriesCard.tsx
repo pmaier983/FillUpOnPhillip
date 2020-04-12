@@ -7,7 +7,7 @@ import { Table, Column, AutoSizer } from 'react-virtualized'
 import { GET_PERSONAL_REPOSITORIES } from '../../Queries'
 import { useQuery } from '../../hooks'
 
-import { variables } from '../../utils/theme'
+import { variables } from '../../utils/variables'
 
 import './tableStyles.css'
 
