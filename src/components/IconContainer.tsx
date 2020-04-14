@@ -21,6 +21,7 @@ const LogoLinkContainer = styled.div<ILogoLinkContainerProps>`
   padding: 4px;
   border-radius: 4px;
   margin: 2px 10px;
+  color: ${({ theme }) => theme.linkColor};
   cursor: pointer;
   :hover {
     box-shadow: 0 0 0 2px ${({ theme }) => theme.lightAlert}; 

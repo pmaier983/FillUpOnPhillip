@@ -36,6 +36,7 @@ export interface IThemes {
   borderBasic: string,
   toggleColor: string,
   textColor: string,
+  linkColor: string,
 }
 
 export const THEME_NAMES = {
@@ -59,6 +60,7 @@ const LIGHT: IThemes = {
   toggleColor: colors.white,
   borderBasic: colors.black,
   textColor: colors.black,
+  linkColor: colors.black,
 }
 
 const DARK: IThemes = {
@@ -77,6 +79,7 @@ const DARK: IThemes = {
   toggleColor: colors.white,
   borderBasic: colors.alertOrange,
   textColor: colors.eggshellWhite,
+  linkColor: colors.black,
 }
 
 export const THEMES = {
