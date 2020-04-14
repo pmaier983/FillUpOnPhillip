@@ -35,6 +35,7 @@ export interface IThemes {
   darkApproval: string,
   borderBasic: string,
   toggleColor: string,
+  textColor: string,
 }
 
 export const THEME_NAMES = {
@@ -57,6 +58,7 @@ const LIGHT: IThemes = {
   darkApproval: colors.darkJellyBeanGreen,
   toggleColor: colors.white,
   borderBasic: colors.black,
+  textColor: colors.black,
 }
 
 const DARK: IThemes = {
@@ -74,6 +76,7 @@ const DARK: IThemes = {
   darkApproval: colors.darkJellyBeanGreen,
   toggleColor: colors.white,
   borderBasic: colors.alertOrange,
+  textColor: colors.eggshellWhite,
 }
 
 export const THEMES = {
