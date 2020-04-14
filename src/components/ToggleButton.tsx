@@ -13,6 +13,7 @@ interface IToggleButtonProps {
   leftValue?: any,
   rightValue?: any,
   enableToggleIndicator?: boolean,
+  color?: string,
 }
 
 interface IButtonContainerProps {
@@ -26,6 +27,10 @@ interface IButtonContainerProps {
 interface IToggleProps {
   width: number,
   height: number,
+}
+
+interface IWordContainerProps {
+  color: string,
 }
 
 const ButtonContainer = styled.div<IButtonContainerProps>`
@@ -47,12 +52,13 @@ const ButtonContainer = styled.div<IButtonContainerProps>`
   border: 1px solid ${({ theme }) => theme.borderBasic};
 `
 
-const WordContainer = styled.div`
+const WordContainer = styled.div<IWordContainerProps>`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 50%;
   height: 100%;
+  color: ${({ color }) => color}
   cursor: pointer;
 `
 
@@ -84,12 +90,13 @@ const ToggleButton = ({
   width = 100,
   height = 50,
   handleToggle,
-  toggleState=true,
+  color = 'black',
+  toggleState = true,
   trueBackgroundColor,
   falseBackgroundColor,
-  enableToggleIndicator=true,
-  leftValue='ON',
-  rightValue='OFF',
+  enableToggleIndicator = true,
+  leftValue = 'ON',
+  rightValue = 'OFF',
 }: IToggleButtonProps) => (
   <ButtonContainer
     width={width}
@@ -98,7 +105,7 @@ const ToggleButton = ({
     trueBackgroundColor={trueBackgroundColor}
     falseBackgroundColor={falseBackgroundColor}
   >
-    <WordContainer onClick={handleToggle}>
+    <WordContainer onClick={handleToggle} color={color}>
       {
         toggleState
         && enableToggleIndicator
@@ -106,7 +113,7 @@ const ToggleButton = ({
         }
       <TextContainer hasPointer={toggleState}>{leftValue}</TextContainer>
     </WordContainer>
-    <WordContainer onClick={handleToggle}>
+    <WordContainer onClick={handleToggle} color={color}>
       {
         !toggleState
         && enableToggleIndicator
