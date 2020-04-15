@@ -1,23 +1,30 @@
-// import React from 'react'
+import React from 'react'
 import {
-// render,
-// cleanup,
-// fireEvent,
-// waitForElement,
-// getNodeText,
+  render,
+  // cleanup,
+  // fireEvent,
+  // waitForElement,
+  // getNodeText,
 } from '@testing-library/react'
 // import * as fc from 'fast-check'
-// import CardContainer from '../CardContainer'
+import CardContainer from '../CardContainer'
 
-// interface IDummyBoxProps {
-//   width?: string,
-//   height?: string
-// }
+interface IBoxProps {
+  width?: string,
+  height?: string
+}
+const innerBoxText = 'It\'s nice to exist'
+const Box: React.FC<IBoxProps> = ({ width = '100px', height='100px' }) => <div data-testid="box" style={{ width, height }}>{innerBoxText}</div>
 
-// const DummyBox: React.FC<IDummyBoxProps> =
-//  ({ width = '100px', height='100px' }) => <div style={{ width, height }} />
+const renderDummyCardContainer = () => render(<CardContainer><Box /></CardContainer>)
 
-test('use jsdom in this test file', () => {
-  const element = document.createElement('div')
-  expect(element).not.toBeNull()
+describe('Test CardContainer.tsx', () => {
+  test('Has CardHandle', () => {
+    const { getByTestId } = renderDummyCardContainer()
+    expect(getByTestId('card-handle')).toBeTruthy()
+  })
+  test('Has CardContent', () => {
+    const { getByText } = renderDummyCardContainer()
+    expect(getByText(innerBoxText)).toBeTruthy()
+  })
 })

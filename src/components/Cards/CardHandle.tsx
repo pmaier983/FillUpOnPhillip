@@ -54,7 +54,13 @@ interface ICardHandleProps {
 const CardHandle: React.FC<ICardHandleProps> = ({ height = '20px' }, ...rest: any) => {
   const [{ isDraggable }] = useLandingPageContext()
   return (
-    <Container className="react-grid-handle-drag" height={height} isDraggable={isDraggable} {...rest}>
+    <Container
+      className="react-grid-handle-drag"
+      data-testid="card-handle"
+      height={height}
+      isDraggable={isDraggable}
+      {...rest}
+    >
       <Dots amount={3} width="10px" height="10px" isDraggable={isDraggable} />
     </Container>
   )
