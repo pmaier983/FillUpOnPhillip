@@ -53,9 +53,9 @@ const IconContainer: React.FC<IIconContainerProps> = ({
       <LogoLinkContainer
         width={width}
         height={height}
-        {...props}
         onClick={handleLogoClickRedirect}
         onKeyDown={handleLogoClickRedirect}
+        {...props}
       >
         {children || (
         <img
