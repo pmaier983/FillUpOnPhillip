@@ -28,8 +28,14 @@ const Dots: React.FC<IPropsDots> = ({
 }) => (
   <>
     {[...Array(amount)].map((_, index) => (
-      // eslint-disable-next-line react/no-array-index-key
-      <Dot key={index} width={width} height={height} {...rest} />
+      <Dot
+        // eslint-disable-next-line react/no-array-index-key
+        key={index}
+        width={width}
+        height={height}
+        data-testid="dot"
+        {...rest}
+      />
     ))}
   </>
 )
