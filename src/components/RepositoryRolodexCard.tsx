@@ -141,8 +141,8 @@ const RepositoryRolodexCard = ({
         <LinksAndTitleContainer>
           <TextCardName>{displayName}</TextCardName>
           <LinksContainer>
-            <IconContainer src={GitHubLogo} link={strippedHomepageURL} />
-            <IconContainer link={strippedGithubURL}><MaterialIcon name="storefront" size="35px" /></IconContainer>
+            <IconContainer src={GitHubLogo} link={strippedHomepageURL} alt={`The Home Page of ${displayName}`} />
+            <IconContainer link={strippedGithubURL} alt={`The Github Page of ${displayName}`}><MaterialIcon name="storefront" size="35px" /></IconContainer>
           </LinksContainer>
         </LinksAndTitleContainer>
       </LinksAndIconContainer>

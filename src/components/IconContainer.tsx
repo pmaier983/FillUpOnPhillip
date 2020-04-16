@@ -7,6 +7,7 @@ interface IIconContainerProps {
   src?: string,
   link?: string,
   href?: string,
+  alt: string,
 }
 
 interface ILogoLinkContainerProps {
@@ -32,7 +33,14 @@ const LogoLinkContainer = styled.div<ILogoLinkContainerProps>`
 `
 
 const IconContainer: React.FC<IIconContainerProps> = ({
-  src, children, width = '35px', height = '35px', href, link, ...props
+  src,
+  children,
+  width = '35px',
+  height = '35px',
+  href,
+  link,
+  alt,
+  ...props
 }) => {
   const handleLogoClickRedirect = () => {
     if (link) {
@@ -54,7 +62,7 @@ const IconContainer: React.FC<IIconContainerProps> = ({
           width="100%"
           height="100%"
           src={src}
-          alt="This Clearly Didnt Work"
+          alt={alt}
           // TODO: make this more accessible
           // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
           role="link"
