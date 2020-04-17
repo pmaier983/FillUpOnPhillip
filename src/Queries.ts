@@ -28,8 +28,8 @@ const GET_PERSONAL_REPOSITORIES = gql`
 `
 
 const MY_PROFILE = gql`
-  query { 
-    user(login: "pmaier983") {
+  query getProfile($userName: String!){ 
+    user(login: $userName) {
       id
       name
       avatarUrl
