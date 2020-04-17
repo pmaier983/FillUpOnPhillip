@@ -9,6 +9,7 @@ export enum TOOLTIP_POSITIONS_ENUM {
   TOP = 'TOP',
   LEFT = 'LEFT',
   RIGHT = 'RIGHT',
+  TOP_LEFT = 'TOP_LEFT'
 }
 
 const HoverTooltipContainer = styled.div`
@@ -43,6 +44,14 @@ const Tooltip = styled.div<IToolTipProps>`
 const handleTooltipPositioning = (width: number, position: string) => {
   switch (position) {
     // TODO: build a bottom/left/right tooltip
+    case (TOOLTIP_POSITIONS_ENUM.TOP_LEFT):
+      return ({
+        bottom: '100%',
+        left: '50%',
+        width: width > 0 ? `${width}px` : undefined,
+        // TODO: a better way of handling 3px padding
+        marginLeft: `-${width - 3}px`,
+      })
     case (TOOLTIP_POSITIONS_ENUM.TOP):
     default:
       return ({

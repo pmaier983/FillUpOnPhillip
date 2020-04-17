@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import MaterialIcon from '../MaterialIcon'
+import TooltipStatic, { TOOLTIP_POSITIONS_ENUM } from '../TooltipStatic'
 
 import { useQuery } from '../../hooks'
 import { MY_PROFILE } from '../../Queries'
@@ -29,7 +30,6 @@ const Portrait = styled.img`
 
 const SeperatorLine = styled.div`
   width: 90%;
-  margin: 5px;
   border-bottom: 1px solid ${({ theme }) => theme.lineEmphasized};
 `
 
@@ -42,21 +42,23 @@ const Location = styled.span`
   font-size: ${variables.fontNormal};
 `
 
-const Bio = styled.div``
-
-const Company = styled.div`
-  font-size: ${variables.fontNormal};
-`
-
 const IsHireable = styled.div`
   display: flex;
   flex-direction: row;
 `
 
+const HorizontalSpacing = styled.div`
+  width: 10px;
+`
+
 const PersonalCard = () => {
   const {
     data, loading, error, LoadingIcon,
-  } = useQuery(MY_PROFILE)
+  } = useQuery(MY_PROFILE, {
+    variables: {
+      userName: 'pmaier983',
+    },
+  })
 
   if (loading) {
     return <LoadingIcon />
@@ -68,7 +70,7 @@ const PersonalCard = () => {
 
   const {
     user: {
-      company, name, avatarUrl, bio, isHireable, location,
+      name, avatarUrl, bio, isHireable, location, email,
     },
   } = data
 
@@ -78,12 +80,18 @@ const PersonalCard = () => {
       <Name>{name}</Name>
       <Location>{location}</Location>
       <SeperatorLine />
-      <Bio>{bio}</Bio>
+      <span>{bio}</span>
       <SeperatorLine />
-      <Company>{`Current Employer: ${company}`}</Company>
       <IsHireable>
-        <span>Is Open to Opportunities:</span>
-        <MaterialIcon name={isHireable ? 'check_box_outlined' : 'check_box_outline'} width="24px" overflow="hidden" />
+        <span>{isHireable ? 'Is Open to new Opportunities!' : 'Is NOT Open to new Opportunities'}</span>
+        <HorizontalSpacing />
+        {isHireable
+          ? (
+            <TooltipStatic content={email} position={TOOLTIP_POSITIONS_ENUM.TOP_LEFT}>
+              <MaterialIcon name="chat" />
+            </TooltipStatic>
+          )
+          : null}
       </IsHireable>
     </CardContent>
   )
