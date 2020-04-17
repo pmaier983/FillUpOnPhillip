@@ -83,7 +83,7 @@ const PersonalCard = () => {
       <span>{bio}</span>
       <SeperatorLine />
       <IsHireable>
-        <span>{isHireable ? 'Is Open to new Opportunities!' : 'Is NOT Open to new Opportunities'}</span>
+        <span>{isHireable ? 'Is Open to new Opportunities!' : 'Is not currently Open to new Opportunities'}</span>
         <HorizontalSpacing />
         {isHireable
           ? (

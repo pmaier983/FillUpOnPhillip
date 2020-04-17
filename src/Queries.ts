@@ -36,7 +36,6 @@ const MY_PROFILE = gql`
       bio
       isHireable
       location
-      company
       email
     }
   }
