@@ -4,10 +4,10 @@ import {
   waitFor,
 } from '@testing-library/react'
 import { MockedProvider } from '@apollo/react-testing'
+import { testErrorBoundry, testLoadingIcon } from './testUtilities'
 
 import { MY_PROFILE } from '../../../Queries'
 import PersonalCard from '../PersonalCard'
-import ErrorBoundry from '../../ErrorHandling/ErrorBoundry'
 
 const mockMyProfileResponseText = {
   name: 'Phillip ED Maier',
@@ -77,22 +77,7 @@ const renderPersonalCard = (mock: any, options?: any) => render(
   options,
 )
 
-// TODO: find a better way to handle hiding the console.error
-// i dont mean the eslint
-
-// eslint-disable-next-line no-console
-const consoleError = console.error
-beforeAll(() => {
-  // eslint-disable-next-line no-console
-  console.error = () => {}
-})
-
-afterAll(() => {
-  // eslint-disable-next-line no-console
-  console.error = consoleError
-})
-
-describe('Test PersonalCard.tsx ', () => {
+describe('Test PersonalCard.tsx', () => {
   describe('check that all the text content renders correctly', () => {
     const mockTextArray = Object.values(mockMyProfileResponseText)
     // eslint-disable-next-line array-callback-return
@@ -114,20 +99,12 @@ describe('Test PersonalCard.tsx ', () => {
     const text = await waitFor(() => getByText('Is not currently Open to new Opportunities'))
     expect(text).toBeDefined()
   })
-  test('Does the Loading Icon Show up', async () => {
-    const { getByTestId } = renderPersonalCard(mockIsHireable)
-    await waitFor(() => expect(getByTestId('loading-icon')).toBeDefined())
-  })
-  test('Does the Error Icon Show up', async () => {
-    const { getByText, getByTestId } = render(
-      <MockedProvider mocks={mockError} addTypename={false}>
-        <ErrorBoundry>
-          <PersonalCard />
-        </ErrorBoundry>
-      </MockedProvider>,
-    )
-    await waitFor(() => expect(getByTestId('error-boundry')).toBeDefined())
-    await waitFor(() => expect(getByText('The Personal Card Failed')).toBeDefined())
-    await waitFor(() => expect(getByText('pmaier983@gmail.com')).toBeDefined())
+  describe('Test PersonalCard Error & Loading ', () => {
+    testLoadingIcon({
+      name: 'PersonalCard', component: <PersonalCard />, mock: mockIsHireable,
+    })
+    testErrorBoundry({
+      name: 'PersonalCard', component: <PersonalCard />, mockError, errorMessage: 'The Personal Card Failed',
+    })
   })
 })

@@ -7,6 +7,7 @@ const RepositoryFragment = gql`
     createdAt
     description
     url
+    __typename
   }
 `
 
