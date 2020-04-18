@@ -20,7 +20,7 @@ const ProfilePicture = styled.img`
 
 const PictureCard = () => (
   <CardContent>
-    <ProfilePicture src={PictureOfSelf} />
+    <ProfilePicture src={PictureOfSelf} alt="Picture of Phillip Maier standing with a background of green hills" />
   </CardContent>
 )
 
