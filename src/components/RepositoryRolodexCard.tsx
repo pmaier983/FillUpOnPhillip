@@ -33,8 +33,9 @@ const TextCardName = styled.div`
   font-weight: ${variables.fontWeightStrong};
 `
 
+// TODO: Perfect Size Each Image
 const TextCardImage = styled.img`
-  max-width: 33%;
+  max-width: 20%;
 `
 
 const BlurbContent = styled.p`
@@ -51,6 +52,7 @@ const TextContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  overflow-x: hidden;
   height: 100%;
 `
 
