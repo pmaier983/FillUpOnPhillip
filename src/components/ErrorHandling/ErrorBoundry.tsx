@@ -12,6 +12,8 @@ const ErrorContainer = styled.div`
   background-color: ${({ theme }) => theme.lightAlert};
   width: 100%;
   height: calc(100% - ${variables.cardHeaderHeight});
+  border-bottom-left-radius: ${variables.borderRadiusNormal};
+  border-bottom-right-radius: ${variables.borderRadiusNormal};
 `
 
 class ErrorBoundary extends Component {
@@ -30,17 +32,14 @@ class ErrorBoundary extends Component {
 
   render() {
     const errorInfo = _.get('errorInfo', this.state)
-    const error = _.get('error', this.state)
+    const error = _.get('error.message', this.state)
     const children = _.get('children', this.props)
     if (errorInfo) {
-      // eslint-disable-next-line no-console
-      console.error(error.toString())
       // TODO: improve error handling
       return (
-        <ErrorContainer>
-          {errorInfo}
-          <br />
-          Please Contact me below if you need anything
+        <ErrorContainer data-testid="error-boundry">
+          <span>{error}</span>
+          <span>Please Contact me below if you need anything</span>
           <a href="mailto:pmaier983@gmail.com">pmaier983@gmail.com</a>
         </ErrorContainer>
       )

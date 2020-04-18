@@ -15,7 +15,7 @@ const CenterLoadingContainer = styled.div`
 
 const LoadingIcon = () => (
   <CenterLoadingContainer>
-    <div className="lds-ellipsis">
+    <div className="lds-ellipsis" data-testid="loading-icon">
       <div />
       <div />
       <div />

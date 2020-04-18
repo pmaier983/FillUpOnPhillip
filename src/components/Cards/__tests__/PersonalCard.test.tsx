@@ -7,6 +7,7 @@ import { MockedProvider } from '@apollo/react-testing'
 
 import { MY_PROFILE } from '../../../Queries'
 import PersonalCard from '../PersonalCard'
+import ErrorBoundry from '../../ErrorHandling/ErrorBoundry'
 
 const mockMyProfileResponseText = {
   name: 'Phillip ED Maier',
@@ -57,11 +58,39 @@ const mockIsNotHireable = [
   },
 ]
 
-const renderPersonalCard = (isHireable: boolean) => render(
-  <MockedProvider mocks={isHireable ? mockIsHireable : mockIsNotHireable} addTypename={false}>
+const mockError = [
+  {
+    request: {
+      query: MY_PROFILE,
+      variables: {
+        userName: 'pmaier983',
+      },
+    },
+    error: Error(),
+  },
+]
+
+const renderPersonalCard = (mock: any, options?: any) => render(
+  <MockedProvider mocks={mock} addTypename={false}>
     <PersonalCard />
   </MockedProvider>,
+  options,
 )
+
+// TODO: find a better way to handle hiding the console.error
+// i dont mean the eslint
+
+// eslint-disable-next-line no-console
+const consoleError = console.error
+beforeAll(() => {
+  // eslint-disable-next-line no-console
+  console.error = () => {}
+})
+
+afterAll(() => {
+  // eslint-disable-next-line no-console
+  console.error = consoleError
+})
 
 describe('Test PersonalCard.tsx ', () => {
   describe('check that all the text content renders correctly', () => {
@@ -69,21 +98,36 @@ describe('Test PersonalCard.tsx ', () => {
     // eslint-disable-next-line array-callback-return
     mockTextArray.map((value) => {
       test(`Check that ${value} renders`, async () => {
-        const { getByText } = renderPersonalCard(true)
+        const { getByText } = renderPersonalCard(mockIsHireable)
         const text = await waitFor(() => getByText(value))
         expect(text).toBeDefined()
       })
     })
   })
   test('test isHireable: true', async () => {
-    const { getByText } = renderPersonalCard(true)
+    const { getByText } = renderPersonalCard(mockIsHireable)
     const text = await waitFor(() => getByText('Is Open to new Opportunities!'))
     expect(text).toBeDefined()
   })
   test('test isHireable: false', async () => {
-    const { getByText } = renderPersonalCard(false)
+    const { getByText } = renderPersonalCard(mockIsNotHireable)
     const text = await waitFor(() => getByText('Is not currently Open to new Opportunities'))
     expect(text).toBeDefined()
   })
-  // TODO: test Loading and Error State
+  test('Does the Loading Icon Show up', async () => {
+    const { getByTestId } = renderPersonalCard(mockIsHireable)
+    await waitFor(() => expect(getByTestId('loading-icon')).toBeDefined())
+  })
+  test('Does the Error Icon Show up', async () => {
+    const { getByText, getByTestId } = render(
+      <MockedProvider mocks={mockError} addTypename={false}>
+        <ErrorBoundry>
+          <PersonalCard />
+        </ErrorBoundry>
+      </MockedProvider>,
+    )
+    await waitFor(() => expect(getByTestId('error-boundry')).toBeDefined())
+    await waitFor(() => expect(getByText('The Personal Card Failed')).toBeDefined())
+    await waitFor(() => expect(getByText('pmaier983@gmail.com')).toBeDefined())
+  })
 })
