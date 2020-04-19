@@ -66,10 +66,10 @@ const reducer = (state: ILandingPageState, action: IAction) => {
       } if (newIndex < 0) {
         return {
           ...state,
-          techUsedCardIndex: techRolodexLength -1,
+          techUsedCardIndex: techRolodexLength,
         }
       }
-      if (newIndex > 0 || newIndex >= techRolodexLength) {
+      if (newIndex > 0 || newIndex > techRolodexLength) {
         return {
           ...state,
           techUsedCardIndex: newIndex,
