@@ -58,7 +58,7 @@ const reducer = (state: ILandingPageState, action: IAction) => {
       const newIndex = _.get('payload', action)
       const techRolodexLength = _.get('techUsedRolodex.length', state)
       // TODO: I'm sure there is a better pattern then this
-      if (newIndex >= techRolodexLength) {
+      if (newIndex > techRolodexLength) {
         return {
           ...state,
           techUsedCardIndex: 0,
