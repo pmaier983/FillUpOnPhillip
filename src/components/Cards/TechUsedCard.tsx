@@ -45,10 +45,11 @@ const SlidingTestCard = () => {
       textCardIndex={techUsedCardIndex}
       setTextCardIndex={handleTechUsedCardIndex}
     >
-      <ImageLinkContainer>
+      <ImageLinkContainer data-testid="tech-used-icons">
         {techUsedRolodex.map(
           ({ icon, name }, index) => (
             <ImageLink
+              alt={name}
               key={name}
               src={icon}
               onClick={() => handleTechUsedCardIndex(index + 1)}
