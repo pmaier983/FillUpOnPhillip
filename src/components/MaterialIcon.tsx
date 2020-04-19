@@ -12,6 +12,7 @@ interface IconStylingProps {
   alignSelf?: string,
   overflow?: string,
   display?: string,
+  role?: string,
 }
 
 interface IMaterialIconsProps extends IconStylingProps {
@@ -51,13 +52,13 @@ const Icon = styled.i<IconStylingProps>`
 // TODO: clarify React.Ref attribute
 const MaterialIcon = forwardRef(
   ({
-    name, onClick, alignSelf, display, ...props
+    name, role, onClick, alignSelf, display, ...props
   }: IMaterialIconsProps, buttonRef: React.Ref<any>) => {
     // TODO: make a regex to do this super quick
     const materialTheme = _.get(_.flow(_.split('_'), _.last, _.toUpper)(name), ICON_THEMES)
     return (
       <IconContainer
-        role={onClick && 'button'}
+        role={role || (onClick && 'button')}
         onClick={onClick}
         onKeyPress={onClick}
         alignSelf={alignSelf}
