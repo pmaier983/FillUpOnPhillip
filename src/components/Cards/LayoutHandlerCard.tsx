@@ -53,10 +53,6 @@ const ButtonContainer = styled.div`
 
 interface ILayoutHandlerProps {
   dispatchLayoutEffect: React.Dispatch<IActions>,
-  handleDraggable: (stateOverride: boolean) => void,
-  handleResizable: (stateOverride: boolean) => void,
-  isResizable: boolean,
-  isDraggable: boolean,
 }
 
 const LayoutHandlerCard = (
