@@ -1,7 +1,5 @@
-# Example-Apollo-Global-Allert
-An example of a global alert system for apollo graphql
+# FillUpOnPhillip
 
-# Instructions: 
+My Personal Website (http://phillip-maier.com/)
 
-1. Paste your Github Personal Acceses token found (https://github.com/settings/tokens) into the .env file
-2. npm install & npm start
+# If You want you can clone this repo and play around!
