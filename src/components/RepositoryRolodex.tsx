@@ -90,7 +90,7 @@ const getTimeSinceCreation = (unixTime:number) => {
   return `${yearsSince === 0 ? '' : `${yearsSince} years, `} ${remainderDaysSince} days ago`
 }
 
-const RepositoryRolodexCard = ({
+const RepositoryRolodex = ({
   name: repositoryName,
   owner: RepositoryOwner,
   displayName,
@@ -177,4 +177,4 @@ const RepositoryRolodexCard = ({
   )
 }
 
-export default RepositoryRolodexCard
+export default RepositoryRolodex
