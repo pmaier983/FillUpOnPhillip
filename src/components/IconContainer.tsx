@@ -7,7 +7,7 @@ interface IIconContainerProps {
   src?: string,
   link?: string,
   href?: string,
-  alt: string,
+  alt?: string,
 }
 
 interface ILogoLinkContainerProps {
