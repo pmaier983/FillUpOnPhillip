@@ -64,7 +64,7 @@ const handleTooltipPositioning = (width: number, position: string) => {
 }
 
 interface ITooltipStaticProps {
-  content: string | React.FC,
+  content: string | React.ReactNode,
   initialState?: boolean,
   position?: TOOLTIP_POSITIONS_ENUM,
 }
