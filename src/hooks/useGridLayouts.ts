@@ -17,7 +17,9 @@ export const GRID_BREAKPOINT_LAYOUTS_ACTIONS = {
   RANDOMIZE: 'RANDOMIZE',
 }
 
-const getCurrentBreakpoint = (): string => (window.innerWidth ? _.flow(
+export type GetCurrentBreakpointType = () => string
+
+export const getCurrentBreakpoint: GetCurrentBreakpointType = () => (window.innerWidth ? _.flow(
   _.toPairs,
   _.find(([, breakpointWidth]) => window.innerWidth > breakpointWidth),
   _.head,
@@ -102,7 +104,7 @@ const reducer = (state: ILayoutsState, action: IActions): ILayoutsState => {
 type UseGridLayouts = () => [Array<ILayout>, IBreakpointLayouts, React.Dispatch<IActions>]
 
 const useGridLayout: UseGridLayouts = () => {
-  const [localLayouts, setlocalLayouts] = useLocalStorage('gridLayouts', initialGridLayouts)
+  const [localLayouts, setlocalLayouts] = useLocalStorage({ key: 'gridLayouts', initialValue: initialGridLayouts })
   const [state, dispatch] = useReducer(reducer,
     { initialState: localLayouts, setlocalLayouts },
     buildInitialState)
