@@ -1,8 +1,13 @@
 // Small modifications to https://usehooks.com/useLocalStorage/
 import { useState } from 'react'
 
+export interface IuseLocalStorageProps {
+  key: string,
+  initialValue: any
+}
+
 // Hook
-const useLocalStorage = (key: string, initialValue: any) => {
+const useLocalStorage = ({ key, initialValue }: IuseLocalStorageProps) => {
   // State to store our value
   // Pass initial state function to useState so logic is only executed once
   const [storedValue, setStoredValue] = useState(() => {
