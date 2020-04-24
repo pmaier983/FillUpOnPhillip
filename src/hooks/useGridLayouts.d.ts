@@ -1,4 +1,4 @@
-// TODO: when to use .d.ts file???
+// TODO: Dont use a .d.ts file...
 export interface ILayout {
   x: number,
   y: number,
