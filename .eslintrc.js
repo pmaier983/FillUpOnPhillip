@@ -8,7 +8,7 @@ module.exports = {
     es6: true,
     jest: true
   },
-  extends: ["airbnb"],
+  extends: ["airbnb", "plugin:cypress/recommended"],
   globals: {
     Atomics: "readonly",
     SharedArrayBuffer: "readonly"
