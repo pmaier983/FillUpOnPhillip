@@ -23,6 +23,7 @@ const Portrait = styled.img`
   margin: 10px 0 5px 0;
   /* TODO: find a way to keep perfect ratio above minwidth/height*/
   width: 50%;
+  max-width: 200px;
   height: auto;
   border: 1px solid ${({ theme }) => theme.lineEmphasized};
   border-radius: 100%;
@@ -90,7 +91,7 @@ const PersonalCard = () => {
             <TooltipStatic
               content={email}
               position={TOOLTIP_POSITIONS_ENUM.TOP_LEFT}
-              options={{ opacity: 1 }}
+              options={{ opacity: 1, maxWidth: '200px' }}
             >
               <MaterialIcon name="chat" />
             </TooltipStatic>
