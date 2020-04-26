@@ -24,10 +24,12 @@ interface IToolTipProps {
   left?: string,
   marginLeft?: string,
   opacity?: number,
+  maxWidth?: string,
 }
 
 interface ITooltipStaticOptions {
   opacity?: number,
+  maxWidth?: string,
 }
 
 const Tooltip = styled.div<IToolTipProps>`
@@ -44,6 +46,7 @@ const Tooltip = styled.div<IToolTipProps>`
   left: ${({ left }) => left};
   margin-left: ${({ marginLeft }) => marginLeft};
   width: ${({ width }) => width};
+  max-width: ${({ maxWidth }) => maxWidth};
 `
 
 const handleTooltipPositioning = (width: number, position: string) => {
@@ -102,7 +105,15 @@ const TooltipStatic: React.FC<ITooltipStaticProps> = (
       onBlur={hideTooltip}
     >
       {children}
-      <Tooltip ref={sizeRef} visible={toolTipVisibility} opacity={options?.opacity} {...tooltipPosition}>{content}</Tooltip>
+      <Tooltip
+        ref={sizeRef}
+        visible={toolTipVisibility}
+        opacity={options?.opacity}
+        maxWidth={options?.maxWidth}
+        {...tooltipPosition}
+      >
+        {content}
+      </Tooltip>
     </HoverTooltipContainer>
   )
 }
