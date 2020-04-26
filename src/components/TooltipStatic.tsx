@@ -23,6 +23,11 @@ interface IToolTipProps {
   bottom?: string,
   left?: string,
   marginLeft?: string,
+  opacity?: number,
+}
+
+interface ITooltipStaticOptions {
+  opacity?: number,
 }
 
 const Tooltip = styled.div<IToolTipProps>`
@@ -33,7 +38,7 @@ const Tooltip = styled.div<IToolTipProps>`
   border-radius: ${variables.borderRadiusNormal};
   border: 1px solid ${({ theme }) => theme.borderBasic};
   padding: 3px;
-  opacity: 0.85;
+  opacity: ${({ opacity = 0.85 }) => opacity};
   visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
   bottom: ${({ bottom }) => bottom};
   left: ${({ left }) => left};
@@ -67,11 +72,12 @@ interface ITooltipStaticProps {
   content: string | React.ReactNode,
   initialState?: boolean,
   position?: TOOLTIP_POSITIONS_ENUM,
+  options?: ITooltipStaticOptions,
 }
 
 const TooltipStatic: React.FC<ITooltipStaticProps> = (
   {
-    children, content, initialState=false, position=TOOLTIP_POSITIONS_ENUM.TOP,
+    children, content, initialState=false, position=TOOLTIP_POSITIONS_ENUM.TOP, options,
   },
 ) => {
   const [toolTipVisibility, setTooltipVisibility] = useState(initialState)
@@ -96,7 +102,7 @@ const TooltipStatic: React.FC<ITooltipStaticProps> = (
       onBlur={hideTooltip}
     >
       {children}
-      <Tooltip ref={sizeRef} visible={toolTipVisibility} {...tooltipPosition}>{content}</Tooltip>
+      <Tooltip ref={sizeRef} visible={toolTipVisibility} opacity={options?.opacity} {...tooltipPosition}>{content}</Tooltip>
     </HoverTooltipContainer>
   )
 }

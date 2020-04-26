@@ -22,10 +22,10 @@ const Portrait = styled.img`
   align-self: center;
   margin: 10px 0 5px 0;
   /* TODO: find a way to keep perfect ratio above minwidth/height*/
-  width: 120px;
-  height: 120px;
+  width: 50%;
+  height: auto;
   border: 1px solid ${({ theme }) => theme.lineEmphasized};
-  border-radius: 5px;
+  border-radius: 100%;
 `
 
 const SeperatorLine = styled.div`
@@ -87,7 +87,11 @@ const PersonalCard = () => {
         <HorizontalSpacing />
         {isHireable
           ? (
-            <TooltipStatic content={email} position={TOOLTIP_POSITIONS_ENUM.TOP_LEFT}>
+            <TooltipStatic
+              content={email}
+              position={TOOLTIP_POSITIONS_ENUM.TOP_LEFT}
+              options={{ opacity: 1 }}
+            >
               <MaterialIcon name="chat" />
             </TooltipStatic>
           )
