@@ -36,7 +36,7 @@ context('Test Draggability', () => {
               })
               .then(() => {
                 cy.get('[data-testid="PersonalCard"]').then((PersonalCard) => PersonalCard[0].getBoundingClientRect())
-                  .then((newPersonalCardBounds) => {
+                  .should((newPersonalCardBounds) => {
                     expect(newPersonalCardBounds.x).to.equal(personalCardBounds.x)
                     // TODO: why does this go to 0 at one point
                     // I think it has something to do with how react-grid-layout handles dragging
