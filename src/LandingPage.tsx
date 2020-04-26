@@ -36,6 +36,7 @@ const LandingPage = () => {
         minHeight={minHeight}
         maxWidth={maxWidth}
         maxHeight={maxHeight}
+        testid={i}
         {...rest}
       >
         <Component

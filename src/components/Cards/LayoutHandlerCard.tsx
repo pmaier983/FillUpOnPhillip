@@ -118,7 +118,7 @@ const LayoutHandlerCard = (
           <ToggleButton
             width={80}
             height={35}
-            testId="toggle-draggability"
+            testid="toggle-draggability"
             trueBackgroundColor={lightApproval}
             falseBackgroundColor={lightAlert}
             toggleState={isDraggable}
@@ -130,7 +130,7 @@ const LayoutHandlerCard = (
           <ToggleButton
             width={80}
             height={35}
-            testId="toggle-resizability"
+            testid="toggle-resizability"
             trueBackgroundColor={lightApproval}
             falseBackgroundColor={lightAlert}
             toggleState={isResizable}
@@ -143,7 +143,7 @@ const LayoutHandlerCard = (
             width={80}
             enableToggleIndicator={false}
             height={35}
-            testId="toggle-theme"
+            testid="toggle-theme"
             trueBackgroundColor={colors.daySkyLightBlue}
             falseBackgroundColor={colors.nightSkyBlack}
             leftValue={isLightTheme && <MaterialIcon name="wb_sunny" display="flex" color={colors.sunYellow} />}

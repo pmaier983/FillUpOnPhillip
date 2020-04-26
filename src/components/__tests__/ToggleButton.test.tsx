@@ -10,7 +10,7 @@ const defaultToggleButtonProps = {
   height: 100,
   trueBackgroundColor: '#FFFFFF',
   falseBackgroundColor: '#000000',
-  testId: 'toggle-button',
+  testid: 'toggle-button',
 }
 
 interface IDefaultToggleButtonPropss {
@@ -48,7 +48,7 @@ describe('Test ToggleButton.tsx ', () => {
     } = renderToggleButton(true, mockToggelState)
     const onButton = getByText('ON')
     const offButton = getByText('OFF')
-    const buttonContainer = getByTestId(defaultToggleButtonProps.testId)
+    const buttonContainer = getByTestId(defaultToggleButtonProps.testid)
     fireEvent.click(onButton)
     expect(mockToggelState).toHaveBeenCalledTimes(1)
     expect(buttonContainer).toHaveStyle(`background-color: ${defaultToggleButtonProps.trueBackgroundColor}`)
