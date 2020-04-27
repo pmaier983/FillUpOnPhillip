@@ -22,7 +22,7 @@ const Portrait = styled.img`
   align-self: center;
   margin: 10px 0 5px 0;
   /* TODO: find a way to keep perfect ratio above minwidth/height*/
-  width: 50%;
+  width: 40%;
   max-width: 200px;
   height: auto;
   border: 1px solid ${({ theme }) => theme.lineEmphasized};

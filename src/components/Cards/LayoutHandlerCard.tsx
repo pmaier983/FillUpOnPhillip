@@ -24,9 +24,14 @@ const ContentContainer = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
+  align-content: space-around;
+  flex-wrap: wrap;
   align-items: center;
-  align-content: center;
   justify-content: space-evenly;
+`
+
+const CardTitle = styled.div`
+  text-align: center;
 `
 
 // TODO: find a better way of handling padding vs. 98%
@@ -109,7 +114,7 @@ const LayoutHandlerCard = (
           <MaterialIcon name="arrow_back" onClick={handleUndoLayout} hasHoverEffect />
           <MaterialIcon name="arrow_forward" onClick={handleRedoLayout} hasHoverEffect />
         </NavigationContainer>
-        Layout Management Interface
+        <CardTitle>Layout Management Interface</CardTitle>
         <MaterialIcon name="refresh" onClick={handleResetLayout} hasHoverEffect />
       </HeaderContainer>
       <ContentContainer>
