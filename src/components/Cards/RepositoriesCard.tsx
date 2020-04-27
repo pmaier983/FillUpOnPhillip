@@ -21,6 +21,7 @@ const Container = styled.div`
 const CardHeader = styled.div`
   display: flex;
   justify-content: space-between;
+  align-self: center;
   font-size: ${variables.fontLarge};
   font-weight: bold;
   margin: 5px;
@@ -33,6 +34,10 @@ const TableContainer = styled.div`
 
 const CardTitle = styled.span`
   text-decoration: underline;
+`
+
+const DescriptionCell = styled.div`
+  font-size: ${variables.fontNormal};
 `
 
 interface IRepositoryRowFormatterProps {
@@ -55,16 +60,19 @@ const RepositoriesCard = () => {
     throw Error('The Repository Card Failed')
   }
 
-  const { totalCount, totalDiskUsage, nodes: repositories } = _.get(
+  const { nodes: repositories } = _.get(
     'user.repositories',
     data,
   )
 
   const repositoryRowFormatter = ({ index }: IRepositoryRowFormatterProps) => {
     const rowObject = repositories[index]
-    const { url, name, createdAt } = rowObject
+    const {
+      url, name, createdAt, description,
+    } = rowObject
     return {
       ...rowObject,
+      description,
       name: <a href={url}>{name}</a>,
       createdAt: moment(createdAt).format(variables.createdDateFormat),
     }
@@ -74,17 +82,9 @@ const RepositoriesCard = () => {
     // TODO make this resize respinsively.
     <Container>
       <CardHeader>
-        <span>
-          {`Total Count: 
-          ${totalCount}`}
-        </span>
         <CardTitle>
           My Github Repositories
         </CardTitle>
-        <span>
-          {`Total Disk Usage: 
-          ${totalDiskUsage} Kb`}
-        </span>
       </CardHeader>
       <TableContainer>
         <AutoSizer>
@@ -94,7 +94,7 @@ const RepositoriesCard = () => {
               // TODO: increase prominense of the Header
               headerHeight={20}
               width={width}
-              rowHeight={60}
+              rowHeight={49}
               rowCount={repositories.length}
               // TODO: moment of time for the date.
               rowGetter={repositoryRowFormatter}
@@ -105,17 +105,19 @@ const RepositoriesCard = () => {
                 label="name"
                 cellRenderer={({ cellData }) => cellData}
               />
+              {width > 500 && (
               <Column
                 dataKey="createdAt"
                 width={300}
                 label="Date Created"
                 cellRenderer={({ cellData }) => cellData}
               />
+              )}
               <Column
                 dataKey="description"
                 width={300}
                 label="description"
-                cellRenderer={({ cellData }) => cellData}
+                cellRenderer={({ cellData }) => <DescriptionCell>{cellData}</DescriptionCell>}
               />
             </Table>
           )}

@@ -1,5 +1,4 @@
 import React from 'react'
-import _ from 'lodash/fp'
 import {
   render,
   waitFor,
@@ -68,24 +67,19 @@ const renderPersonalRepositoriesCard = (mock: any, options?: any) => render(
 describe('Test RepositoriesCard.tsx', () => {
   test('The Table should have all its components', async () => {
     const {
-      getByText, getByRole,
+      getByRole,
     } = renderPersonalRepositoriesCard(mockPersonalRepositories)
-    const numberOfRows = _.get('data.user.repositories.nodes', mockPersonalRepositoriesQueryResult).length
 
     // Grid Check
     const grid = await waitFor(() => getByRole('grid'))
     expect(grid).toBeDefined()
-
-    // Total Count Check
-    const totalCount = await waitFor(() => getByText(`Total Count: ${numberOfRows}`))
-    expect(totalCount).toBeDefined()
 
     // Header Check
     const headers = await waitFor(() => getByRole('rowgroup'))
     expect(headers).toBeDefined()
   })
   describe('Test for all headers', () => {
-    const headers = ['name', 'Date Created', 'description']
+    const headers = ['name', 'description']
     // eslint-disable-next-line array-callback-return
     headers.map((header: string) => {
       test(`check for header: ${header}`, async () => {

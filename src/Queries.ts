@@ -17,8 +17,6 @@ const GET_PERSONAL_REPOSITORIES = gql`
     user(login: "pmaier983") {
       id
       repositories(privacy: PUBLIC, first: 100) {
-        totalCount
-        totalDiskUsage
         nodes {
           ...RepositoryFragment
         }
