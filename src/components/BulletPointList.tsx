@@ -33,7 +33,7 @@ const ListElement = styled.span<IListContainerProps>`
 const BulletPointList: React.FC<IBulletPointListProps> = ({ list, options }) => (
   <ListContainer>
     {list.map((el) => (
-      <ListElement fontSize={options?.fontSize}><text>{` • ${el} `}</text></ListElement>
+      <ListElement key={el} fontSize={options?.fontSize}>{` • ${el} `}</ListElement>
     ))}
   </ListContainer>
 )

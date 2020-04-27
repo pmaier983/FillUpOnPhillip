@@ -11,17 +11,6 @@ import { whatMattersTech } from '../../static/WhatMatters'
 
 const renderBulletPointList = () => render(<BulletPointList list={whatMattersTech} />)
 
-const consoleError = console.error
-beforeAll(() => {
-  // eslint-disable-next-line no-console
-  console.error = () => {}
-})
-
-afterAll(() => {
-  // eslint-disable-next-line no-console
-  console.error = consoleError
-})
-
 describe('Test BulletPointList.tsx ', () => {
   // test('The BulletPointList should be able to handle any string[]', () => {
   //   fc.assert(

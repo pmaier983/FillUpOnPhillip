@@ -9,17 +9,6 @@ import { whatMattersTech, whatMattersPersonal } from '../../../static/WhatMatter
 
 const renderWhatMattersCard = () => render(<WhatMattersCard />)
 
-const consoleError = console.error
-beforeAll(() => {
-  // eslint-disable-next-line no-console
-  console.error = () => {}
-})
-
-afterAll(() => {
-  // eslint-disable-next-line no-console
-  console.error = consoleError
-})
-
 describe('Test WhatMattersCard.tsx ', () => {
   test('Picture Card Should Contain my Picture', () => {
     const { getByText } = renderWhatMattersCard()
