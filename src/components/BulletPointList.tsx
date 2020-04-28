@@ -20,10 +20,8 @@ const ListContainer = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-around;
-  align-content: space-around;
   flex-wrap: wrap;
   width: 100%;
-  height: 100%;
 `
 
 const ListElement = styled.span<IListContainerProps>`
