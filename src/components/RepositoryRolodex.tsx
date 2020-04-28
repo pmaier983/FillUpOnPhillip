@@ -66,13 +66,13 @@ const EmphasizedText = styled.div`
   font-weight: ${variables.fontWeightStrong};
 `
 
-const SeperatorLine = styled.div`
+const SeparatorLine = styled.div`
   width: 100%;
   margin: 10px 0 10px;
   border-bottom: 1px solid ${({ theme }) => theme.lineEmphasized};
 `
 
-const InivisbleSmallPadding = styled.div`
+const InvisibleSmallPadding = styled.div`
   width: 100%;
   height: 10px;
 `
@@ -138,7 +138,7 @@ const RepositoryRolodex = ({
 
   return (
     <TextCardContainer>
-      <InivisbleSmallPadding />
+      <InvisibleSmallPadding />
       <LinksAndIconContainer>
         <TextCardImage src={icon} />
         <LinksAndTitleContainer>
@@ -149,8 +149,8 @@ const RepositoryRolodex = ({
           </LinksContainer>
         </LinksAndTitleContainer>
       </LinksAndIconContainer>
-      <InivisbleSmallPadding />
-      <SeperatorLine />
+      <InvisibleSmallPadding />
+      <SeparatorLine />
       <FactContainer>
         <TooltipStatic content={creationDate}>
           <EmphasizedText>Created: </EmphasizedText>
@@ -165,13 +165,13 @@ const RepositoryRolodex = ({
           {`${diskUsage} Kb`}
         </div>
       </FactContainer>
-      <SeperatorLine />
+      <SeparatorLine />
       <TextContentContainer>
         <div>
           <EmphasizedText>Description: </EmphasizedText>
           {description}
         </div>
-        <SeperatorLine />
+        <SeparatorLine />
         <EmphasizedText>My Thoughts:</EmphasizedText>
         <BlurbContent>{blurb}</BlurbContent>
       </TextContentContainer>

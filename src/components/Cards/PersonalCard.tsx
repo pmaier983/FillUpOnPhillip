@@ -29,7 +29,7 @@ const Portrait = styled.img`
   border-radius: 100%;
 `
 
-const SeperatorLine = styled.div`
+const SeparatorLine = styled.div`
   width: 90%;
   border-bottom: 1px solid ${({ theme }) => theme.lineEmphasized};
 `
@@ -80,9 +80,9 @@ const PersonalCard = () => {
       <Portrait src={avatarUrl} alt="Profile" />
       <Name>{name}</Name>
       <Location>{location}</Location>
-      <SeperatorLine />
+      <SeparatorLine />
       <span>{bio}</span>
-      <SeperatorLine />
+      <SeparatorLine />
       <IsHireable>
         <span>{isHireable ? 'Is Open to new Opportunities!' : 'Is not currently Open to new Opportunities'}</span>
         <HorizontalSpacing />

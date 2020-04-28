@@ -7,7 +7,7 @@ import { MockedProvider } from '@apollo/react-testing'
 
 import { GET_PERSONAL_REPOSITORIES } from '../../../Queries'
 import RepositoriesCard from '../RepositoriesCard'
-import { testLoadingIcon, testErrorBoundry } from './testUtilities'
+import { testLoadingIcon, testErrorBoundary } from './testUtilities'
 
 const mockPersonalRepositoriesQueryResult = {
   data: {
@@ -95,7 +95,7 @@ describe('Test RepositoriesCard.tsx', () => {
     testLoadingIcon({
       name: 'RepositoriesCard', component: <RepositoriesCard />, mock: mockPersonalRepositories,
     })
-    testErrorBoundry({
+    testErrorBoundary({
       name: 'RepositoriesCard', component: <RepositoriesCard />, mockError, errorMessage: 'The Repository Card Failed',
     })
   })

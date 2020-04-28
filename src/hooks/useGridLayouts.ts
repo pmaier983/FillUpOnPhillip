@@ -44,7 +44,7 @@ const reducer = (state: ILayoutsState, action: IActions): ILayoutsState => {
       }
       const newBreakpointLayouts = action.payload.breakpointLayouts
       const { breakpointLayoutsStack, breakpointLayoutsStackCurrentIndex, setlocalLayouts } = state
-      // dont add the same layout to the stack in succession
+      // don't add the same layout to the stack in succession
       if (
         _.isEqual(
           newBreakpointLayouts[breakpoint],
@@ -87,7 +87,7 @@ const reducer = (state: ILayoutsState, action: IActions): ILayoutsState => {
       console.error('You Cannot Redo Anymore')
       return state
     case GRID_BREAKPOINT_LAYOUTS_ACTIONS.RESET:
-      // param reasign for speed and readability #notFunctional
+      // param reassign for speed and readability #notFunctional
       state.breakpointLayoutsStack.push(initialGridLayouts)
       state.breakpointLayoutsStackCurrentIndex += 1
       state.setlocalLayouts(initialGridLayouts)

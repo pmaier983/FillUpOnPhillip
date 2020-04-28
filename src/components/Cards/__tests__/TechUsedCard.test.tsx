@@ -102,7 +102,7 @@ describe('Test TechUsedCard.tsx ', () => {
 
     await waitFor(() => {
       // TODO: find a way to hush the undefined error
-      const lastTechCardDisplayName = _.getOr('TS is annoying sometimes (or I dont know how to fix this...)',
+      const lastTechCardDisplayName = _.getOr('TS is annoying sometimes (or I don\'t know how to fix this...)',
         'displayName',
         _.last(technologyUsed))
       expect(getByText(lastTechCardDisplayName)).toBeDefined()

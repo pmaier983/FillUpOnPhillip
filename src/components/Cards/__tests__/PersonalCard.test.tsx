@@ -4,7 +4,7 @@ import {
   waitFor,
 } from '@testing-library/react'
 import { MockedProvider } from '@apollo/react-testing'
-import { testErrorBoundry, testLoadingIcon } from './testUtilities'
+import { testErrorBoundary, testLoadingIcon } from './testUtilities'
 
 import { MY_PROFILE } from '../../../Queries'
 import PersonalCard from '../PersonalCard'
@@ -103,7 +103,7 @@ describe('Test PersonalCard.tsx', () => {
     testLoadingIcon({
       name: 'PersonalCard', component: <PersonalCard />, mock: mockIsHireable,
     })
-    testErrorBoundry({
+    testErrorBoundary({
       name: 'PersonalCard', component: <PersonalCard />, mockError, errorMessage: 'The Personal Card Failed',
     })
   })

@@ -9,7 +9,7 @@ interface IDotProps {
   isDraggable?: boolean,
 }
 
-// TODO: if more UI elemnts proliferate, add to seperate folder
+// TODO: if more UI elements proliferate, add to separate folder
 const Dot = styled.span<IDotProps>`
   width: ${({ width }) => width};
   height: ${({ height }) => height};

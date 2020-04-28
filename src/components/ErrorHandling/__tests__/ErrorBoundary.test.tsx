@@ -2,7 +2,7 @@ import React from 'react'
 import {
   render,
 } from '@testing-library/react'
-import ErrorBoundry from '../ErrorBoundry'
+import ErrorBoundary from '../ErrorBoundary'
 
 const errorMessage = 'O Dear, There has been an Error'
 const noErrorMessage = 'well done old chap'
@@ -18,10 +18,10 @@ const MockComponent = ({ shouldThrow }: IShouldThrowProp) => {
   return <span>{noErrorMessage}</span>
 }
 
-const renderErrorBoundry = ({ shouldThrow }: IShouldThrowProp) => render(
-  <ErrorBoundry>
+const renderErrorBoundary = ({ shouldThrow }: IShouldThrowProp) => render(
+  <ErrorBoundary>
     <MockComponent shouldThrow={shouldThrow} />
-  </ErrorBoundry>,
+  </ErrorBoundary>,
 )
 
 // TODO: how to handle hiding this error in a better way
@@ -39,14 +39,14 @@ afterAll(() => {
   console.error = consoleError
 })
 
-describe(('Test ErrorBoundry.tsx'), () => {
-  test('If no error is thrown, does the ErrorBoundry Trigger', () => {
-    const { getByText } = renderErrorBoundry({ shouldThrow: false })
+describe(('Test ErrorBoundary.tsx'), () => {
+  test('If no error is thrown, does the ErrorBoundary Trigger', () => {
+    const { getByText } = renderErrorBoundary({ shouldThrow: false })
     expect(getByText(noErrorMessage)).toBeDefined()
   })
-  test('If throw Error, does ErrorBoundry Trigger', () => {
-    const { getByTestId, getByText } = renderErrorBoundry({ shouldThrow: true })
-    expect(getByTestId('error-boundry')).toBeDefined()
+  test('If throw Error, does ErrorBoundary Trigger', () => {
+    const { getByTestId, getByText } = renderErrorBoundary({ shouldThrow: true })
+    expect(getByTestId('error-boundary')).toBeDefined()
     expect(getByText(errorMessage)).toBeDefined()
     expect(getByText('pmaier983@gmail.com')).toBeDefined()
   })

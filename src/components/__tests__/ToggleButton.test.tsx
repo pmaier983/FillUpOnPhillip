@@ -13,13 +13,13 @@ const defaultToggleButtonProps = {
   testid: 'toggle-button',
 }
 
-interface IDefaultToggleButtonPropss {
+interface IDefaultToggleButtonProps {
   handleToggle?: () => void,
   toggleState: boolean,
 }
 
 const DefaultToggleButton = (
-  { toggleState, handleToggle = () => undefined }: IDefaultToggleButtonPropss,
+  { toggleState, handleToggle = () => undefined }: IDefaultToggleButtonProps,
 ) => (
   <ToggleButton
     {...defaultToggleButtonProps}
@@ -42,22 +42,22 @@ describe('Test ToggleButton.tsx ', () => {
     expect(getByText('OFF')).toBeDefined()
   })
   test('The toggle button should work', () => {
-    const mockToggelState = jest.fn()
+    const mockToggleState = jest.fn()
     const {
       rerender, getByText, getByTestId,
-    } = renderToggleButton(true, mockToggelState)
+    } = renderToggleButton(true, mockToggleState)
     const onButton = getByText('ON')
     const offButton = getByText('OFF')
     const buttonContainer = getByTestId(defaultToggleButtonProps.testid)
     fireEvent.click(onButton)
-    expect(mockToggelState).toHaveBeenCalledTimes(1)
+    expect(mockToggleState).toHaveBeenCalledTimes(1)
     expect(buttonContainer).toHaveStyle(`background-color: ${defaultToggleButtonProps.trueBackgroundColor}`)
     rerender(
-      <DefaultToggleButton toggleState={false} handleToggle={mockToggelState} />,
+      <DefaultToggleButton toggleState={false} handleToggle={mockToggleState} />,
     )
     expect(buttonContainer).toHaveStyle(`background-color: ${defaultToggleButtonProps.falseBackgroundColor}`)
     fireEvent.click(onButton)
     fireEvent.click(offButton)
-    expect(mockToggelState).toHaveBeenCalledTimes(3)
+    expect(mockToggleState).toHaveBeenCalledTimes(3)
   })
 })

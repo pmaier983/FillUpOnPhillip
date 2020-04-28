@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import CardHandle from './CardHandle'
-import ErrorBoundry from '../ErrorHandling/ErrorBoundry'
+import ErrorBoundary from '../ErrorHandling/ErrorBoundary'
 
 interface IPropsContainer {
   width?: string,
@@ -31,9 +31,9 @@ const Container = styled.div<IPropsContainer>`
 const CardContainer: React.FC<IPropsContainer>= ({ children, testid, ...rest }) => (
   <Container {...rest} data-testid={testid}>
     <CardHandle height="20px" />
-    <ErrorBoundry>
+    <ErrorBoundary>
       {children}
-    </ErrorBoundry>
+    </ErrorBoundary>
   </Container>
 )
 

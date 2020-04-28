@@ -37,7 +37,7 @@ class ErrorBoundary extends Component {
     if (errorInfo) {
       // TODO: improve error handling
       return (
-        <ErrorContainer data-testid="error-boundry">
+        <ErrorContainer data-testid="error-boundary">
           <span>{error}</span>
           <span>Please Contact me below if you need anything</span>
           <a href="mailto:pmaier983@gmail.com">pmaier983@gmail.com</a>

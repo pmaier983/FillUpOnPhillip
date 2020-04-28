@@ -5,9 +5,9 @@ import {
 } from '@testing-library/react'
 import { DocumentNode } from 'graphql'
 import { MockedProvider } from '@apollo/react-testing'
-import ErrorBoundry from '../../ErrorHandling/ErrorBoundry'
+import ErrorBoundary from '../../ErrorHandling/ErrorBoundary'
 
-test.skip('Dont Test Utilities File', () => {})
+test.skip('don\'t Test Utilities File', () => {})
 
 // TODO: how to handle hiding this error in a better way
 // talking about console error, not eslint error
@@ -34,7 +34,7 @@ interface Imock {
   result?: any;
 }
 
-interface ItestErrorBoundryProps {
+interface ItestErrorBoundaryProps {
   name: string,
   // TODO: make this more specific
   component: any,
@@ -42,18 +42,18 @@ interface ItestErrorBoundryProps {
   errorMessage: string,
 }
 
-const testErrorBoundry = ({
+const testErrorBoundary = ({
   name, component, mockError, errorMessage,
-}: ItestErrorBoundryProps) => {
+}: ItestErrorBoundaryProps) => {
   test(`Test throw Error of ${name}`, async () => {
     const { getByText, getByTestId } = render(
       <MockedProvider mocks={mockError} addTypename={false}>
-        <ErrorBoundry>
+        <ErrorBoundary>
           {component}
-        </ErrorBoundry>
+        </ErrorBoundary>
       </MockedProvider>,
     )
-    await waitFor(() => expect(getByTestId('error-boundry')).toBeDefined())
+    await waitFor(() => expect(getByTestId('error-boundary')).toBeDefined())
     await waitFor(() => expect(getByText(errorMessage)).toBeDefined())
     await waitFor(() => expect(getByText('pmaier983@gmail.com')).toBeDefined())
   })
@@ -79,4 +79,4 @@ const testLoadingIcon = ({
   })
 }
 
-export { testErrorBoundry, testLoadingIcon }
+export { testErrorBoundary, testLoadingIcon }

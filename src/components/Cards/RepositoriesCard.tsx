@@ -79,7 +79,7 @@ const RepositoriesCard = () => {
   }
 
   return (
-    // TODO make this resize respinsively.
+    // TODO make this resize responsively.
     <Container>
       <CardHeader>
         <CardTitle>
@@ -91,7 +91,7 @@ const RepositoriesCard = () => {
           {({ height, width }) => (
             <Table
               height={height}
-              // TODO: increase prominense of the Header
+              // TODO: increase prominence of the Header
               headerHeight={20}
               width={width}
               rowHeight={49}
