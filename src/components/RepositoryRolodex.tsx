@@ -54,6 +54,7 @@ const TextContentContainer = styled.div`
   overflow-y: auto;
   overflow-x: hidden;
   height: 100%;
+  min-height: 75px;
 `
 
 const LinksContainer = styled.div`
@@ -152,7 +153,7 @@ const RepositoryRolodex = ({
       <SeperatorLine />
       <FactContainer>
         <TooltipStatic content={creationDate}>
-          <EmphasizedText>Created At: </EmphasizedText>
+          <EmphasizedText>Created: </EmphasizedText>
           {timeSinceCreation}
         </TooltipStatic>
         <TooltipStatic content={updateDate}>
@@ -160,7 +161,7 @@ const RepositoryRolodex = ({
           {timeSinceUpdate}
         </TooltipStatic>
         <div>
-          <EmphasizedText>Disk Usage:</EmphasizedText>
+          <EmphasizedText>Raw Disk Usage:</EmphasizedText>
           {`${diskUsage} Kb`}
         </div>
       </FactContainer>
@@ -171,6 +172,7 @@ const RepositoryRolodex = ({
           {description}
         </div>
         <SeperatorLine />
+        <EmphasizedText>My Thoughts:</EmphasizedText>
         <BlurbContent>{blurb}</BlurbContent>
       </TextContentContainer>
     </TextCardContainer>
