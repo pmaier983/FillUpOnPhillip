@@ -3,13 +3,13 @@ import React from 'react'
 import 'react-grid-layout/css/styles.css'
 import { Responsive, WidthProvider } from 'react-grid-layout'
 
-import { breakpoints, columns } from '../layouts'
+import { breakpoints, columns, getRowCount } from '../layouts'
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive)
 
 const ResponsiveGridLayout = ({ children, layouts, ...props }: any) => (
   <ResponsiveReactGridLayout
-    rowHeight={20}
+    rowHeight={getRowCount()}
     breakpoints={breakpoints}
     cols={columns}
     isResizable

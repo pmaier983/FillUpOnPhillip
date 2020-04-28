@@ -10,6 +10,7 @@ export interface ILayout {
   maxH?: number,
   moved?: boolean,
   static?: boolean,
+  hRatio?: number,
   i: string,
 }
 
