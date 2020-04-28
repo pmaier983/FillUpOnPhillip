@@ -1,3 +1,4 @@
+// TODO: set window sizes at breakpoints
 context('Test Resizability', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/')
@@ -22,11 +23,11 @@ context('Test Resizability', () => {
                     expect(newLayoutHandlerCardBounds.x)
                       .to.equal(layoutHandlerCardBounds.x)
                     expect(newLayoutHandlerCardBounds.y)
-                      .to.be.below(layoutHandlerCardBounds.y)
+                      .to.equal(layoutHandlerCardBounds.y)
                     expect(newLayoutHandlerCardBounds.width)
                       .to.equal(layoutHandlerCardBounds.width)
                     expect(newLayoutHandlerCardBounds.height)
-                      .to.be.above(layoutHandlerCardBounds.height)
+                      .to.be.below(layoutHandlerCardBounds.height)
                   })
               })
           })
@@ -57,7 +58,7 @@ context('Test Resizability', () => {
                     // expect(newLayoutHandlerCardBounds.height)
                     // .to.equal(layoutHandlerCardBounds.height)
                     expect(newLayoutHandlerCardBounds.width)
-                      .to.be.below(layoutHandlerCardBounds.width)
+                      .to.equal(layoutHandlerCardBounds.width)
                   })
               })
           })
