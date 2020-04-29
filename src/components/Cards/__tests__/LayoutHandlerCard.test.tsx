@@ -34,7 +34,7 @@ const renderLayoutHandlerCardWithTheme = () => render(
 describe('Test LayoutHandlerCard.tsx ', () => {
   test('Layout Handler component Should have a Title', () => {
     const { getByText } = renderLayoutHandlerCard()
-    expect(getByText('Layout Management Interface')).toBeDefined()
+    expect(getByText('Layout Management')).toBeDefined()
   })
   test('Do all the buttons Exist', () => {
     const { getByTestId } = renderLayoutHandlerCard()

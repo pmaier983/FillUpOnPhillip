@@ -43,7 +43,7 @@ const renderTechUsedCard = (options?: any) => render(<TechUsedCard />, options)
 describe('Test TechUsedCard.tsx ', () => {
   test('Should Render the Card Title', () => {
     const { getByText } = renderTechUsedCard()
-    expect(getByText('Tech Used to build this Website (Click In)')).toBeDefined()
+    expect(getByText('Tech Used to build this Website')).toBeDefined()
   })
   describe('Check that all the tech used images are rendered', () => {
     // eslint-disable-next-line array-callback-return

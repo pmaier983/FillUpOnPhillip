@@ -10,7 +10,6 @@ const whyMonolog = `
 Why did I build such a complex website just to get across a few simple details. 
 A text document would have sufficed. Yes, yes it would have. 
 But I built this website not to get across a few simple details but to experiment with some interesting technology. 
-P.S. I'm not a designer. I did not hire a designer. Sorry if this site adheres to little or no design principles.
 `
 
 const CardContent = styled.div`
@@ -62,7 +61,10 @@ const WhatMattersCard = () => (
       </div>
     </ListContainer>
     <ListTitle>Why does this site exist?</ListTitle>
-    <BlurbContainer>{whyMonolog}</BlurbContainer>
+    <BlurbContainer>
+      {whyMonolog}
+      <div>P.S. I&apos;m not a designer. I did not hire a designer.</div>
+    </BlurbContainer>
   </CardContent>
 )
 
