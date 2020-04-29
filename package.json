@@ -34,8 +34,14 @@
     "build": "react-scripts build",
     "test:jest": "react-scripts test --env=jest-environment-jsdom-sixteen",
     "test:cypress": "cypress open",
+    "test:auto": "CI=true react-scripts test --env=jest-environment-jsdom-sixteen & cypress run",
     "eject": "react-scripts eject",
     "lint": "eslint . --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn run test:auto"
+    }
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -77,6 +83,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "husky": "^4.2.5",
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "react-test-renderer": "^16.13.1",
     "ts-jest": "^25.3.1",
