@@ -22,6 +22,13 @@ const CardContent = styled.div`
   height: calc(100% - ${variables.cardHeaderHeight});
 `
 
+const ListContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+`
+
 const CardTitle = styled.h2`
   font-size: ${variables.fontLarge};
   text-decoration: underline;
@@ -35,7 +42,7 @@ const ListTitle = styled.h3`
 
 const BlurbContainer = styled.div`
   text-align: center;
-  min-height: ${variables.fontLarge};
+  min-height: 30px;
   font-size: ${variables.fontNormal};
   overflow-y: auto;
   overflow-x: hidden;
@@ -44,11 +51,17 @@ const BlurbContainer = styled.div`
 const WhatMattersCard = () => (
   <CardContent>
     <CardTitle>Some of What Matters To Me:</CardTitle>
-    <ListTitle>Tech:</ListTitle>
-    <BulletPointList list={whatMattersTech} />
-    <ListTitle>Personal:</ListTitle>
-    <BulletPointList list={whatMattersPersonal} />
-    <ListTitle>Why?</ListTitle>
+    <ListContainer>
+      <div>
+        <ListTitle>Tech:</ListTitle>
+        <BulletPointList list={whatMattersTech} />
+      </div>
+      <div>
+        <ListTitle>Personal:</ListTitle>
+        <BulletPointList list={whatMattersPersonal} />
+      </div>
+    </ListContainer>
+    <ListTitle>Why does this site exist?</ListTitle>
     <BlurbContainer>{whyMonolog}</BlurbContainer>
   </CardContent>
 )

@@ -84,13 +84,6 @@ const FactContainer = styled.div`
   place-content: space-between;
 `
 
-const getTimeSinceCreation = (unixTime:number) => {
-  const totalDaysSince = moment().diff(unixTime, 'days')
-  const yearsSince = Math.floor(totalDaysSince / variables.daysInYear)
-  const remainderDaysSince = totalDaysSince % variables.daysInYear
-  return `${yearsSince === 0 ? '' : `${yearsSince} years, `} ${remainderDaysSince} days ago`
-}
-
 const RepositoryRolodex = ({
   name: repositoryName,
   owner: RepositoryOwner,
@@ -130,10 +123,10 @@ const RepositoryRolodex = ({
   const strippedGithubURL = stripHttp(url)
 
   // TODO: how to integrate moment().fromNow()
-  const timeSinceCreation = getTimeSinceCreation(createdAt)
+  const timeSinceCreation = `${moment().diff(createdAt, 'years')} years ago`
   const creationDate = moment(createdAt).format(variables.createdDateFormat)
 
-  const timeSinceUpdate = getTimeSinceCreation(updatedAt)
+  const timeSinceUpdate = `${moment().diff(updatedAt, 'minutes')} minutes ago`
   const updateDate = moment(updatedAt).format(variables.specificTimeFormat)
 
   return (
