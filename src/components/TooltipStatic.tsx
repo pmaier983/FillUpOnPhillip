@@ -58,7 +58,7 @@ const handleTooltipPositioning = (width: number, position: string) => {
         left: '50%',
         width: width > 0 ? `${width}px` : undefined,
         // TODO: a better way of handling 3px padding
-        marginLeft: `-${width - 3}px`,
+        marginLeft: `-${width}px`,
       })
     case (TOOLTIP_POSITIONS_ENUM.TOP):
     default:
@@ -66,7 +66,8 @@ const handleTooltipPositioning = (width: number, position: string) => {
         bottom: '100%',
         left: '50%',
         width: width > 0 ? `${width}px` : undefined,
-        marginLeft: `-${width/2}px`,
+        // Shift by 3 to account for padding
+        marginLeft: `-${width/2 + 3}px`,
       })
   }
 }
