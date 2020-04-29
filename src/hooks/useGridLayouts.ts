@@ -89,7 +89,7 @@ const reducer = (state: ILayoutsState, action: IActions): ILayoutsState => {
     case GRID_BREAKPOINT_LAYOUTS_ACTIONS.RESET:
       // param reassign for speed and readability #notFunctional
       state.breakpointLayoutsStack.push(initialGridLayouts)
-      state.breakpointLayoutsStackCurrentIndex += 1
+      state.breakpointLayoutsStackCurrentIndex = state.breakpointLayoutsStack.length - 1
       state.setlocalLayouts(initialGridLayouts)
       return state
     case GRID_BREAKPOINT_LAYOUTS_ACTIONS.RANDOMIZE:
