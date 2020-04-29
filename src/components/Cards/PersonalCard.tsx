@@ -7,6 +7,7 @@ import TooltipStatic, { TOOLTIP_POSITIONS_ENUM } from '../TooltipStatic'
 import { useQuery } from '../../hooks'
 import { MY_PROFILE } from '../../Queries'
 import { variables } from '../../utils/variables'
+import { copyToClipboard } from '../../utils/functions.helpers'
 
 const CardContent = styled.div`
   display: flex;
@@ -52,6 +53,24 @@ const HorizontalSpacing = styled.div`
   width: 10px;
 `
 
+const TooltipContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+`
+
+interface ITooltipContentProps {
+  email: string
+}
+
+const TooltipContent: React.FC<ITooltipContentProps> = ({ email }) => (
+  <TooltipContainer>
+    <a href="mailto:pmaier983@gmail.com">{email}</a>
+    <MaterialIcon name="save_alt" onClick={() => copyToClipboard(email)} />
+  </TooltipContainer>
+)
+
 const PersonalCard = () => {
   const {
     data, loading, error, LoadingIcon,
@@ -89,7 +108,7 @@ const PersonalCard = () => {
         {isHireable
           ? (
             <TooltipStatic
-              content={email}
+              content={<TooltipContent email={email} />}
               position={TOOLTIP_POSITIONS_ENUM.TOP_LEFT}
               options={{ opacity: 1, maxWidth: '200px' }}
             >
