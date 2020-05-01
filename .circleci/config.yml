@@ -1,11 +1,13 @@
 version: 2.1
 orbs:
   node: circleci/node@1.1.6
+  cypress: cypress-io/cypress@1.16.1
+executors:
+  chrome80-ff72:
+    docker:
+      - image: "cypress/browsers:node13.6.0-chrome80-ff72"
 jobs:
   test:
-    docker:
-      # the Docker image with Cypress dependencies
-      - image: cypress/base:8
     executor:
       name: node/default
     steps:
@@ -18,3 +20,7 @@ workflows:
   test:
     jobs:
       - test
+        executor: chrome80-ff72
+        no-workspace: true
+        record: true
+        browser: chrome
