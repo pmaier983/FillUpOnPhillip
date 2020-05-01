@@ -28,5 +28,14 @@ formatToUnit.defaultProps = {
 
 const stripHttp = (url: string): string => url.replace(/(^\w+:|^)\/\//, '')
 
+const copyToClipboard = (str: string) => {
+  const el = document.createElement('textarea');
+  el.value = str;
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand('copy');
+  document.body.removeChild(el);
+};
+
 // eslint-disable-next-line import/prefer-default-export
-export { formatToUnit, stripHttp }
+export { formatToUnit, stripHttp, copyToClipboard }

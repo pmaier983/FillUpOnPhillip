@@ -1,6 +1,5 @@
 const whatMattersTech = [
-  'Easy to understand code',
-  'Clean Functional code',
+  'Clean, functional, easy to understand code',
   'New and Useful technology',
   'Proper Testing (Unit, Integration, E2E)',
   'Open Source Projects',

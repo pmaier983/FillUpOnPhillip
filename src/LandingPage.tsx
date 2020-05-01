@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react'
+import ReactGA from 'react-ga'
 import _ from 'lodash/fp'
 
 import { useGridLayouts } from './hooks'
@@ -10,8 +11,13 @@ import { useLandingPageContext } from './contexts/LandingPageProvider'
 
 import CardContainer from './components/Cards/CardContainer'
 
+const initializeAnalytics = () => {
+  ReactGA.initialize('UA-164973605-1')
+  ReactGA.pageview('LandingPage')
+}
+
 const LandingPage = () => {
-  // TODO: convert to Reducer/Context...
+  initializeAnalytics()
   const [currentLayouts, currentBreakpointLayouts, dispatchLayoutEffect] = useGridLayouts()
   const [{ isDraggable, isResizable }] = useLandingPageContext()
 

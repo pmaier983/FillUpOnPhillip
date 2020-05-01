@@ -18,10 +18,10 @@ interface IListContainerProps {
 
 const ListContainer = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   flex-wrap: wrap;
-  width: 100%;
 `
 
 const ListElement = styled.span<IListContainerProps>`

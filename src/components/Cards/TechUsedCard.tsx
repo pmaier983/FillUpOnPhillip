@@ -40,7 +40,7 @@ const SlidingTestCard = () => {
 
   return (
     <HorizontalTextRolodex
-      title="Tech Used to build this Website (Click In)"
+      title="Tech Used to build this Website"
       textCards={techUsedRolodex}
       textCardIndex={techUsedCardIndex}
       setTextCardIndex={handleTechUsedCardIndex}

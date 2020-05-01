@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import MaterialIcon from '../MaterialIcon'
 
 import { variables } from '../../utils/variables'
+import TooltipStatic from '../TooltipStatic'
 
 import IconContainer from '../IconContainer'
 
@@ -31,12 +32,20 @@ const LogoContainer = styled.div`
 const ContactCard = () => (
   <CardContent>
     <LogoContainer>
-      <IconContainer src={LinkedinLogo} link="www.linkedin.com/in/phillip-maier-3a4161102/" alt={'Phillip Maier\'s Linkedin Profile Page'} />
-      <IconContainer src={GitHubLogo} link="github.com/pmaier983" alt={'Phillip Maier\'s Github Page'} />
-      <IconContainer href="mailto:pmaier983@gmail.com" alt={'Phillip Maier\'s Mailing Address'}>
-        <MaterialIcon size="35px" color="black" name="mail" />
-      </IconContainer>
-      <IconContainer src={ResumeIcon} href={Resume} alt={'Phillip Maier\'s Resume'} />
+      <TooltipStatic content="Linkedin">
+        <IconContainer src={LinkedinLogo} link="www.linkedin.com/in/phillip-maier-3a4161102/" alt={'Phillip Maier\'s Linkedin Profile Page'} />
+      </TooltipStatic>
+      <TooltipStatic content="Github">
+        <IconContainer src={GitHubLogo} link="github.com/pmaier983" alt={'Phillip Maier\'s Github Page'} />
+      </TooltipStatic>
+      <TooltipStatic content="Email Popup">
+        <IconContainer href="mailto:pmaier983@gmail.com" alt={'Phillip Maier\'s Mailing Address'}>
+          <MaterialIcon size="35px" color="black" name="mail" />
+        </IconContainer>
+      </TooltipStatic>
+      <TooltipStatic content="Resume">
+        <IconContainer src={ResumeIcon} href={Resume} alt={'Phillip Maier\'s Resume'} />
+      </TooltipStatic>
     </LogoContainer>
   </CardContent>
 )

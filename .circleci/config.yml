@@ -1,0 +1,27 @@
+# TODO: Test cypress and build + deploy to aws (manual step)
+version: 2.1
+orbs:
+  node: circleci/node@1.1.6
+  # cypress: cypress-io/cypress@1.16.1
+# executors:
+#   chrome80-ff72:
+#     docker:
+#       - image: "cypress/browsers:node13.6.0-chrome80-ff72"
+jobs:
+  test:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/with-cache:
+          steps:
+            - run: yarn install
+            - run: yarn run test:jest
+workflows:
+  test:
+    jobs:
+      - test
+        # executor: chrome80-ff72
+        # no-workspace: true
+        # record: true
+        # browser: chrome

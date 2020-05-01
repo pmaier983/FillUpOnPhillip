@@ -114,7 +114,7 @@ const LayoutHandlerCard = (
           <MaterialIcon name="arrow_back" onClick={handleUndoLayout} hasHoverEffect />
           <MaterialIcon name="arrow_forward" onClick={handleRedoLayout} hasHoverEffect />
         </NavigationContainer>
-        <CardTitle>Layout Management Interface</CardTitle>
+        <CardTitle>Layout Management</CardTitle>
         <MaterialIcon name="refresh" onClick={handleResetLayout} hasHoverEffect />
       </HeaderContainer>
       <ContentContainer>

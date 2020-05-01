@@ -10,7 +10,6 @@ const whyMonolog = `
 Why did I build such a complex website just to get across a few simple details. 
 A text document would have sufficed. Yes, yes it would have. 
 But I built this website not to get across a few simple details but to experiment with some interesting technology. 
-P.S. I'm not a designer. I did not hire a designer. Sorry if this site adheres to little or no design principles.
 `
 
 const CardContent = styled.div`
@@ -20,6 +19,13 @@ const CardContent = styled.div`
   align-items: center;
   /* TODO: why is flex-grow: 1 not working here */
   height: calc(100% - ${variables.cardHeaderHeight});
+`
+
+const ListContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
 `
 
 const CardTitle = styled.h2`
@@ -35,7 +41,7 @@ const ListTitle = styled.h3`
 
 const BlurbContainer = styled.div`
   text-align: center;
-  min-height: ${variables.fontLarge};
+  min-height: 30px;
   font-size: ${variables.fontNormal};
   overflow-y: auto;
   overflow-x: hidden;
@@ -44,12 +50,21 @@ const BlurbContainer = styled.div`
 const WhatMattersCard = () => (
   <CardContent>
     <CardTitle>Some of What Matters To Me:</CardTitle>
-    <ListTitle>Tech:</ListTitle>
-    <BulletPointList list={whatMattersTech} />
-    <ListTitle>Personal:</ListTitle>
-    <BulletPointList list={whatMattersPersonal} />
-    <ListTitle>Why?</ListTitle>
-    <BlurbContainer>{whyMonolog}</BlurbContainer>
+    <ListContainer>
+      <div>
+        <ListTitle>Tech:</ListTitle>
+        <BulletPointList list={whatMattersTech} />
+      </div>
+      <div>
+        <ListTitle>Personal:</ListTitle>
+        <BulletPointList list={whatMattersPersonal} />
+      </div>
+    </ListContainer>
+    <ListTitle>Why does this site exist?</ListTitle>
+    <BlurbContainer>
+      {whyMonolog}
+      <div>P.S. I&apos;m not a designer. I did not hire a designer.</div>
+    </BlurbContainer>
   </CardContent>
 )
 
