@@ -36,6 +36,7 @@ const TextCardName = styled.div`
 // TODO: Perfect Size Each Image
 const TextCardImage = styled.img`
   max-width: 20%;
+  cursor: pointer;
 `
 
 const BlurbContent = styled.p`
@@ -133,12 +134,12 @@ const RepositoryRolodex = ({
     <TextCardContainer>
       <InvisibleSmallPadding />
       <LinksAndIconContainer>
-        <TextCardImage src={icon} />
+        <TextCardImage src={icon} onClick={() => window.open(`https://${strippedHomepageURL}`)} />
         <LinksAndTitleContainer>
           <TextCardName>{displayName}</TextCardName>
           <LinksContainer>
-            <IconContainer src={GitHubLogo} link={strippedHomepageURL} alt={`The Home Page of ${displayName}`} />
-            <IconContainer link={strippedGithubURL} alt={`The Github Page of ${displayName}`}><MaterialIcon name="storefront" size="35px" /></IconContainer>
+            <IconContainer src={GitHubLogo} link={strippedGithubURL} alt={`The Home Page of ${displayName}`} />
+            <IconContainer link={strippedHomepageURL} alt={`The Github Page of ${displayName}`}><MaterialIcon name="storefront" size="35px" /></IconContainer>
           </LinksContainer>
         </LinksAndTitleContainer>
       </LinksAndIconContainer>
