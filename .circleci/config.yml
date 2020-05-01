@@ -4,6 +4,9 @@ orbs:
   cypress: cypress-io/cypress@1.16.1
 jobs:
   test:
+    docker:
+      # the Docker image with Cypress dependencies
+      - image: cypress/base:8
     executor:
       name: node/default
     steps:
