@@ -32,6 +32,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy": "aws s3 cp --recursive ./build s3://phillip-maier.com",
     "test:jest": "react-scripts test --env=jest-environment-jsdom-sixteen",
     "test:cypress": "cypress open",
     "test:auto": "CI=true react-scripts test --env=jest-environment-jsdom-sixteen & cypress run",
