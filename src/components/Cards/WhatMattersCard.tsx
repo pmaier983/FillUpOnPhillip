@@ -4,13 +4,7 @@ import styled from 'styled-components'
 import BulletPointList from '../BulletPointList'
 
 import { variables } from '../../utils/variables'
-import { whatMattersTech, whatMattersPersonal } from '../../static/WhatMatters'
-
-const whyMonolog = `
-Why did I build such a complex website just to get across a few simple details. 
-A text document would have sufficed. Yes, yes it would have. 
-But I built this website not to get across a few simple details but to experiment with some interesting technology. 
-`
+import { whatMattersTech, whatMattersPersonal, whyMonolog } from '../../static/WhatMatters'
 
 const CardContent = styled.div`
   display: flex;
@@ -26,6 +20,20 @@ const ListContainer = styled.div`
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
+`
+
+interface IPaddingListColumn {
+  width?: string
+}
+
+const PaddingListColumn = styled.div<IPaddingListColumn>`
+  height: 100%;
+  width: ${({ width = '5px' }) => width};
+`
+
+const FlexRow = styled.div`
+  display: flex;
+  flex-direction: row;
 `
 
 const CardTitle = styled.h2`
@@ -51,19 +59,26 @@ const WhatMattersCard = () => (
   <CardContent>
     <CardTitle>Some of What Matters To Me:</CardTitle>
     <ListContainer>
+      <PaddingListColumn />
       <div>
         <ListTitle>Tech:</ListTitle>
-        <BulletPointList list={whatMattersTech} />
+        <FlexRow>
+          <PaddingListColumn width="10px" />
+          <BulletPointList list={whatMattersTech} />
+        </FlexRow>
       </div>
       <div>
         <ListTitle>Personal:</ListTitle>
-        <BulletPointList list={whatMattersPersonal} />
+        <FlexRow>
+          <PaddingListColumn width="10px" />
+          <BulletPointList list={whatMattersPersonal} />
+        </FlexRow>
       </div>
+      <PaddingListColumn />
     </ListContainer>
     <ListTitle>Why does this site exist?</ListTitle>
     <BlurbContainer>
       {whyMonolog}
-      <div>P.S. I&apos;m not a designer. I did not hire a designer.</div>
     </BlurbContainer>
   </CardContent>
 )
