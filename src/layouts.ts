@@ -19,7 +19,7 @@ export const breakpoints = {
 // TODO: have hRatio
 export const initialGridLayouts: IBreakpointLayouts = {
   lg: [{
-    w: 1, h: 13, x: 0, y: 0, i: 'PersonalCard', minW: 1, minH: 10, static: false,
+    w: 1, h: 13, x: 0, y: 0, i: 'PersonalCard', minW: 1, minH: 11, static: false,
   }, {
     w: 2, h: 8, x: 2, y: 0, i: 'RepositoriesCard', minW: 1, minH: 5, static: false,
   }, {
@@ -32,9 +32,9 @@ export const initialGridLayouts: IBreakpointLayouts = {
     w: 2, h: 14, x: 2, y: 8, i: 'TechUsedCard', minW: 1, minH: 10, static: false,
   }],
   md: [{
-    w: 1, h: 13, x: 0, y: 0, i: 'PersonalCard', minW: 1, minH: 9, static: false,
+    w: 1, h: 13, x: 0, y: 0, i: 'PersonalCard', minW: 1, minH: 10, static: false,
   }, {
-    w: 2, h: 9, x: 2, y: 13, i: 'RepositoriesCard', minW: 1, minH: 5, static: false,
+    w: 2, h: 9, x: 2, y: 0, i: 'RepositoriesCard', minW: 1, minH: 5, static: false,
   }, {
     w: 1, h: 4, x: 1, y: 0, i: 'ContactCard', minW: 1, minH: 3, static: false,
   }, {
@@ -42,45 +42,45 @@ export const initialGridLayouts: IBreakpointLayouts = {
   }, {
     w: 1, h: 9, x: 1, y: 4, i: 'LayoutHandlerCard', minW: 1, minH: 6, static: false,
   }, {
-    w: 2, h: 13, x: 2, y: 0, i: 'TechUsedCard', minW: 1, minH: 10, static: false,
+    w: 2, h: 13, x: 2, y: 9, i: 'TechUsedCard', minW: 1, minH: 10, static: false,
   }],
   sm: [{
-    w: 1, h: 9, x: 0, y: 0, i: 'PersonalCard', minW: 1, minH: 9, static: false,
+    w: 1, h: 10, x: 0, y: 0, i: 'PersonalCard', minW: 1, minH: 10, static: false,
   }, {
-    w: 1, h: 7, x: 1, y: 0, i: 'RepositoriesCard', minW: 1, minH: 5, static: false,
+    w: 1, h: 9, x: 1, y: 0, i: 'RepositoriesCard', minW: 1, minH: 5, static: false,
   }, {
-    w: 1, h: 3, x: 0, y: 9, i: 'ContactCard', minW: 1, minH: 3, static: false,
+    w: 1, h: 3, x: 2, y: 6, i: 'ContactCard', minW: 1, minH: 3, static: false,
   }, {
-    w: 1, h: 9, x: 0, y: 12, i: 'WhatMattersCard', minW: 1, minH: 9, static: false,
+    w: 1, h: 12, x: 0, y: 10, i: 'WhatMattersCard', minW: 1, minH: 9, static: false,
   }, {
-    w: 1, h: 7, x: 2, y: 0, i: 'LayoutHandlerCard', minW: 1, minH: 6, static: false,
+    w: 1, h: 6, x: 2, y: 0, i: 'LayoutHandlerCard', minW: 1, minH: 6, static: false,
   }, {
-    w: 2, h: 14, x: 1, y: 7, i: 'TechUsedCard', minW: 1, minH: 10, static: false,
+    w: 2, h: 13, x: 1, y: 9, i: 'TechUsedCard', minW: 1, minH: 10, static: false,
   }],
   xs: [{
     w: 1, h: 10, x: 0, y: 0, i: 'PersonalCard', minW: 1, minH: 9, static: false,
   }, {
-    w: 1, h: 5, x: 0, y: 17, i: 'RepositoriesCard', minW: 1, minH: 5, static: false,
+    w: 1, h: 8, x: 1, y: 0, i: 'RepositoriesCard', minW: 1, minH: 5, static: false,
   }, {
-    w: 1, h: 3, x: 1, y: 19, i: 'ContactCard', minW: 1, minH: 3, static: false,
+    w: 1, h: 3, x: 1, y: 24, i: 'ContactCard', minW: 1, minH: 3, static: false,
   }, {
-    w: 1, h: 9, x: 1, y: 0, i: 'WhatMattersCard', minW: 1, minH: 9, static: false,
+    w: 1, h: 9, x: 0, y: 10, i: 'WhatMattersCard', minW: 1, minH: 9, static: false,
   }, {
-    w: 1, h: 7, x: 0, y: 10, i: 'LayoutHandlerCard', minW: 1, minH: 7, static: false,
+    w: 1, h: 8, x: 0, y: 19, i: 'LayoutHandlerCard', minW: 1, minH: 7, static: false,
   }, {
-    w: 1, h: 10, x: 1, y: 9, i: 'TechUsedCard', minW: 1, minH: 10, static: false,
+    w: 1, h: 16, x: 1, y: 8, i: 'TechUsedCard', minW: 1, minH: 10, static: false,
   }],
   xxs: [{
     w: 1, h: 11, x: 0, y: 0, i: 'PersonalCard', minW: 1, minH: 9, static: false,
   }, {
-    w: 1, h: 8, x: 0, y: 42, i: 'RepositoriesCard', minW: 1, minH: 5, static: false,
+    w: 1, h: 8, x: 0, y: 41, i: 'RepositoriesCard', minW: 1, minH: 5, static: false,
   }, {
     w: 1, h: 3, x: 0, y: 20, i: 'ContactCard', minW: 1, minH: 3, static: false,
   }, {
     w: 1, h: 9, x: 0, y: 11, i: 'WhatMattersCard', minW: 1, minH: 9, static: false,
   }, {
-    w: 1, h: 4, x: 0, y: 23, i: 'LayoutHandlerCard', minW: 1, minH: 4, static: false,
+    w: 1, h: 5, x: 0, y: 23, i: 'LayoutHandlerCard', minW: 1, minH: 4, static: false,
   }, {
-    w: 1, h: 13, x: 0, y: 29, i: 'TechUsedCard', minW: 1, minH: 10, static: false,
+    w: 1, h: 13, x: 0, y: 28, i: 'TechUsedCard', minW: 1, minH: 10, static: false,
   }],
 }
