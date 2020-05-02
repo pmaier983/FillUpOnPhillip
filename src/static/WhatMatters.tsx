@@ -16,4 +16,8 @@ const whatMattersPersonal = [
   'Apple Trees (M27)',
 ]
 
-export { whatMattersTech, whatMattersPersonal }
+const whyMonolog = `
+I was experimenting with some interesting technologies and wanted a venue to test them out, so here we are.
+`
+
+export { whatMattersTech, whatMattersPersonal, whyMonolog }
