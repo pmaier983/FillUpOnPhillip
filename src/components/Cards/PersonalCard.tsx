@@ -40,6 +40,10 @@ const Name = styled.strong`
   font-size: ${variables.fontLarge};
 `
 
+const JobTitle = styled.span`
+  font-size: ${variables.fontMedium};
+`
+
 const Location = styled.span`
   font-size: ${variables.fontNormal};
 `
@@ -98,6 +102,8 @@ const PersonalCard = () => {
     <CardContent>
       <Portrait src={avatarUrl} alt="Profile" />
       <Name>{name}</Name>
+      <SeparatorLine />
+      <JobTitle>Software Engineer</JobTitle>
       <Location>{location}</Location>
       <SeparatorLine />
       <span>{bio}</span>
