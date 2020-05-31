@@ -37,6 +37,7 @@
     "test:jest": "react-scripts test --env=jest-environment-jsdom-sixteen",
     "test:cypress": "cypress open",
     "test:auto": "CI=true react-scripts test --env=jest-environment-jsdom-sixteen & cypress run",
+    "coverage": "yarn run test:jest --coverage --watchAll",
     "eject": "react-scripts eject",
     "lint": "eslint . --fix"
   },
