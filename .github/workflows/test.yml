@@ -11,3 +11,8 @@ jobs:
       - uses: preactjs/compressed-size-action@v1
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Hello world
+        uses: actions/hello-world-javascript-action@v1
+        with:
+          who-to-greet: "Mona the Octocat"
+        id: hello
