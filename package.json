@@ -11,6 +11,7 @@
     "apollo-link": "^1.2.13",
     "apollo-link-error": "^1.1.12",
     "apollo-link-http": "^1.5.16",
+    "babel-eslint": "^10.1.0",
     "eslint-plugin-cypress": "^2.10.3",
     "fast-check": "^2.1.0",
     "graphql": "^15.3.0",
