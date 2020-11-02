@@ -18,13 +18,25 @@ const LandingPageContainer = styled.div`
   background-color: ${(props) => props.theme.majorBackgroundColor};
 `
 
+const StyledBannerContainer = styled.div`
+  background-color: #E98074;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+`
+
 const App = () => (
   <LandingPageContainer>
     <LandingPageProvider>
+      <StyledBannerContainer>
+        This site is no longer used, for the new site go to:&nbsp;
+        <a href="https://phillipmaier.com/">phillipmaier.com</a>
+      </StyledBannerContainer>
       <LandingPage />
     </LandingPageProvider>
   </LandingPageContainer>
 )
-
 
 export default App
