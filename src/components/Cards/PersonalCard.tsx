@@ -84,6 +84,8 @@ const PersonalCard = () => {
     },
   })
 
+  console.log('the data:', data)
+
   if (loading) {
     return <LoadingIcon />
   }

@@ -19,7 +19,7 @@ export interface ITechCard {
 export const technologyUsed: ITechCard[] = [
   {
     displayName: 'Apollo',
-    name: 'apollo-client',
+    name: '@apollo/client',
     owner: 'apollographql',
     blurb: 'Apollo is the most beginner-friendly Graphql client. Though looking back I would likely use react-query instead.',
     icon: ApolloLogo,
